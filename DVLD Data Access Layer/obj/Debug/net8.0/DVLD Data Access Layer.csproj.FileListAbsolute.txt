@@ -1,0 +1,11 @@
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\bin\Debug\net8.0\DVLD Data Access Layer.deps.json
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\bin\Debug\net8.0\DVLD Data Access Layer.dll
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\bin\Debug\net8.0\DVLD Data Access Layer.pdb
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\DVLD Data Access Layer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\DVLD Data Access Layer.AssemblyInfoInputs.cache
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\DVLD Data Access Layer.AssemblyInfo.cs
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\DVLD Data Access Layer.csproj.CoreCompileInputs.cache
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\DVLD Data Access Layer.dll
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\refint\DVLD Data Access Layer.dll
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\DVLD Data Access Layer.pdb
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Data Access Layer\obj\Debug\net8.0\ref\DVLD Data Access Layer.dll

@@ -1,0 +1,123 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "DVLD Business Layer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DVLD Data Access Layer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DVLD Business Layer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DVLD Business Layer.dll": {}
+        }
+      },
+      "DVLD Data Access Layer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DVLD Data Access Layer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DVLD Data Access Layer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DVLD Business Layer/1.0.0": {
+      "type": "project",
+      "path": "../DVLD Business Layer/DVLD Business Layer.csproj",
+      "msbuildProject": "../DVLD Business Layer/DVLD Business Layer.csproj"
+    },
+    "DVLD Data Access Layer/1.0.0": {
+      "type": "project",
+      "path": "../DVLD Data Access Layer/DVLD Data Access Layer.csproj",
+      "msbuildProject": "../DVLD Data Access Layer/DVLD Data Access Layer.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "DVLD Business Layer >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Kareem Al-Hamwi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Educational & Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers & Vehicles License Department Project\\DVLD Presentation Layer.csproj",
+      "projectName": "DVLD Presentation Layer",
+      "projectPath": "D:\\Educational & Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers & Vehicles License Department Project\\DVLD Presentation Layer.csproj",
+      "packagesPath": "C:\\Users\\Kareem Al-Hamwi\\.nuget\\packages\\",
+      "outputPath": "D:\\Educational & Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers & Vehicles License Department Project\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Kareem Al-Hamwi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {
+            "D:\\Educational & Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Business Layer\\DVLD Business Layer.csproj": {
+              "projectPath": "D:\\Educational & Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Business Layer\\DVLD Business Layer.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
