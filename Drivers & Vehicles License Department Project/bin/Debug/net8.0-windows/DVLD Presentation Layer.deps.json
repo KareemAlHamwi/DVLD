@@ -17,7 +17,7 @@
         },
         "runtime": {
           "DVLD Business Layer.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -25,7 +25,7 @@
       "DVLD Data Access Layer/1.0.0": {
         "runtime": {
           "DVLD Data Access Layer.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

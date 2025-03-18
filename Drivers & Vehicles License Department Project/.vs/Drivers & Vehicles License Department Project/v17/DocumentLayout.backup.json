@@ -3,12 +3,50 @@
   "WorkspaceRootPath": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\frmpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmpeople.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmpeople.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmusers.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmusers.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C86ADF54-B43B-4925-949F-C1355BED5C07}|..\\DVLD Data Access Layer\\DVLD Data Access Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\dvld data access layer\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D900C6C-6B31-4CFE-96F3-9BA777B80446}|..\\DVLD Business Layer\\DVLD Business Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\dvld business layer\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +56,162 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "FrmPeople.Designer.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.Designer.cs",
+              "RelativeDocumentMoniker": "FrmPeople.Designer.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.Designer.cs",
+              "RelativeToolTip": "FrmPeople.Designer.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAIAzwN4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T00:28:17.32Z",
+              "WhenOpened": "2025-03-18T18:32:32.631Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
+              "Title": "FrmPeople.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.cs",
+              "RelativeDocumentMoniker": "FrmPeople.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.cs",
+              "RelativeToolTip": "FrmPeople.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T00:10:57.225Z",
+              "WhenOpened": "2025-03-18T18:32:26.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmUsers.Designer.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUsers.Designer.cs",
+              "RelativeDocumentMoniker": "FrmUsers.Designer.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUsers.Designer.cs",
+              "RelativeToolTip": "FrmUsers.Designer.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA2wCAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T18:29:41.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmUsers.cs [Design]",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUsers.cs",
+              "RelativeDocumentMoniker": "FrmUsers.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUsers.cs [Design]",
+              "RelativeToolTip": "FrmUsers.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T18:22:39.935Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmUsers.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUsers.cs",
+              "RelativeDocumentMoniker": "FrmUsers.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUsers.cs",
+              "RelativeToolTip": "FrmUsers.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAhwA4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T18:19:16.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FrmMain.cs [Design]",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmMain.cs",
+              "RelativeDocumentMoniker": "FrmMain.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmMain.cs [Design]",
+              "RelativeToolTip": "FrmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T18:13:04.427Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmPeople.cs [Design]",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.cs",
+              "RelativeDocumentMoniker": "FrmPeople.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.cs [Design]",
+              "RelativeToolTip": "FrmPeople.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T17:27:19.368Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FrmMain.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmMain.cs",
+              "RelativeDocumentMoniker": "FrmMain.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmMain.cs",
+              "RelativeToolTip": "FrmMain.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAlwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T17:04:56.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FrmMain.Designer.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmMain.Designer.cs",
+              "RelativeDocumentMoniker": "FrmMain.Designer.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmMain.Designer.cs",
+              "RelativeToolTip": "FrmMain.Designer.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAIBBwGoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T16:38:56.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T18:32:35.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Data Access Layer\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\DVLD Data Access Layer\\Class1.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Data Access Layer\\Class1.cs",
+              "RelativeToolTip": "..\\DVLD Data Access Layer\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T18:31:26.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Business Layer\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\DVLD Business Layer\\Class1.cs",
+              "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Business Layer\\Class1.cs",
+              "RelativeToolTip": "..\\DVLD Business Layer\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T18:31:17.454Z"
             }
           ]
         }
