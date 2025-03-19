@@ -13,3 +13,4 @@ D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Pro
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\refint\DVLD Business Layer.dll
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.pdb
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\ref\DVLD Business Layer.dll
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.sourcelink.json

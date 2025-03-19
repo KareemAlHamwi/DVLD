@@ -23,25 +23,27 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
-            liViPeople = new ListView();
-            cohPersonID = new ColumnHeader();
-            cohNationalNumber = new ColumnHeader();
-            cohFirstName = new ColumnHeader();
-            cohSecondName = new ColumnHeader();
-            cohThirdName = new ColumnHeader();
-            cohLastName = new ColumnHeader();
-            cohGender = new ColumnHeader();
-            cohBirthDate = new ColumnHeader();
-            cohNationality = new ColumnHeader();
-            cohPhone = new ColumnHeader();
-            cohEmail = new ColumnHeader();
             btnAdd = new Button();
             btnClose = new Button();
             lblFilterBylblFilterBy = new Label();
-            comboBox1 = new ComboBox();
+            comPesonColumns = new ComboBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
+            dataPersonsView = new DataGridView();
+            colPersonID = new DataGridViewTextBoxColumn();
+            colNationalNumber = new DataGridViewTextBoxColumn();
+            colFirstName = new DataGridViewTextBoxColumn();
+            colSecondName = new DataGridViewTextBoxColumn();
+            colThirdName = new DataGridViewTextBoxColumn();
+            colLastName = new DataGridViewTextBoxColumn();
+            colGender = new DataGridViewTextBoxColumn();
+            colBirthdate = new DataGridViewTextBoxColumn();
+            colNationality = new DataGridViewTextBoxColumn();
+            colPhone = new DataGridViewTextBoxColumn();
+            colEmail = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataPersonsView).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -54,72 +56,6 @@
             label1.Size = new Size(734, 98);
             label1.TabIndex = 0;
             label1.Text = "People Management";
-            // 
-            // liViPeople
-            // 
-            liViPeople.Columns.AddRange(new ColumnHeader[] { cohPersonID, cohNationalNumber, cohFirstName, cohSecondName, cohThirdName, cohLastName, cohGender, cohBirthDate, cohNationality, cohPhone, cohEmail });
-            liViPeople.Font = new Font("Segoe UI", 13F);
-            liViPeople.Location = new Point(12, 191);
-            liViPeople.Name = "liViPeople";
-            liViPeople.Size = new Size(1460, 500);
-            liViPeople.TabIndex = 1;
-            liViPeople.UseCompatibleStateImageBehavior = false;
-            liViPeople.View = View.Details;
-            // 
-            // cohPersonID
-            // 
-            cohPersonID.Text = "Person ID";
-            cohPersonID.Width = 90;
-            // 
-            // cohNationalNumber
-            // 
-            cohNationalNumber.Text = "National No.";
-            cohNationalNumber.Width = 150;
-            // 
-            // cohFirstName
-            // 
-            cohFirstName.Text = "First Name";
-            cohFirstName.Width = 140;
-            // 
-            // cohSecondName
-            // 
-            cohSecondName.Text = "Second Name";
-            cohSecondName.Width = 140;
-            // 
-            // cohThirdName
-            // 
-            cohThirdName.Text = "Third Name";
-            cohThirdName.Width = 140;
-            // 
-            // cohLastName
-            // 
-            cohLastName.Text = "Last Name";
-            cohLastName.Width = 140;
-            // 
-            // cohGender
-            // 
-            cohGender.Text = "Gender";
-            cohGender.Width = 75;
-            // 
-            // cohBirthDate
-            // 
-            cohBirthDate.Text = "Birth Date";
-            cohBirthDate.Width = 140;
-            // 
-            // cohNationality
-            // 
-            cohNationality.Text = "Nationality";
-            cohNationality.Width = 140;
-            // 
-            // cohPhone
-            // 
-            cohPhone.Text = "Phone";
-            cohPhone.Width = 150;
-            // 
-            // cohEmail
-            // 
-            cohEmail.Text = "Email";
-            cohEmail.Width = 150;
             // 
             // btnAdd
             // 
@@ -151,13 +87,17 @@
             lblFilterBylblFilterBy.TabIndex = 4;
             lblFilterBylblFilterBy.Text = "Filter By :";
             // 
-            // comboBox1
+            // comPesonColumns
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(142, 162);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(180, 23);
-            comboBox1.TabIndex = 5;
+            comPesonColumns.DropDownStyle = ComboBoxStyle.DropDownList;
+            comPesonColumns.Font = new Font("Segoe UI", 13F);
+            comPesonColumns.FormattingEnabled = true;
+            comPesonColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Gender", "Birthdate", "Nationality", "Phone", "Email" });
+            comPesonColumns.Location = new Point(131, 154);
+            comPesonColumns.Name = "comPesonColumns";
+            comPesonColumns.Size = new Size(180, 31);
+            comPesonColumns.TabIndex = 5;
+            comPesonColumns.SelectedIndexChanged += comPesonColumns_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -169,31 +109,132 @@
             label2.TabIndex = 6;
             label2.Text = "# Records : 0";
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Location = new Point(338, 162);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(240, 23);
-            textBox1.TabIndex = 7;
+            txtSearch.Font = new Font("Segoe UI", 13F);
+            txtSearch.Location = new Point(326, 154);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(240, 31);
+            txtSearch.TabIndex = 7;
+            // 
+            // dataPersonsView
+            // 
+            dataPersonsView.BackgroundColor = Color.White;
+            dataPersonsView.BorderStyle = BorderStyle.None;
+            dataPersonsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataPersonsView.Columns.AddRange(new DataGridViewColumn[] { colPersonID, colNationalNumber, colFirstName, colSecondName, colThirdName, colLastName, colGender, colBirthdate, colNationality, colPhone, colEmail });
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataPersonsView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataPersonsView.Location = new Point(12, 191);
+            dataPersonsView.Name = "dataPersonsView";
+            dataPersonsView.ReadOnly = true;
+            dataPersonsView.ScrollBars = ScrollBars.Vertical;
+            dataPersonsView.Size = new Size(1460, 500);
+            dataPersonsView.TabIndex = 8;
+            // 
+            // colPersonID
+            // 
+            colPersonID.HeaderText = "Person ID";
+            colPersonID.Name = "colPersonID";
+            colPersonID.ReadOnly = true;
+            colPersonID.Width = 80;
+            // 
+            // colNationalNumber
+            // 
+            colNationalNumber.HeaderText = "National No.";
+            colNationalNumber.Name = "colNationalNumber";
+            colNationalNumber.ReadOnly = true;
+            colNationalNumber.Width = 140;
+            // 
+            // colFirstName
+            // 
+            colFirstName.HeaderText = "First Name";
+            colFirstName.Name = "colFirstName";
+            colFirstName.ReadOnly = true;
+            colFirstName.Width = 140;
+            // 
+            // colSecondName
+            // 
+            colSecondName.HeaderText = "Second Name";
+            colSecondName.Name = "colSecondName";
+            colSecondName.ReadOnly = true;
+            colSecondName.Width = 140;
+            // 
+            // colThirdName
+            // 
+            colThirdName.HeaderText = "Third Name";
+            colThirdName.Name = "colThirdName";
+            colThirdName.ReadOnly = true;
+            colThirdName.Width = 140;
+            // 
+            // colLastName
+            // 
+            colLastName.HeaderText = "Last Name";
+            colLastName.Name = "colLastName";
+            colLastName.ReadOnly = true;
+            colLastName.Width = 140;
+            // 
+            // colGender
+            // 
+            colGender.HeaderText = "Gender";
+            colGender.Name = "colGender";
+            colGender.ReadOnly = true;
+            colGender.Width = 60;
+            // 
+            // colBirthdate
+            // 
+            colBirthdate.HeaderText = "Birthdate";
+            colBirthdate.Name = "colBirthdate";
+            colBirthdate.ReadOnly = true;
+            colBirthdate.Width = 140;
+            // 
+            // colNationality
+            // 
+            colNationality.HeaderText = "Nationality";
+            colNationality.Name = "colNationality";
+            colNationality.ReadOnly = true;
+            colNationality.Width = 140;
+            // 
+            // colPhone
+            // 
+            colPhone.HeaderText = "Phone";
+            colPhone.Name = "colPhone";
+            colPhone.ReadOnly = true;
+            colPhone.Width = 140;
+            // 
+            // colEmail
+            // 
+            colEmail.HeaderText = "Email";
+            colEmail.Name = "colEmail";
+            colEmail.ReadOnly = true;
+            colEmail.Width = 158;
             // 
             // FrmPeople
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1484, 761);
-            Controls.Add(textBox1);
+            Controls.Add(dataPersonsView);
+            Controls.Add(txtSearch);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
+            Controls.Add(comPesonColumns);
             Controls.Add(lblFilterBylblFilterBy);
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
-            Controls.Add(liViPeople);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmPeople";
             Text = "People Management";
+            ((System.ComponentModel.ISupportInitialize)dataPersonsView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,23 +242,23 @@
         #endregion
 
         private Label label1;
-        private ListView liViPeople;
         private Button btnAdd;
         private Button btnClose;
         private Label lblFilterBylblFilterBy;
-        private ComboBox comboBox1;
+        private ComboBox comPesonColumns;
         private Label label2;
-        private TextBox textBox1;
-        private ColumnHeader cohPersonID;
-        private ColumnHeader cohNationalNumber;
-        private ColumnHeader cohFirstName;
-        private ColumnHeader cohSecondName;
-        private ColumnHeader cohThirdName;
-        private ColumnHeader cohLastName;
-        private ColumnHeader cohGender;
-        private ColumnHeader cohBirthDate;
-        private ColumnHeader cohNationality;
-        private ColumnHeader cohPhone;
-        private ColumnHeader cohEmail;
+        private TextBox txtSearch;
+        private DataGridView dataPersonsView;
+        private DataGridViewTextBoxColumn colPersonID;
+        private DataGridViewTextBoxColumn colNationalNumber;
+        private DataGridViewTextBoxColumn colFirstName;
+        private DataGridViewTextBoxColumn colSecondName;
+        private DataGridViewTextBoxColumn colThirdName;
+        private DataGridViewTextBoxColumn colLastName;
+        private DataGridViewTextBoxColumn colGender;
+        private DataGridViewTextBoxColumn colBirthdate;
+        private DataGridViewTextBoxColumn colNationality;
+        private DataGridViewTextBoxColumn colPhone;
+        private DataGridViewTextBoxColumn colEmail;
     }
 }
