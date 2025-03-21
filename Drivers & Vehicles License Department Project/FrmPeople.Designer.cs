@@ -23,13 +23,14 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            label1 = new Label();
+            lblPeopleManagement = new Label();
             btnAdd = new Button();
             btnClose = new Button();
-            lblFilterBylblFilterBy = new Label();
-            comPesonColumns = new ComboBox();
-            label2 = new Label();
+            lblFilterBy = new Label();
+            comPeopleColumns = new ComboBox();
+            lblRecords = new Label();
             txtSearch = new TextBox();
             dataPersonsView = new DataGridView();
             colPersonID = new DataGridViewTextBoxColumn();
@@ -43,19 +44,29 @@
             colNationality = new DataGridViewTextBoxColumn();
             colPhone = new DataGridViewTextBoxColumn();
             colEmail = new DataGridViewTextBoxColumn();
+            cmsPeople = new ContextMenuStrip(components);
+            showDetailsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            addNewToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            sendEmailToolStripMenuItem = new ToolStripMenuItem();
+            phoneCallToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataPersonsView).BeginInit();
+            cmsPeople.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lblPeopleManagement
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Simple Bold Jut Out", 50F, FontStyle.Bold);
-            label1.ForeColor = Color.Red;
-            label1.Location = new Point(383, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(734, 98);
-            label1.TabIndex = 0;
-            label1.Text = "People Management";
+            lblPeopleManagement.AutoSize = true;
+            lblPeopleManagement.Font = new Font("Simple Bold Jut Out", 50F, FontStyle.Bold);
+            lblPeopleManagement.ForeColor = Color.Red;
+            lblPeopleManagement.Location = new Point(383, 9);
+            lblPeopleManagement.Name = "lblPeopleManagement";
+            lblPeopleManagement.Size = new Size(734, 98);
+            lblPeopleManagement.TabIndex = 0;
+            lblPeopleManagement.Text = "People Management";
             // 
             // btnAdd
             // 
@@ -76,38 +87,39 @@
             btnClose.TabIndex = 3;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
-            // lblFilterBylblFilterBy
+            // lblFilterBy
             // 
-            lblFilterBylblFilterBy.AutoSize = true;
-            lblFilterBylblFilterBy.Font = new Font("Segoe UI", 20F);
-            lblFilterBylblFilterBy.Location = new Point(12, 148);
-            lblFilterBylblFilterBy.Name = "lblFilterBylblFilterBy";
-            lblFilterBylblFilterBy.Size = new Size(124, 37);
-            lblFilterBylblFilterBy.TabIndex = 4;
-            lblFilterBylblFilterBy.Text = "Filter By :";
+            lblFilterBy.AutoSize = true;
+            lblFilterBy.Font = new Font("Segoe UI", 20F);
+            lblFilterBy.Location = new Point(12, 148);
+            lblFilterBy.Name = "lblFilterBy";
+            lblFilterBy.Size = new Size(124, 37);
+            lblFilterBy.TabIndex = 4;
+            lblFilterBy.Text = "Filter By :";
             // 
-            // comPesonColumns
+            // comPeopleColumns
             // 
-            comPesonColumns.DropDownStyle = ComboBoxStyle.DropDownList;
-            comPesonColumns.Font = new Font("Segoe UI", 13F);
-            comPesonColumns.FormattingEnabled = true;
-            comPesonColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Gender", "Birthdate", "Nationality", "Phone", "Email" });
-            comPesonColumns.Location = new Point(131, 154);
-            comPesonColumns.Name = "comPesonColumns";
-            comPesonColumns.Size = new Size(180, 31);
-            comPesonColumns.TabIndex = 5;
-            comPesonColumns.SelectedIndexChanged += comPesonColumns_SelectedIndexChanged;
+            comPeopleColumns.DropDownStyle = ComboBoxStyle.DropDownList;
+            comPeopleColumns.Font = new Font("Segoe UI", 13F);
+            comPeopleColumns.FormattingEnabled = true;
+            comPeopleColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Gender", "Birthdate", "Nationality", "Phone", "Email" });
+            comPeopleColumns.Location = new Point(131, 154);
+            comPeopleColumns.Name = "comPeopleColumns";
+            comPeopleColumns.Size = new Size(180, 31);
+            comPeopleColumns.TabIndex = 5;
+            comPeopleColumns.SelectedIndexChanged += comPesonColumns_SelectedIndexChanged;
             // 
-            // label2
+            // lblRecords
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 20F);
-            label2.Location = new Point(12, 710);
-            label2.Name = "label2";
-            label2.Size = new Size(168, 37);
-            label2.TabIndex = 6;
-            label2.Text = "# Records : 0";
+            lblRecords.AutoSize = true;
+            lblRecords.Font = new Font("Segoe UI", 20F);
+            lblRecords.Location = new Point(12, 710);
+            lblRecords.Name = "lblRecords";
+            lblRecords.Size = new Size(168, 37);
+            lblRecords.TabIndex = 6;
+            lblRecords.Text = "# Records : 0";
             // 
             // txtSearch
             // 
@@ -122,10 +134,9 @@
             dataPersonsView.BackgroundColor = Color.White;
             dataPersonsView.BorderStyle = BorderStyle.None;
             dataPersonsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataPersonsView.Columns.AddRange(new DataGridViewColumn[] { colPersonID, colNationalNumber, colFirstName, colSecondName, colThirdName, colLastName, colGender, colBirthdate, colNationality, colPhone, colEmail });
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -137,9 +148,11 @@
             dataPersonsView.ScrollBars = ScrollBars.Vertical;
             dataPersonsView.Size = new Size(1460, 500);
             dataPersonsView.TabIndex = 8;
+            dataPersonsView.CellMouseDown += dataPersonsView_CellMouseDown;
             // 
             // colPersonID
             // 
+            colPersonID.DataPropertyName = "PersonID";
             colPersonID.HeaderText = "Person ID";
             colPersonID.Name = "colPersonID";
             colPersonID.ReadOnly = true;
@@ -147,6 +160,7 @@
             // 
             // colNationalNumber
             // 
+            colNationalNumber.DataPropertyName = "NationalNo";
             colNationalNumber.HeaderText = "National No.";
             colNationalNumber.Name = "colNationalNumber";
             colNationalNumber.ReadOnly = true;
@@ -154,6 +168,7 @@
             // 
             // colFirstName
             // 
+            colFirstName.DataPropertyName = "FirstName";
             colFirstName.HeaderText = "First Name";
             colFirstName.Name = "colFirstName";
             colFirstName.ReadOnly = true;
@@ -161,6 +176,7 @@
             // 
             // colSecondName
             // 
+            colSecondName.DataPropertyName = "SecondName";
             colSecondName.HeaderText = "Second Name";
             colSecondName.Name = "colSecondName";
             colSecondName.ReadOnly = true;
@@ -168,6 +184,7 @@
             // 
             // colThirdName
             // 
+            colThirdName.DataPropertyName = "ThirdName";
             colThirdName.HeaderText = "Third Name";
             colThirdName.Name = "colThirdName";
             colThirdName.ReadOnly = true;
@@ -175,6 +192,7 @@
             // 
             // colLastName
             // 
+            colLastName.DataPropertyName = "LastName";
             colLastName.HeaderText = "Last Name";
             colLastName.Name = "colLastName";
             colLastName.ReadOnly = true;
@@ -182,6 +200,7 @@
             // 
             // colGender
             // 
+            colGender.DataPropertyName = "Gender";
             colGender.HeaderText = "Gender";
             colGender.Name = "colGender";
             colGender.ReadOnly = true;
@@ -189,6 +208,7 @@
             // 
             // colBirthdate
             // 
+            colBirthdate.DataPropertyName = "Birthdate";
             colBirthdate.HeaderText = "Birthdate";
             colBirthdate.Name = "colBirthdate";
             colBirthdate.ReadOnly = true;
@@ -196,6 +216,7 @@
             // 
             // colNationality
             // 
+            colNationality.DataPropertyName = "NationalityCountryID";
             colNationality.HeaderText = "Nationality";
             colNationality.Name = "colNationality";
             colNationality.ReadOnly = true;
@@ -203,6 +224,7 @@
             // 
             // colPhone
             // 
+            colPhone.DataPropertyName = "Phone";
             colPhone.HeaderText = "Phone";
             colPhone.Name = "colPhone";
             colPhone.ReadOnly = true;
@@ -210,10 +232,66 @@
             // 
             // colEmail
             // 
+            colEmail.DataPropertyName = "Email";
             colEmail.HeaderText = "Email";
             colEmail.Name = "colEmail";
             colEmail.ReadOnly = true;
             colEmail.Width = 158;
+            // 
+            // cmsPeople
+            // 
+            cmsPeople.Font = new Font("Segoe UI", 13F);
+            cmsPeople.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, toolStripSeparator1, addNewToolStripMenuItem, editToolStripMenuItem, deleteToolStripMenuItem, toolStripSeparator2, sendEmailToolStripMenuItem, phoneCallToolStripMenuItem });
+            cmsPeople.Name = "cmsPeople";
+            cmsPeople.Size = new Size(217, 218);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            showDetailsToolStripMenuItem.Size = new Size(216, 30);
+            showDetailsToolStripMenuItem.Text = "Show Details";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(213, 6);
+            // 
+            // addNewToolStripMenuItem
+            // 
+            addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
+            addNewToolStripMenuItem.Size = new Size(216, 30);
+            addNewToolStripMenuItem.Text = "Add New Person";
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(216, 30);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(216, 30);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.ForeColor = SystemColors.ControlText;
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(213, 6);
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            sendEmailToolStripMenuItem.Size = new Size(216, 30);
+            sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
+            // phoneCallToolStripMenuItem
+            // 
+            phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
+            phoneCallToolStripMenuItem.Size = new Size(216, 30);
+            phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
             // FrmPeople
             // 
@@ -223,30 +301,31 @@
             ClientSize = new Size(1484, 761);
             Controls.Add(dataPersonsView);
             Controls.Add(txtSearch);
-            Controls.Add(label2);
-            Controls.Add(comPesonColumns);
-            Controls.Add(lblFilterBylblFilterBy);
+            Controls.Add(lblRecords);
+            Controls.Add(comPeopleColumns);
+            Controls.Add(lblFilterBy);
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
-            Controls.Add(label1);
+            Controls.Add(lblPeopleManagement);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmPeople";
             Text = "People Management";
             ((System.ComponentModel.ISupportInitialize)dataPersonsView).EndInit();
+            cmsPeople.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblPeopleManagement;
         private Button btnAdd;
         private Button btnClose;
-        private Label lblFilterBylblFilterBy;
-        private ComboBox comPesonColumns;
-        private Label label2;
+        private Label lblFilterBy;
+        private ComboBox comPeopleColumns;
+        private Label lblRecords;
         private TextBox txtSearch;
         private DataGridView dataPersonsView;
         private DataGridViewTextBoxColumn colPersonID;
@@ -260,5 +339,14 @@
         private DataGridViewTextBoxColumn colNationality;
         private DataGridViewTextBoxColumn colPhone;
         private DataGridViewTextBoxColumn colEmail;
+        private ContextMenuStrip cmsPeople;
+        private ToolStripMenuItem showDetailsToolStripMenuItem;
+        private ToolStripMenuItem addNewToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem sendEmailToolStripMenuItem;
+        private ToolStripMenuItem phoneCallToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator2;
     }
 }

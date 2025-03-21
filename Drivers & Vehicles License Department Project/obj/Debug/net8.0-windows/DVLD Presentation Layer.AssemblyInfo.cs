@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DVLD Presentation Layer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dda0bb802ff1001b9dd1df33ca05f8a3efd1f565")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7659a7538ec46b6df80b71118a788295680b3a6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DVLD Presentation Layer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DVLD Presentation Layer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
