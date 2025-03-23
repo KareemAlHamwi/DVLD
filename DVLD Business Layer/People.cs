@@ -58,7 +58,6 @@ namespace DVLD_Business_Layer {
             Mode = enMode.Update;
         }
 
-
         private bool _AddNewPerson() {
             //call DataAccess Layer 
 

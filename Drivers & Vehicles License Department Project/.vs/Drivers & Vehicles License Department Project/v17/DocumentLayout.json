@@ -15,8 +15,8 @@
       "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmpeople.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\presentationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:presentationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\frmusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -35,15 +35,15 @@
       "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\presentationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:presentationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C86ADF54-B43B-4925-949F-C1355BED5C07}|..\\DVLD Data Access Layer\\DVLD Data Access Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\dvld data access layer\\dataaccesssettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|d:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmusers.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmusers.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Data Access Layer\\PersonsData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -78,7 +78,7 @@
               "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.cs [Design]",
               "RelativeToolTip": "FrmPeople.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T19:34:29.88Z",
+              "WhenOpened": "2025-03-23T16:51:04.933Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -89,7 +89,7 @@
               "RelativeDocumentMoniker": "FrmPeople.cs",
               "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.cs",
               "RelativeToolTip": "FrmPeople.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAgwGsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T18:32:26.597Z",
               "EditorCaption": ""
@@ -108,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
               "Title": "FrmMain.cs [Design]",
               "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmMain.cs",
               "RelativeDocumentMoniker": "FrmMain.cs",
@@ -165,14 +165,14 @@
               "RelativeDocumentMoniker": "FrmPeople.Designer.cs",
               "ToolTip": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmPeople.Designer.cs",
               "RelativeToolTip": "FrmPeople.Designer.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAhwGYAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAEEBAAAAAAAAAAAhwE8BAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T18:32:32.631Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "PresentationSettings.cs",
               "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\PresentationSettings.cs",
               "RelativeDocumentMoniker": "PresentationSettings.cs",
@@ -185,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "DataAccessSettings.cs",
               "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\DVLD Data Access Layer\\DataAccessSettings.cs",
               "RelativeDocumentMoniker": "..\\DVLD Data Access Layer\\DataAccessSettings.cs",
@@ -193,8 +193,7 @@
               "RelativeToolTip": "..\\DVLD Data Access Layer\\DataAccessSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:13:57.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:13:57.07Z"
             },
             {
               "$type": "Document",
@@ -222,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "FrmUsers.Designer.cs",
               "DocumentMoniker": "D:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUsers.Designer.cs",
               "RelativeDocumentMoniker": "FrmUsers.Designer.cs",

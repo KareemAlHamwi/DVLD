@@ -181,7 +181,19 @@ namespace DVLD_Data_Access_Layer {
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM People";
+            string query = @"SELECT 
+                        PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
+                        DateOfBirth, 
+                        CASE 
+                            WHEN Gendor = 0 THEN 'Male' 
+                            WHEN Gendor = 1 THEN 'Female' 
+                            ELSE 'Unknown' 
+                        END AS Gender, 
+                        Address, Phone, Email, 
+                        CountryName AS Nationality, 
+                        ImagePath
+                        FROM People  
+                        INNER JOIN Countries ON People.NationalityCountryID = Countries.CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
