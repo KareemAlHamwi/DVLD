@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
+﻿using DVLD_Business_Layer;
 
 namespace Drivers___Vehicles_License_Department_Project {
     public partial class FrmPeople : Form {
+        FrmPersonDetails pd;
+        FrmAddUpdatePerson aup;
+        People SelectedPerson = new People();
+
         public FrmPeople() {
             InitializeComponent();
             dataPeopleView.AutoGenerateColumns = true;
@@ -19,6 +14,7 @@ namespace Drivers___Vehicles_License_Department_Project {
 
         private void _RefreshDataGrid() {
             dataPeopleView.DataSource = DVLD_Business_Layer.People.GetAllPeople();
+            lblRecords.Text = "# Records : " + DVLD_Business_Layer.People.GetAllPeople().Rows.Count;
         }
 
         private void comPesonColumns_SelectedIndexChanged(object sender, EventArgs e) {
@@ -76,19 +72,55 @@ namespace Drivers___Vehicles_License_Department_Project {
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e) {
+            aup = new FrmAddUpdatePerson(enMode.AddNew);
+            aup.ShowDialog();
+            _RefreshDataGrid();
+        }
+
         private void btnClose_Click(object sender, EventArgs e) {
             Close();
         }
 
-        private void _SelectWholeRow(int rowIndex) {
+        private void _FillSelectedPerson(int RowIndex) {
+            if (RowIndex < 0 || RowIndex >= dataPeopleView.Rows.Count)
+                return;
+
+            SelectedPerson.PersonID = Convert.ToInt32(dataPeopleView.Rows[RowIndex].Cells[0].Value ?? 0);
+            SelectedPerson.NationalNo = dataPeopleView.Rows[RowIndex].Cells[1].Value?.ToString() ?? "";
+            SelectedPerson.FirstName = dataPeopleView.Rows[RowIndex].Cells[2].Value?.ToString() ?? "";
+            SelectedPerson.SecondName = dataPeopleView.Rows[RowIndex].Cells[3].Value?.ToString() ?? "";
+            SelectedPerson.ThirdName = dataPeopleView.Rows[RowIndex].Cells[4].Value?.ToString() ?? "";
+            SelectedPerson.LastName = dataPeopleView.Rows[RowIndex].Cells[5].Value?.ToString() ?? "";
+
+            object birthdateValue = dataPeopleView.Rows[RowIndex].Cells[6].Value;
+            SelectedPerson.Birthdate = birthdateValue != null ? Convert.ToDateTime(birthdateValue) : DateTime.MinValue;
+
+            object genderValue = dataPeopleView.Rows[RowIndex].Cells[7].Value;
+            SelectedPerson.Gender = Enum.TryParse(typeof(enGender), genderValue?.ToString(), out var genderResult)
+                ? (enGender)genderResult
+                : enGender.Male;
+
+            SelectedPerson.Address = dataPeopleView.Rows[RowIndex].Cells[8].Value?.ToString() ?? "";
+            SelectedPerson.Phone = dataPeopleView.Rows[RowIndex].Cells[9].Value?.ToString() ?? "";
+            SelectedPerson.Email = dataPeopleView.Rows[RowIndex].Cells[10].Value?.ToString() ?? "";
+
+            string countryName = dataPeopleView.Rows[RowIndex].Cells[11].Value?.ToString() ?? "Unknown";
+            // SelectedPerson.NationalityCountryID = ;
+
+            SelectedPerson.ImagePath = dataPeopleView.Rows[RowIndex].Cells[12].Value?.ToString() ?? "";
+        }
+
+
+        private void _SelectWholeRow(int RowIndex) {
             dataPeopleView.ClearSelection();
-            dataPeopleView.Rows[rowIndex].Selected = true;
+            dataPeopleView.Rows[RowIndex].Selected = true;
         }
 
         private void dataPersonsView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
-
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0) {
                 _SelectWholeRow(e.RowIndex);
+                _FillSelectedPerson(e.RowIndex);
                 cmsPeople.Show(dataPeopleView, dataPeopleView.PointToClient(Cursor.Position));
             }
         }
@@ -100,19 +132,23 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            pd = new FrmPersonDetails(SelectedPerson);
+            pd.ShowDialog();
         }
 
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            aup = new FrmAddUpdatePerson(enMode.AddNew);
+            aup.ShowDialog();
+            _RefreshDataGrid();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            aup = new FrmAddUpdatePerson(enMode.Update);
+            aup.ShowDialog();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
-            //DVLD_Business_Layer.People.DeletePerson(Convert.ToInt32(dataPersonsView.Rows[dataPersonsView.CurrentCell.RowIndex].Cells[0].Value));
+
         }
 
         private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e) {

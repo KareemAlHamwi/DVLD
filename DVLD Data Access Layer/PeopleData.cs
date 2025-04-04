@@ -75,7 +75,7 @@ namespace DVLD_Data_Access_Layer {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"INSERT INTO People (NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath)
-                             VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @Birthdate, @Gender, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
+                             VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, @Gendor, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
                              SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -132,8 +132,8 @@ namespace DVLD_Data_Access_Layer {
                                 SecondName = @SecondName,
                                 ThirdName = @ThirdName,
                                 LastName = @LastName, 
-                                DateOfBirth = @Birthdate,
-                                Gendor = @Gender,
+                                DateOfBirth = @DateOfBirth,
+                                Gendor = @Gendor,
                                 Address = @Address, 
                                 Phone = @Phone, 
                                 Email = @Email,

@@ -8,9 +8,25 @@ D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Pro
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.AssemblyInfoInputs.cache
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.AssemblyInfo.cs
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.csproj.CoreCompileInputs.cache
+D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.sourcelink.json
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Bus.C961306A.Up2Date
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.dll
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\refint\DVLD Business Layer.dll
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.pdb
 D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\ref\DVLD Business Layer.dll
-D:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.sourcelink.json
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\bin\Debug\net8.0\DVLD Business Layer.deps.json
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\bin\Debug\net8.0\DVLD Business Layer.dll
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\bin\Debug\net8.0\DVLD Business Layer.pdb
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\bin\Debug\net8.0\DVLD Data Access Layer.dll
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\bin\Debug\net8.0\DVLD Data Access Layer.pdb
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.csproj.AssemblyReference.cache
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.AssemblyInfoInputs.cache
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.AssemblyInfo.cs
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.csproj.CoreCompileInputs.cache
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.sourcelink.json
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Bus.C961306A.Up2Date
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.dll
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\refint\DVLD Business Layer.dll
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\DVLD Business Layer.pdb
+C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD Project\DVLD Business Layer\obj\Debug\net8.0\ref\DVLD Business Layer.dll

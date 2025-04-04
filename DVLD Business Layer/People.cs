@@ -6,7 +6,7 @@ namespace DVLD_Business_Layer {
 
     public class People {
         public enMode Mode = enMode.AddNew;
-        public int PersonID { get; private set; }
+        public int PersonID { get; set; }
         public string NationalNo { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
@@ -17,7 +17,7 @@ namespace DVLD_Business_Layer {
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int NationalityCountryID { get; private set; }
+        public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
 
         public People() {
@@ -48,7 +48,7 @@ namespace DVLD_Business_Layer {
             this.ThirdName = ThirdName;
             this.LastName = LastName;
             this.Birthdate = Birthdate;
-            this.Gender = Enum.IsDefined(typeof(enGender), Gender) ? (enGender)Gender : throw new ArgumentException("Invalid gender value.");
+            //this.Gender = Enum.IsDefined(typeof(enGender), Gender) ? (enGender)Gender : throw new ArgumentException("Invalid gender value.");
             this.Address = Address;
             this.Phone = Phone;
             this.Email = Email;
@@ -56,6 +56,41 @@ namespace DVLD_Business_Layer {
             this.ImagePath = ImagePath;
 
             Mode = enMode.Update;
+        }
+
+        public People(People sourcePerson) {
+            if (sourcePerson == null) {
+                PersonID = -1;
+                NationalNo = "";
+                FirstName = "";
+                SecondName = "";
+                ThirdName = "";
+                LastName = "";
+                Birthdate = DateTime.Now;
+                Gender = enGender.Male;
+                Address = "";
+                Phone = "";
+                Email = "";
+                NationalityCountryID = -1;
+                ImagePath = "";
+                Mode = enMode.AddNew;
+                return;
+            }
+
+            PersonID = sourcePerson.PersonID;
+            NationalNo = sourcePerson.NationalNo;
+            FirstName = sourcePerson.FirstName;
+            SecondName = sourcePerson.SecondName;
+            ThirdName = sourcePerson.ThirdName;
+            LastName = sourcePerson.LastName;
+            Birthdate = sourcePerson.Birthdate;
+            Gender = sourcePerson.Gender;
+            Address = sourcePerson.Address;
+            Phone = sourcePerson.Phone;
+            Email = sourcePerson.Email;
+            NationalityCountryID = sourcePerson.NationalityCountryID;
+            ImagePath = sourcePerson.ImagePath;
+            Mode = sourcePerson.Mode;
         }
 
         private bool _AddNewPerson() {

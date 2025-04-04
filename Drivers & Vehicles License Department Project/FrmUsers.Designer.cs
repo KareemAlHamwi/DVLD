@@ -34,6 +34,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmUsers";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Users Management";
             ResumeLayout(false);
         }

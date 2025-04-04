@@ -33,17 +33,6 @@
             lblRecords = new Label();
             txtSearch = new TextBox();
             dataPeopleView = new DataGridView();
-            colPersonID = new DataGridViewTextBoxColumn();
-            colNationalNumber = new DataGridViewTextBoxColumn();
-            colFirstName = new DataGridViewTextBoxColumn();
-            colSecondName = new DataGridViewTextBoxColumn();
-            colThirdName = new DataGridViewTextBoxColumn();
-            colLastName = new DataGridViewTextBoxColumn();
-            colGender = new DataGridViewTextBoxColumn();
-            colBirthdate = new DataGridViewTextBoxColumn();
-            colNationality = new DataGridViewTextBoxColumn();
-            colPhone = new DataGridViewTextBoxColumn();
-            colEmail = new DataGridViewTextBoxColumn();
             cmsPeople = new ContextMenuStrip(components);
             showDetailsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -59,7 +48,6 @@
             // 
             // lblPeopleManagement
             // 
-            lblPeopleManagement.AutoSize = true;
             lblPeopleManagement.Font = new Font("Simple Bold Jut Out", 50F, FontStyle.Bold);
             lblPeopleManagement.ForeColor = Color.Red;
             lblPeopleManagement.Location = new Point(383, 9);
@@ -77,6 +65,7 @@
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnClose
             // 
@@ -104,7 +93,6 @@
             comPeopleColumns.DropDownStyle = ComboBoxStyle.DropDownList;
             comPeopleColumns.Font = new Font("Segoe UI", 13F);
             comPeopleColumns.FormattingEnabled = true;
-            comPeopleColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Gender", "Birthdate", "Nationality", "Phone", "Email" });
             comPeopleColumns.Location = new Point(131, 154);
             comPeopleColumns.Name = "comPeopleColumns";
             comPeopleColumns.Size = new Size(180, 31);
@@ -129,114 +117,26 @@
             txtSearch.Size = new Size(240, 31);
             txtSearch.TabIndex = 7;
             // 
-            // dataPersonsView
+            // dataPeopleView
             // 
             dataPeopleView.BackgroundColor = Color.White;
             dataPeopleView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8F);
             dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataPeopleView.DefaultCellStyle = dataGridViewCellStyle1;
             dataPeopleView.Location = new Point(12, 191);
-            dataPeopleView.Name = "dataPersonsView";
+            dataPeopleView.Name = "dataPeopleView";
             dataPeopleView.ReadOnly = true;
             dataPeopleView.ScrollBars = ScrollBars.Vertical;
             dataPeopleView.Size = new Size(1460, 500);
             dataPeopleView.TabIndex = 8;
             dataPeopleView.CellClick += dataPersonsView_CellClick;
             dataPeopleView.CellMouseDown += dataPersonsView_CellMouseDown;
-            // 
-            // colPersonID
-            // 
-            colPersonID.DataPropertyName = "PersonID";
-            colPersonID.HeaderText = "Person ID";
-            colPersonID.Name = "colPersonID";
-            colPersonID.ReadOnly = true;
-            colPersonID.Width = 80;
-            // 
-            // colNationalNumber
-            // 
-            colNationalNumber.DataPropertyName = "NationalNo";
-            colNationalNumber.HeaderText = "National No.";
-            colNationalNumber.Name = "colNationalNumber";
-            colNationalNumber.ReadOnly = true;
-            colNationalNumber.Width = 140;
-            // 
-            // colFirstName
-            // 
-            colFirstName.DataPropertyName = "FirstName";
-            colFirstName.HeaderText = "First Name";
-            colFirstName.Name = "colFirstName";
-            colFirstName.ReadOnly = true;
-            colFirstName.Width = 140;
-            // 
-            // colSecondName
-            // 
-            colSecondName.DataPropertyName = "SecondName";
-            colSecondName.HeaderText = "Second Name";
-            colSecondName.Name = "colSecondName";
-            colSecondName.ReadOnly = true;
-            colSecondName.Width = 140;
-            // 
-            // colThirdName
-            // 
-            colThirdName.DataPropertyName = "ThirdName";
-            colThirdName.HeaderText = "Third Name";
-            colThirdName.Name = "colThirdName";
-            colThirdName.ReadOnly = true;
-            colThirdName.Width = 140;
-            // 
-            // colLastName
-            // 
-            colLastName.DataPropertyName = "LastName";
-            colLastName.HeaderText = "Last Name";
-            colLastName.Name = "colLastName";
-            colLastName.ReadOnly = true;
-            colLastName.Width = 140;
-            // 
-            // colGender
-            // 
-            colGender.DataPropertyName = "Gender";
-            colGender.HeaderText = "Gender";
-            colGender.Name = "colGender";
-            colGender.ReadOnly = true;
-            colGender.Width = 60;
-            // 
-            // colBirthdate
-            // 
-            colBirthdate.DataPropertyName = "Birthdate";
-            colBirthdate.HeaderText = "Birthdate";
-            colBirthdate.Name = "colBirthdate";
-            colBirthdate.ReadOnly = true;
-            colBirthdate.Width = 140;
-            // 
-            // colNationality
-            // 
-            colNationality.DataPropertyName = "NationalityCountryID";
-            colNationality.HeaderText = "Nationality";
-            colNationality.Name = "colNationality";
-            colNationality.ReadOnly = true;
-            colNationality.Width = 140;
-            // 
-            // colPhone
-            // 
-            colPhone.DataPropertyName = "Phone";
-            colPhone.HeaderText = "Phone";
-            colPhone.Name = "colPhone";
-            colPhone.ReadOnly = true;
-            colPhone.Width = 140;
-            // 
-            // colEmail
-            // 
-            colEmail.DataPropertyName = "Email";
-            colEmail.HeaderText = "Email";
-            colEmail.Name = "colEmail";
-            colEmail.ReadOnly = true;
-            colEmail.Width = 158;
             // 
             // cmsPeople
             // 
@@ -316,6 +216,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmPeople";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "People Management";
             Load += FrmPeople_Load;
             ((System.ComponentModel.ISupportInitialize)dataPeopleView).EndInit();
@@ -334,6 +235,15 @@
         private Label lblRecords;
         private TextBox txtSearch;
         private DataGridView dataPeopleView;
+        private ContextMenuStrip cmsPeople;
+        private ToolStripMenuItem showDetailsToolStripMenuItem;
+        private ToolStripMenuItem addNewToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem sendEmailToolStripMenuItem;
+        private ToolStripMenuItem phoneCallToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator2;
         private DataGridViewTextBoxColumn colPersonID;
         private DataGridViewTextBoxColumn colNationalNumber;
         private DataGridViewTextBoxColumn colFirstName;
@@ -345,14 +255,6 @@
         private DataGridViewTextBoxColumn colNationality;
         private DataGridViewTextBoxColumn colPhone;
         private DataGridViewTextBoxColumn colEmail;
-        private ContextMenuStrip cmsPeople;
-        private ToolStripMenuItem showDetailsToolStripMenuItem;
-        private ToolStripMenuItem addNewToolStripMenuItem;
-        private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem deleteToolStripMenuItem;
-        private ToolStripMenuItem sendEmailToolStripMenuItem;
-        private ToolStripMenuItem phoneCallToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripSeparator toolStripSeparator2;
+        private DataGridViewTextBoxColumn ImagePath;
     }
 }
