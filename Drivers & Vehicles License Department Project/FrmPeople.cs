@@ -9,12 +9,12 @@ namespace Drivers___Vehicles_License_Department_Project {
         public FrmPeople() {
             InitializeComponent();
             dataPeopleView.AutoGenerateColumns = true;
-            lblRecords.Text = "# Records : " + DVLD_Business_Layer.People.GetAllPeople().Rows.Count;
+            lblRecords.Text = "# Records : " + People.GetAllPeople().Rows.Count;
         }
 
         private void _RefreshDataGrid() {
-            dataPeopleView.DataSource = DVLD_Business_Layer.People.GetAllPeople();
-            lblRecords.Text = "# Records : " + DVLD_Business_Layer.People.GetAllPeople().Rows.Count;
+            dataPeopleView.DataSource = People.GetAllPeople();
+            lblRecords.Text = "# Records : " + People.GetAllPeople().Rows.Count;
         }
 
         private void comPesonColumns_SelectedIndexChanged(object sender, EventArgs e) {
@@ -148,7 +148,8 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            People.DeletePerson(SelectedPerson.PersonID);
+            _RefreshDataGrid();
         }
 
         private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e) {

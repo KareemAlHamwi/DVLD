@@ -235,6 +235,7 @@
             dateBirthdate.Format = DateTimePickerFormat.Short;
             dateBirthdate.Location = new Point(465, 113);
             dateBirthdate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+            dateBirthdate.MaxDate = MaxDate;
             dateBirthdate.Name = "dateBirthdate";
             dateBirthdate.Size = new Size(199, 31);
             dateBirthdate.TabIndex = 6;

@@ -244,17 +244,5 @@
         private ToolStripMenuItem phoneCallToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
-        private DataGridViewTextBoxColumn colPersonID;
-        private DataGridViewTextBoxColumn colNationalNumber;
-        private DataGridViewTextBoxColumn colFirstName;
-        private DataGridViewTextBoxColumn colSecondName;
-        private DataGridViewTextBoxColumn colThirdName;
-        private DataGridViewTextBoxColumn colLastName;
-        private DataGridViewTextBoxColumn colGender;
-        private DataGridViewTextBoxColumn colBirthdate;
-        private DataGridViewTextBoxColumn colNationality;
-        private DataGridViewTextBoxColumn colPhone;
-        private DataGridViewTextBoxColumn colEmail;
-        private DataGridViewTextBoxColumn ImagePath;
     }
 }
