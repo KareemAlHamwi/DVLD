@@ -18,6 +18,7 @@ namespace DVLD_Business_Layer {
         public string Phone { get; set; }
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
+        public string NationalityCountryName {get; set;}
         public string ImagePath { get; set; }
 
         public People() {
@@ -33,6 +34,7 @@ namespace DVLD_Business_Layer {
             Phone = "";
             Email = "";
             NationalityCountryID = -1;
+            NationalityCountryName = "";
             ImagePath = "";
 
             Mode = enMode.AddNew;
@@ -40,7 +42,7 @@ namespace DVLD_Business_Layer {
 
         public People(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
             DateTime Birthdate, byte Gender, string Address, string Phone, string Email,
-            int NationalityCountryID, string ImagePath) {
+            int NationalityCountryID ,string NationalityCountryName, string ImagePath) {
             this.PersonID = PersonID;
             this.NationalNo = NationalNo;
             this.FirstName = FirstName;
@@ -48,11 +50,12 @@ namespace DVLD_Business_Layer {
             this.ThirdName = ThirdName;
             this.LastName = LastName;
             this.Birthdate = Birthdate;
-            //this.Gender = Enum.IsDefined(typeof(enGender), Gender) ? (enGender)Gender : throw new ArgumentException("Invalid gender value.");
+            this.Gender = Enum.IsDefined(typeof(enGender), Gender) ? (enGender)Gender : throw new ArgumentException("Invalid gender value.");
             this.Address = Address;
             this.Phone = Phone;
             this.Email = Email;
             this.NationalityCountryID = NationalityCountryID;
+            this.NationalityCountryName = NationalityCountryName;
             this.ImagePath = ImagePath;
 
             Mode = enMode.Update;
@@ -89,6 +92,7 @@ namespace DVLD_Business_Layer {
             Phone = sourcePerson.Phone;
             Email = sourcePerson.Email;
             NationalityCountryID = sourcePerson.NationalityCountryID;
+            NationalityCountryName = sourcePerson.NationalityCountryName;
             ImagePath = sourcePerson.ImagePath;
             Mode = sourcePerson.Mode;
         }
@@ -109,21 +113,21 @@ namespace DVLD_Business_Layer {
             Address,Phone,Email,NationalityCountryID,ImagePath);
         }
 
-        public static People Find(int PersonID) {
+        // public static People Find(int PersonID) {
 
-            string NationalNo = "", FirstName = "",SecondName = "",ThirdName = "", LastName = "", Address = "", Phone = "" ,Email = "", ImagePath = "";
-            enGender Gender = enGender.Male;
-            DateTime Birthdate = DateTime.Now;
-            int NationalityCountryID = -1;
+        //     string NationalNo = "", FirstName = "",SecondName = "",ThirdName = "", LastName = "", Address = "", Phone = "" ,Email = "", ImagePath = "" , NationalityCountryName = "";
+        //     enGender Gender = enGender.Male;
+        //     DateTime Birthdate = DateTime.Now;
+        //     int NationalityCountryID = -1;
 
-            if (DVLD_Data_Access_Layer.PeopleData.GetPersonByID(PersonID,NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
-            Address,Phone,Email,NationalityCountryID,ImagePath))
+        //     if (DVLD_Data_Access_Layer.PeopleData.GetPersonByID(PersonID,NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
+        //     Address,Phone,Email,NationalityCountryID,ImagePath))
 
-                return new People(PersonID,NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
-            Address,Phone,Email,NationalityCountryID,ImagePath);
-            else
-                return null;
-        }
+        //         return new People(PersonID,NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
+        //     Address,Phone,Email,NationalityCountryID,NationalityCountryName,ImagePath);
+        //     else
+        //         return null;
+        // }
 
         public bool Save() {
             switch (Mode) {

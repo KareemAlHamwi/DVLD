@@ -1,6 +1,6 @@
 ﻿using DVLD_Business_Layer;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmPeople : Form {
         FrmPersonDetails pd;
         FrmAddUpdatePerson aup;
@@ -104,13 +104,9 @@ namespace Drivers___Vehicles_License_Department_Project {
             SelectedPerson.Address = dataPeopleView.Rows[RowIndex].Cells[8].Value?.ToString() ?? "";
             SelectedPerson.Phone = dataPeopleView.Rows[RowIndex].Cells[9].Value?.ToString() ?? "";
             SelectedPerson.Email = dataPeopleView.Rows[RowIndex].Cells[10].Value?.ToString() ?? "";
-
-            string countryName = dataPeopleView.Rows[RowIndex].Cells[11].Value?.ToString() ?? "Unknown";
-            // SelectedPerson.NationalityCountryID = ;
-
+            SelectedPerson.NationalityCountryName = dataPeopleView.Rows[RowIndex].Cells[11].Value?.ToString() ?? "Unknown";
             SelectedPerson.ImagePath = dataPeopleView.Rows[RowIndex].Cells[12].Value?.ToString() ?? "";
         }
-
 
         private void _SelectWholeRow(int RowIndex) {
             dataPeopleView.ClearSelection();
@@ -143,12 +139,14 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
-            aup = new FrmAddUpdatePerson(enMode.Update);
+            aup = new FrmAddUpdatePerson(enMode.Update,SelectedPerson);
             aup.ShowDialog();
+            _RefreshDataGrid();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
             People.DeletePerson(SelectedPerson.PersonID);
+            FrmPopup.ShowPopup("Deleted Successfully!");
             _RefreshDataGrid();
         }
 

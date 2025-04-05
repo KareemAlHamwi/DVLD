@@ -9,27 +9,63 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_Business_Layer;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class ctrlAddUpdatePerson : UserControl {
         public delegate void DataBackEventHandler(object sender, string Text);
         public event DataBackEventHandler DataBack;
-        private People _NewPerson = new People();
+        private People AddedOrEditedPerson = new People();
         private string _SelectedImagePath = "";
 
         public ctrlAddUpdatePerson() {
             InitializeComponent();
             radMale.Checked = true;
-            _NewPerson.Gender = enGender.Male;
+            AddedOrEditedPerson.Gender = enGender.Male;
+            //* Syria = 169 .. Noice
             comCountries.SelectedIndex = 169;
         }
 
-        private void _SaveRestOfPersonData() {
-            _NewPerson.Birthdate = dateBirthdate.Value;
-            if (radFemale.Checked) {
-                _NewPerson.Gender = enGender.Female;
+        public void SetPersonData(People Person) {
+            // *TODO: insted of doing this here go to FrmPeople
+            // TODO and use the constructor that updates.
+            AddedOrEditedPerson.Mode = enMode.Update;
+            AddedOrEditedPerson = new People(Person);
+            UpdateUI();
+        }
+
+        private void UpdateUI() {
+            txtFirstName.Text = AddedOrEditedPerson.FirstName;
+            txtSecondName.Text = AddedOrEditedPerson.SecondName;
+            txtThirdName.Text = AddedOrEditedPerson.ThirdName;
+            txtLastName.Text = AddedOrEditedPerson.LastName;
+            txtNationalNo.Text = AddedOrEditedPerson.NationalNo;
+            dateBirthdate.Text = AddedOrEditedPerson.Birthdate.ToShortDateString();
+
+            if (AddedOrEditedPerson.Gender == enGender.Female) {
+                radFemale.Checked = true;
             }
-            _NewPerson.NationalityCountryID = comCountries.SelectedIndex;
-            _NewPerson.ImagePath = _SelectedImagePath;
+
+            txtPhone.Text = AddedOrEditedPerson.Phone;
+            txtEmail.Text = AddedOrEditedPerson.Email;
+            comCountries.SelectedIndex = AddedOrEditedPerson.NationalityCountryID;
+            txtAdress.Text = AddedOrEditedPerson.Address;
+
+            if (!string.IsNullOrEmpty(AddedOrEditedPerson.ImagePath) && File.Exists(AddedOrEditedPerson.ImagePath)) {
+                using (var tempImage = Image.FromFile(AddedOrEditedPerson.ImagePath)) {
+                    picboxPersonalPhoto.Image = new Bitmap(tempImage);
+                }
+            }
+            else {
+                picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
+            }
+        }
+
+        private void _SaveRestOfPersonData() {
+            AddedOrEditedPerson.Birthdate = dateBirthdate.Value;
+            if (radFemale.Checked) {
+                AddedOrEditedPerson.Gender = enGender.Female;
+            }
+            AddedOrEditedPerson.NationalityCountryID = comCountries.SelectedIndex;
+            AddedOrEditedPerson.ImagePath = _SelectedImagePath;
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
@@ -40,11 +76,11 @@ namespace Drivers___Vehicles_License_Department_Project {
             if (ValidateChildren(ValidationConstraints.Enabled)) {
                 _SaveRestOfPersonData();
 
-                if (_NewPerson.Save()) {
+                if (AddedOrEditedPerson.Save()) {
                     FrmPopup.ShowPopup("Saved!");
                 }
                 else {
-                    FrmPopup.ShowPopup("Something wrong happened..");
+                    FrmPopup.ShowPopup("Couldn't Save, Something Went Wrong ..");
                 }
 
                 FindForm()?.Close();
@@ -81,7 +117,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 _SetValidationError(txtFirstName, "First Name can't be empty!", e);
             else {
                 _UnsetValidationError(txtFirstName, e);
-                _NewPerson.FirstName = txtFirstName.Text;
+                AddedOrEditedPerson.FirstName = txtFirstName.Text;
             }
         }
 
@@ -90,7 +126,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 _SetValidationError(txtSecondName, "Second Name can't be empty!", e);
             else {
                 _UnsetValidationError(txtSecondName, e);
-                _NewPerson.SecondName = txtSecondName.Text;
+                AddedOrEditedPerson.SecondName = txtSecondName.Text;
             }
         }
 
@@ -99,7 +135,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 _SetValidationError(txtThirdName, "Third Name can't be empty!", e);
             else {
                 _UnsetValidationError(txtThirdName, e);
-                _NewPerson.ThirdName = txtThirdName.Text;
+                AddedOrEditedPerson.ThirdName = txtThirdName.Text;
             }
         }
 
@@ -108,7 +144,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 _SetValidationError(txtLastName, "Last Name can't be empty!", e);
             else {
                 _UnsetValidationError(txtLastName, e);
-                _NewPerson.LastName = txtLastName.Text;
+                AddedOrEditedPerson.LastName = txtLastName.Text;
             }
         }
 
@@ -117,7 +153,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 _SetValidationError(txtNationalNo, "National No. can't be empty!", e);
             else {
                 _UnsetValidationError(txtNationalNo, e);
-                _NewPerson.NationalNo = txtNationalNo.Text;
+                AddedOrEditedPerson.NationalNo = txtNationalNo.Text;
             }
         }
 
@@ -126,7 +162,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 _SetValidationError(txtPhone, "Phone can't be empty!", e);
             else {
                 _UnsetValidationError(txtPhone, e);
-                _NewPerson.Phone = txtPhone.Text;
+                AddedOrEditedPerson.Phone = txtPhone.Text;
             }
         }
 
@@ -139,7 +175,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 }
                 else {
                     _UnsetValidationError(txtEmail, e);
-                    _NewPerson.Email = txtEmail.Text;
+                    AddedOrEditedPerson.Email = txtEmail.Text;
                 }
             }
         }
@@ -149,7 +185,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 _SetValidationError(txtAdress, "Address can't be empty!", e, ErrorIconAlignment.TopRight);
             else {
                 _UnsetValidationError(txtAdress, e);
-                _NewPerson.Address = txtAdress.Text;
+                AddedOrEditedPerson.Address = txtAdress.Text;
             }
         }
 

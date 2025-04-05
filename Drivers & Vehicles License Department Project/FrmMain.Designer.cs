@@ -1,7 +1,5 @@
-﻿namespace Drivers___Vehicles_License_Department_Project
-{
-    partial class FrmMain
-    {
+﻿namespace Drivers_And_Vehicles_License_Department_Project {
+    partial class FrmMain {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);

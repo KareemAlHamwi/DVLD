@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmMain : Form {
         // Dictionary to keep track of opened forms by their types
         private readonly Dictionary<Type, Form> openedForms = new Dictionary<Type, Form>();

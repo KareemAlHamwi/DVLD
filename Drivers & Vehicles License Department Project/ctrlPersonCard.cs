@@ -1,8 +1,8 @@
-﻿using Drivers___Vehicles_License_Department_Project.Properties;
+﻿using Drivers_And_Vehicles_License_Department_Project.Properties;
 using DVLD_Business_Layer;
 using System.Reflection;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class ctrlPersonCard : UserControl {
         private People CurrentPerson = new People();
 
@@ -25,6 +25,7 @@ namespace Drivers___Vehicles_License_Department_Project {
             lblAdress.Text = CurrentPerson.Address;
             lblBirthdate.Text = CurrentPerson.Birthdate.ToShortDateString();
             lblPhone.Text = CurrentPerson.Phone;
+            lblCountry.Text = CurrentPerson.NationalityCountryName;
 
             if (!string.IsNullOrEmpty(CurrentPerson.ImagePath) && File.Exists(CurrentPerson.ImagePath)) {
                 using (var tempImage = Image.FromFile(CurrentPerson.ImagePath)) {

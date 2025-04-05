@@ -1,25 +1,26 @@
 ﻿using DVLD_Business_Layer;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmAddUpdatePerson : Form {
-        public FrmAddUpdatePerson(enMode mode) {
+        public FrmAddUpdatePerson(enMode mode, People? SelectedPerson = null) {
             InitializeComponent();
             if (mode == enMode.AddNew) {
-                UpdateUIAdd();
-            } else {
-                UpdateUIEdit();
+                _UpdateUIAdd();
+            }
+            else {
+                _UpdateUIEdit(SelectedPerson);
             }
         }
 
-        
-
-        private void UpdateUIAdd() {
+        private void _UpdateUIAdd() {
             label1.Visible = false;
             lblPersonID.Visible = false;
         }
 
-        private void UpdateUIEdit() {
-                lblAddUpdatePerson.Text = "Edit Person";
+        private void _UpdateUIEdit(People SelectedPerson) {
+            lblAddUpdatePerson.Text = "Edit Person";
+            ctrlAddUpdatePerson1.SetPersonData(SelectedPerson);
+            lblPersonID.Text = Convert.ToString(SelectedPerson.PersonID);
         }
     }
 }

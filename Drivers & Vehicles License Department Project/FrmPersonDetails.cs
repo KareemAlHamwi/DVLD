@@ -1,6 +1,6 @@
 ﻿using DVLD_Business_Layer;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmPersonDetails : Form {
         public FrmPersonDetails(People Person) {
             InitializeComponent();

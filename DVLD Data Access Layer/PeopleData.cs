@@ -4,17 +4,20 @@ using System.Data.SqlClient;
 
 namespace DVLD_Data_Access_Layer {
     public class PeopleData {
-        public static bool GetPersonByID(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
-            DateTime Birthdate, byte Gender, string Address, string Phone, string Email,
-            int NationalityCountryID, string ImagePath) {
+        public static bool GetPersonByID(int PersonID, ref string NationalNo, ref string FirstName,
+            ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime Birthdate,
+            ref byte Gender, ref string Address, ref string Phone, ref string Email,
+            ref int NationalityCountryID, ref string NationalityCountryName, ref string ImagePath) {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM People WHERE PersonID = @PersonID";
+            string query = @"SELECT People.*, Countries.CountryName 
+                            FROM People 
+                            LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID
+                            WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
-
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try {
@@ -22,7 +25,6 @@ namespace DVLD_Data_Access_Layer {
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read()) {
-                    // The record was found
                     isFound = true;
 
                     NationalNo = (string)reader["NationalNo"];
@@ -36,24 +38,15 @@ namespace DVLD_Data_Access_Layer {
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
                     NationalityCountryID = (int)reader["NationalityCountryID"];
+                    NationalityCountryName = (string)reader["CountryName"];
 
-                    //ImagePath: allows null in database so we should handle null
-                    if (reader["ImagePath"] != DBNull.Value) {
+                    if (reader["ImagePath"] != DBNull.Value)
                         ImagePath = (string)reader["ImagePath"];
-                    }
-                    else {
+                    else
                         ImagePath = "";
-                    }
-
-                }
-                else {
-                    // The record was not found
-                    isFound = false;
                 }
 
                 reader.Close();
-
-
             }
             catch (Exception ex) {
                 Console.WriteLine("Error: " + ex.Message);
@@ -66,20 +59,19 @@ namespace DVLD_Data_Access_Layer {
             return isFound;
         }
 
-        public static int AddNewPerson(string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
-            DateTime Birthdate, byte Gender, string Address, string Phone, string Email,
-            int NationalityCountryID, string ImagePath) {
-            //this function will return the new person id if succeeded and -1 if not.
+        public static int AddNewPerson(string NationalNo, string FirstName, string SecondName,
+            string ThirdName, string LastName, DateTime Birthdate, byte Gender, string Address,
+            string Phone, string Email, int NationalityCountryID, string ImagePath) {
             int PersonID = -1;
-
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"INSERT INTO People (NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath)
-                             VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, @Gendor, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
-                             SELECT SCOPE_IDENTITY();";
+            string query = @"INSERT INTO People (NationalNo, FirstName, SecondName, ThirdName, LastName, 
+                            DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath)
+                            VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, 
+                            @DateOfBirth, @Gendor, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
+                            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
-
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
@@ -92,57 +84,50 @@ namespace DVLD_Data_Access_Layer {
             command.Parameters.AddWithValue("@Email", Email);
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
-            if (ImagePath != "" && ImagePath != null)
+            if (!string.IsNullOrEmpty(ImagePath))
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
             else
                 command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
 
             try {
                 connection.Open();
-
                 object result = command.ExecuteScalar();
-
-                if (result != null && int.TryParse(result.ToString(), out int insertedID)) {
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
                     PersonID = insertedID;
-                }
             }
-
             catch (Exception ex) {
                 Console.WriteLine("Error: " + ex.Message);
             }
-
             finally {
                 connection.Close();
             }
 
-
             return PersonID;
         }
 
-        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
-            DateTime Birthdate, byte Gender, string Address, string Phone, string Email,
-            int NationalityCountryID, string ImagePath) {
+        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName,
+            string SecondName, string ThirdName, string LastName, DateTime Birthdate, byte Gender,
+            string Address, string Phone, string Email, int NationalityCountryID, string ImagePath) {
             int rowsAffected = 0;
-
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"Update  People 
-                            set NationalNo = @NationalNo,
-                                FirstName = @FirstName,
-                                SecondName = @SecondName,
-                                ThirdName = @ThirdName,
-                                LastName = @LastName, 
-                                DateOfBirth = @DateOfBirth,
-                                Gendor = @Gendor,
-                                Address = @Address, 
-                                Phone = @Phone, 
-                                Email = @Email,
-                                NationalityCountryID = @NationalityCountryID,
-                                ImagePath = @ImagePath
-                                where PersonID = @PersonID";
+            string query = @"UPDATE People SET 
+                            NationalNo = @NationalNo,
+                            FirstName = @FirstName,
+                            SecondName = @SecondName,
+                            ThirdName = @ThirdName,
+                            LastName = @LastName,
+                            DateOfBirth = @DateOfBirth,
+                            Gendor = @Gendor,
+                            Address = @Address,
+                            Phone = @Phone,
+                            Email = @Email,
+                            NationalityCountryID = @NationalityCountryID,
+                            ImagePath = @ImagePath
+                            WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
-
+            command.Parameters.AddWithValue("@PersonID", PersonID);
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
@@ -155,7 +140,7 @@ namespace DVLD_Data_Access_Layer {
             command.Parameters.AddWithValue("@Email", Email);
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
-            if (ImagePath != "" && ImagePath != null)
+            if (!string.IsNullOrEmpty(ImagePath))
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
             else
                 command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
@@ -168,7 +153,6 @@ namespace DVLD_Data_Access_Layer {
                 Console.WriteLine("Error: " + ex.Message);
                 return false;
             }
-
             finally {
                 connection.Close();
             }
@@ -178,37 +162,31 @@ namespace DVLD_Data_Access_Layer {
 
         public static DataTable GetAllPeople() {
             DataTable dt = new DataTable();
-
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"SELECT 
-                        PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
-                        DateOfBirth, 
-                        CASE 
-                            WHEN Gendor = 0 THEN 'Male' 
-                            WHEN Gendor = 1 THEN 'Female' 
-                            ELSE 'Unknown' 
-                        END AS Gender, 
-                        Address, Phone, Email, 
-                        CountryName AS Nationality, 
-                        ImagePath
-                        FROM People  
-                        INNER JOIN Countries ON People.NationalityCountryID = Countries.CountryID";
+                            PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
+                            DateOfBirth, 
+                            CASE 
+                                WHEN Gendor = 0 THEN 'Male' 
+                                WHEN Gendor = 1 THEN 'Female' 
+                                ELSE 'Unknown' 
+                            END AS Gender, 
+                            Address, Phone, Email, 
+                            Countries.CountryName AS NationalityCountryName, 
+                            ImagePath
+                            FROM People  
+                            LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
             try {
                 connection.Open();
-
                 SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows) {
+                if (reader.HasRows)
                     dt.Load(reader);
-                }
-
                 reader.Close();
             }
-
             catch (Exception ex) {
                 Console.WriteLine("Error: " + ex.Message);
             }
@@ -221,19 +199,14 @@ namespace DVLD_Data_Access_Layer {
 
         public static bool DeletePerson(int PersonID) {
             int rowsAffected = 0;
-
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"Delete People
-                                where PersonID = @PersonID";
-
+            string query = "DELETE FROM People WHERE PersonID = @PersonID";
             SqlCommand command = new SqlCommand(query, connection);
-
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try {
                 connection.Open();
-
                 rowsAffected = command.ExecuteNonQuery();
             }
             catch (Exception ex) {
@@ -248,26 +221,20 @@ namespace DVLD_Data_Access_Layer {
 
         public static bool IsPersonExist(int PersonID) {
             bool isFound = false;
-
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = "SELECT Found=1 FROM People WHERE PersonID = @PersonID";
-
             SqlCommand command = new SqlCommand(query, connection);
-
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-
                 isFound = reader.HasRows;
-
                 reader.Close();
             }
             catch (Exception ex) {
                 Console.WriteLine("Error: " + ex.Message);
-
                 isFound = false;
             }
             finally {
