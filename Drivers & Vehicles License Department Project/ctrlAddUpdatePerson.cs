@@ -27,7 +27,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         public void SetPersonData(People Person) {
             // *TODO: insted of doing this here go to FrmPeople
             // TODO and use the constructor that updates.
-            AddedOrEditedPerson.Mode = enMode.Update;
+            Person.Mode = enMode.Update;
             AddedOrEditedPerson = new People(Person);
             UpdateUI();
         }

@@ -105,29 +105,31 @@ namespace DVLD_Data_Access_Layer {
             return PersonID;
         }
 
-        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName,
-            string SecondName, string ThirdName, string LastName, DateTime Birthdate, byte Gender,
-            string Address, string Phone, string Email, int NationalityCountryID, string ImagePath) {
+        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
+            DateTime Birthdate, byte Gender, string Address, string Phone, string Email,
+            int NationalityCountryID, string ImagePath) {
             int rowsAffected = 0;
+
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"UPDATE People SET 
-                            NationalNo = @NationalNo,
-                            FirstName = @FirstName,
-                            SecondName = @SecondName,
-                            ThirdName = @ThirdName,
-                            LastName = @LastName,
-                            DateOfBirth = @DateOfBirth,
-                            Gendor = @Gendor,
-                            Address = @Address,
-                            Phone = @Phone,
-                            Email = @Email,
-                            NationalityCountryID = @NationalityCountryID,
-                            ImagePath = @ImagePath
-                            WHERE PersonID = @PersonID";
+            string query = @"Update  People 
+                            set NationalNo = @NationalNo,
+                                FirstName = @FirstName,
+                                SecondName = @SecondName,
+                                ThirdName = @ThirdName,
+                                LastName = @LastName, 
+                                DateOfBirth = @DateOfBirth,
+                                Gendor = @Gendor,
+                                Address = @Address, 
+                                Phone = @Phone, 
+                                Email = @Email,
+                                NationalityCountryID = @NationalityCountryID,
+                                ImagePath = @ImagePath
+                                where PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            command.Parameters.AddWithValue("@PersonID",PersonID);
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
@@ -140,7 +142,7 @@ namespace DVLD_Data_Access_Layer {
             command.Parameters.AddWithValue("@Email", Email);
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
-            if (!string.IsNullOrEmpty(ImagePath))
+            if (ImagePath != "" && ImagePath != null)
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
             else
                 command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
@@ -153,6 +155,7 @@ namespace DVLD_Data_Access_Layer {
                 Console.WriteLine("Error: " + ex.Message);
                 return false;
             }
+
             finally {
                 connection.Close();
             }
