@@ -22,6 +22,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             AddedOrEditedPerson.Gender = enGender.Male;
             //* Syria = 169 .. Noice
             comCountries.SelectedIndex = 169;
+            dateBirthdate.MaxDate = PresentationSettings.MaxDate;
         }
 
         public void SetPersonData(People Person) {

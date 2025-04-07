@@ -4,7 +4,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        DateTime MaxDate = DateTime.Now.AddYears(-18);
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -25,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlAddUpdatePerson));
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -141,7 +141,7 @@
             // picboxPersonalPhoto
             // 
             picboxPersonalPhoto.BorderStyle = BorderStyle.FixedSingle;
-            picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
+            picboxPersonalPhoto.Image = (Image)resources.GetObject("picboxPersonalPhoto.Image");
             picboxPersonalPhoto.Location = new Point(680, 113);
             picboxPersonalPhoto.Name = "picboxPersonalPhoto";
             picboxPersonalPhoto.Size = new Size(189, 246);
@@ -235,7 +235,6 @@
             dateBirthdate.Format = DateTimePickerFormat.Short;
             dateBirthdate.Location = new Point(465, 113);
             dateBirthdate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
-            dateBirthdate.MaxDate = MaxDate;
             dateBirthdate.Name = "dateBirthdate";
             dateBirthdate.Size = new Size(199, 31);
             dateBirthdate.TabIndex = 6;
@@ -344,7 +343,7 @@
             // 
             txtEmail.Location = new Point(134, 212);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(170, 31);
+            txtEmail.Size = new Size(229, 31);
             txtEmail.TabIndex = 10;
             txtEmail.Validating += txtEmail_Validating;
             // 

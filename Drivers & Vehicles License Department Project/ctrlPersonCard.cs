@@ -37,8 +37,13 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             }
         }
 
-        private void groPersonInfo_Enter(object sender, EventArgs e) {
+        private void lilblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            PresentationSettings.aup = new FrmAddUpdatePerson(enMode.Update, CurrentPerson);
+            PresentationSettings.aup.ShowDialog();
 
+            if (PresentationSettings.aup.IsDisposed) {
+                //FindForm?.Close();
+            }
         }
     }
 }

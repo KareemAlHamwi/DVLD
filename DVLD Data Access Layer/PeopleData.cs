@@ -177,7 +177,7 @@ namespace DVLD_Data_Access_Layer {
                             END AS Gender, 
                             Address, Phone, Email, 
                             Countries.CountryName AS NationalityCountryName, 
-                            ImagePath
+                            ImagePath,NationalityCountryID
                             FROM People  
                             LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID";
 

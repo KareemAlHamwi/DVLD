@@ -23,7 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPersonCard));
             groPersonInfo = new GroupBox();
+            picboxPersonalPhoto = new PictureBox();
             lblName = new Label();
             lblCountry = new Label();
             lblPhone = new Label();
@@ -42,7 +44,6 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
-            picboxPersonalPhoto = new PictureBox();
             groPersonInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picboxPersonalPhoto).BeginInit();
             SuspendLayout();
@@ -75,7 +76,17 @@
             groPersonInfo.TabIndex = 2;
             groPersonInfo.TabStop = false;
             groPersonInfo.Text = "Person Information";
-            groPersonInfo.Enter += groPersonInfo_Enter;
+            // 
+            // picboxPersonalPhoto
+            // 
+            picboxPersonalPhoto.BorderStyle = BorderStyle.FixedSingle;
+            picboxPersonalPhoto.Image = (Image)resources.GetObject("picboxPersonalPhoto.Image");
+            picboxPersonalPhoto.Location = new Point(534, 68);
+            picboxPersonalPhoto.Name = "picboxPersonalPhoto";
+            picboxPersonalPhoto.Size = new Size(189, 246);
+            picboxPersonalPhoto.SizeMode = PictureBoxSizeMode.Zoom;
+            picboxPersonalPhoto.TabIndex = 25;
+            picboxPersonalPhoto.TabStop = false;
             // 
             // lblName
             // 
@@ -186,6 +197,7 @@
             lilblEditPersonInfo.TabIndex = 15;
             lilblEditPersonInfo.TabStop = true;
             lilblEditPersonInfo.Text = "Edit Person Info";
+            lilblEditPersonInfo.LinkClicked += lilblEditPersonInfo_LinkClicked;
             // 
             // label9
             // 
@@ -274,17 +286,6 @@
             label1.Size = new Size(130, 34);
             label1.TabIndex = 5;
             label1.Text = "Person ID    :";
-            // 
-            // picboxPersonalPhoto
-            // 
-            picboxPersonalPhoto.BorderStyle = BorderStyle.FixedSingle;
-            picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
-            picboxPersonalPhoto.Location = new Point(534, 68);
-            picboxPersonalPhoto.Name = "picboxPersonalPhoto";
-            picboxPersonalPhoto.Size = new Size(189, 246);
-            picboxPersonalPhoto.SizeMode = PictureBoxSizeMode.Zoom;
-            picboxPersonalPhoto.TabIndex = 25;
-            picboxPersonalPhoto.TabStop = false;
             // 
             // ctrlPersonCard
             // 

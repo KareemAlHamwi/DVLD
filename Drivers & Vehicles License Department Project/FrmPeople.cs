@@ -106,6 +106,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             SelectedPerson.Email = dataPeopleView.Rows[RowIndex].Cells[10].Value?.ToString() ?? "";
             SelectedPerson.NationalityCountryName = dataPeopleView.Rows[RowIndex].Cells[11].Value?.ToString() ?? "Unknown";
             SelectedPerson.ImagePath = dataPeopleView.Rows[RowIndex].Cells[12].Value?.ToString() ?? "";
+            SelectedPerson.NationalityCountryID = Convert.ToInt32(dataPeopleView.Rows[RowIndex].Cells[13].Value ?? 0);
         }
 
         private void _SelectWholeRow(int RowIndex) {
@@ -139,15 +140,17 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
-            aup = new FrmAddUpdatePerson(enMode.Update,SelectedPerson);
+            aup = new FrmAddUpdatePerson(enMode.Update, SelectedPerson);
             aup.ShowDialog();
             _RefreshDataGrid();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (MessageBox.Show($"Are you sure want to delete Person with PersonID ({SelectedPerson.PersonID})?","Delete",MessageBoxButtons.OKCancel) == DialogResult.OK) {
             People.DeletePerson(SelectedPerson.PersonID);
             FrmPopup.ShowPopup("Deleted Successfully!");
             _RefreshDataGrid();
+            }
         }
 
         private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e) {

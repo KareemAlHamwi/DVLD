@@ -4,12 +4,10 @@ namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmAddUpdatePerson : Form {
         public FrmAddUpdatePerson(enMode mode, People? SelectedPerson = null) {
             InitializeComponent();
-            if (mode == enMode.AddNew) {
+            if (mode == enMode.AddNew)
                 _UpdateUIAdd();
-            }
-            else {
+            else
                 _UpdateUIEdit(SelectedPerson);
-            }
         }
 
         private void _UpdateUIAdd() {

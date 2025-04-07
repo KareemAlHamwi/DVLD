@@ -14,3 +14,17 @@ VALUES
 SELECT * FROM People
 
 SELECT * FROM Countries
+
+SELECT 
+PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
+DateOfBirth, 
+CASE 
+    WHEN Gendor = 0 THEN 'Male' 
+    WHEN Gendor = 1 THEN 'Female' 
+    ELSE 'Unknown' 
+END AS Gender, 
+Address, Phone, Email,
+Countries.CountryName AS NationalityCountryName, 
+ImagePath,NationalityCountryID
+FROM People  
+LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID
