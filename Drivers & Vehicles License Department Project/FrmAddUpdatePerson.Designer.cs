@@ -40,10 +40,10 @@
             // 
             lblPersonID.AutoSize = true;
             lblPersonID.Cursor = Cursors.SizeNESW;
-            lblPersonID.Font = new Font("Simplified Arabic", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPersonID.Location = new Point(124, 60);
+            lblPersonID.Font = new Font("Simplified Arabic", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPersonID.Location = new Point(124, 57);
             lblPersonID.Name = "lblPersonID";
-            lblPersonID.Size = new Size(86, 31);
+            lblPersonID.Size = new Size(95, 34);
             lblPersonID.TabIndex = 18;
             lblPersonID.Text = "????????";
             // 

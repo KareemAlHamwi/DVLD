@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblPeopleManagement = new Label();
             btnAdd = new Button();
             btnClose = new Button();
@@ -93,11 +94,12 @@
             comPeopleColumns.DropDownStyle = ComboBoxStyle.DropDownList;
             comPeopleColumns.Font = new Font("Segoe UI", 13F);
             comPeopleColumns.FormattingEnabled = true;
+            comPeopleColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Birthdate", "Gender", "Phone", "Email", "Nationality" });
             comPeopleColumns.Location = new Point(131, 154);
             comPeopleColumns.Name = "comPeopleColumns";
             comPeopleColumns.Size = new Size(180, 31);
             comPeopleColumns.TabIndex = 5;
-            comPeopleColumns.SelectedIndexChanged += comPesonColumns_SelectedIndexChanged;
+            comPeopleColumns.SelectedIndexChanged += comPeopleColumns_SelectedIndexChanged;
             // 
             // lblRecords
             // 
@@ -116,19 +118,28 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(240, 31);
             txtSearch.TabIndex = 7;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // dataPeopleView
             // 
             dataPeopleView.BackgroundColor = Color.White;
-            dataPeopleView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataPeopleView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataPeopleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataPeopleView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 13F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataPeopleView.DefaultCellStyle = dataGridViewCellStyle2;
             dataPeopleView.Location = new Point(12, 191);
             dataPeopleView.Name = "dataPeopleView";
             dataPeopleView.ReadOnly = true;

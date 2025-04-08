@@ -62,11 +62,13 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void _SaveRestOfPersonData() {
             AddedOrEditedPerson.Birthdate = dateBirthdate.Value;
-            if (radFemale.Checked) {
+            if (radFemale.Checked)
                 AddedOrEditedPerson.Gender = enGender.Female;
-            }
+
             AddedOrEditedPerson.NationalityCountryID = comCountries.SelectedIndex;
-            AddedOrEditedPerson.ImagePath = _SelectedImagePath;
+
+            if (_SelectedImagePath != "")
+                AddedOrEditedPerson.ImagePath = _SelectedImagePath;
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
@@ -229,6 +231,8 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void linkRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
+            AddedOrEditedPerson.ImagePath = "";
+            _SelectedImagePath = "";
         }
     }
 }

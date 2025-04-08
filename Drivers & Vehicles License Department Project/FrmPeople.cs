@@ -1,4 +1,5 @@
 ﻿using DVLD_Business_Layer;
+using System.Data;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmPeople : Form {
@@ -8,8 +9,37 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         public FrmPeople() {
             InitializeComponent();
-            dataPeopleView.AutoGenerateColumns = true;
+            // dataPeopleView.AutoGenerateColumns = true;
             lblRecords.Text = "# Records : " + People.GetAllPeople().Rows.Count;
+            comPeopleColumns.Text = "Person ID";
+        }
+
+        private void _SetColumnsView() {
+            dataPeopleView.Columns[0].HeaderText = "Person ID";
+            dataPeopleView.Columns[0].Width = 100;
+            dataPeopleView.Columns[1].HeaderText = "National No.";
+            dataPeopleView.Columns[1].Width = 130;
+            dataPeopleView.Columns[2].HeaderText = "First Name";
+            dataPeopleView.Columns[2].Width = 130;
+            dataPeopleView.Columns[3].HeaderText = "Second Name";
+            dataPeopleView.Columns[3].Width = 130;
+            dataPeopleView.Columns[4].HeaderText = "Third Name";
+            dataPeopleView.Columns[4].Width = 130;
+            dataPeopleView.Columns[5].HeaderText = "Last Name";
+            dataPeopleView.Columns[5].Width = 130;
+            dataPeopleView.Columns[6].HeaderText = "Birthdate";
+            dataPeopleView.Columns[6].Width = 130;
+            dataPeopleView.Columns[7].HeaderText = "Gender";
+            dataPeopleView.Columns[7].Width = 130;
+            dataPeopleView.Columns[8].Visible = false;
+            dataPeopleView.Columns[9].HeaderText = "Phone";
+            dataPeopleView.Columns[9].Width = 130;
+            dataPeopleView.Columns[10].HeaderText = "Email";
+            dataPeopleView.Columns[10].Width = 130;
+            dataPeopleView.Columns[11].HeaderText = "Nationality";
+            dataPeopleView.Columns[11].Width = 130;
+            dataPeopleView.Columns[12].Visible = false;
+            dataPeopleView.Columns[13].Visible = false;
         }
 
         private void _RefreshDataGrid() {
@@ -17,7 +47,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblRecords.Text = "# Records : " + People.GetAllPeople().Rows.Count;
         }
 
-        private void comPesonColumns_SelectedIndexChanged(object sender, EventArgs e) {
+        private void comPeopleColumns_SelectedIndexChanged(object sender, EventArgs e) {
             string Selected = comPeopleColumns.SelectedItem as string ?? "";
 
             //TODO: dataPersonView and txtSearch here
@@ -146,10 +176,10 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (MessageBox.Show($"Are you sure want to delete Person with PersonID ({SelectedPerson.PersonID})?","Delete",MessageBoxButtons.OKCancel) == DialogResult.OK) {
-            People.DeletePerson(SelectedPerson.PersonID);
-            FrmPopup.ShowPopup("Deleted Successfully!");
-            _RefreshDataGrid();
+            if (MessageBox.Show($"Are you sure want to delete Person with PersonID ({SelectedPerson.PersonID})?", "Delete", MessageBoxButtons.OKCancel) == DialogResult.OK) {
+                People.DeletePerson(SelectedPerson.PersonID);
+                FrmPopup.ShowPopup("Deleted Successfully!");
+                _RefreshDataGrid();
             }
         }
 
@@ -163,6 +193,11 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void FrmPeople_Load(object sender, EventArgs e) {
             _RefreshDataGrid();
+            _SetColumnsView();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e) {
+            // DataView dataView = new DataVie
         }
     }
 }
