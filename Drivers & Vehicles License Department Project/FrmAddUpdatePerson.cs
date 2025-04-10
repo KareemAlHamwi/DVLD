@@ -2,6 +2,9 @@
 
 namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmAddUpdatePerson : Form {
+        public delegate void DataBackEventHandler(object sender, People person);
+        public event DataBackEventHandler DataBack;
+
         public FrmAddUpdatePerson(enMode mode, People? SelectedPerson = null) {
             InitializeComponent();
             if (mode == enMode.AddNew)
@@ -19,6 +22,10 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblAddUpdatePerson.Text = "Edit Person";
             ctrlAddUpdatePerson1.SetPersonData(SelectedPerson);
             lblPersonID.Text = Convert.ToString(SelectedPerson.PersonID);
+        }
+
+        private void FrmAddUpdatePerson_FormClosed(object sender, FormClosedEventArgs e) {
+            DataBack?.Invoke(this,ctrlAddUpdatePerson1.AddedOrEditedPerson);
         }
     }
 }

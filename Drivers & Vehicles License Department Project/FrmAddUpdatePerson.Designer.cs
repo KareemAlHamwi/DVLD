@@ -80,6 +80,7 @@
             Name = "FrmAddUpdatePerson";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add / Edit Person Info.";
+            FormClosed += FrmAddUpdatePerson_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

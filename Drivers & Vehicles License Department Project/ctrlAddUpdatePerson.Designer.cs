@@ -48,7 +48,7 @@
             label10 = new Label();
             btnSave = new Button();
             btnClose = new Button();
-            txtAdress = new TextBox();
+            txtAddress = new TextBox();
             txtEmail = new TextBox();
             txtPhone = new TextBox();
             txtNationalNo = new TextBox();
@@ -175,7 +175,7 @@
             groPersonInfo.Controls.Add(label10);
             groPersonInfo.Controls.Add(btnSave);
             groPersonInfo.Controls.Add(btnClose);
-            groPersonInfo.Controls.Add(txtAdress);
+            groPersonInfo.Controls.Add(txtAddress);
             groPersonInfo.Controls.Add(txtEmail);
             groPersonInfo.Controls.Add(txtPhone);
             groPersonInfo.Controls.Add(txtNationalNo);
@@ -246,7 +246,6 @@
             txtLastName.Size = new Size(170, 31);
             txtLastName.TabIndex = 4;
             txtLastName.KeyPress += txtLastName_KeyPress;
-            txtLastName.Validating += txtLastName_Validating;
             // 
             // txtThirdName
             // 
@@ -255,7 +254,6 @@
             txtThirdName.Size = new Size(170, 31);
             txtThirdName.TabIndex = 3;
             txtThirdName.KeyPress += txtThirdName_KeyPress;
-            txtThirdName.Validating += txtThirdName_Validating;
             // 
             // txtSecondName
             // 
@@ -264,7 +262,6 @@
             txtSecondName.Size = new Size(170, 31);
             txtSecondName.TabIndex = 2;
             txtSecondName.KeyPress += txtSecondName_KeyPress;
-            txtSecondName.Validating += txtSecondName_Validating;
             // 
             // label13
             // 
@@ -332,12 +329,11 @@
             // 
             // txtAdress
             // 
-            txtAdress.Location = new Point(134, 260);
-            txtAdress.Multiline = true;
-            txtAdress.Name = "txtAdress";
-            txtAdress.Size = new Size(530, 99);
-            txtAdress.TabIndex = 12;
-            txtAdress.Validating += txtAdress_Validating;
+            txtAddress.Location = new Point(134, 260);
+            txtAddress.Multiline = true;
+            txtAddress.Name = "txtAdress";
+            txtAddress.Size = new Size(530, 99);
+            txtAddress.TabIndex = 12;
             // 
             // txtEmail
             // 
@@ -345,7 +341,6 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(229, 31);
             txtEmail.TabIndex = 10;
-            txtEmail.Validating += txtEmail_Validating;
             // 
             // txtPhone
             // 
@@ -354,7 +349,6 @@
             txtPhone.Size = new Size(199, 31);
             txtPhone.TabIndex = 9;
             txtPhone.KeyPress += txtPhone_KeyPress;
-            txtPhone.Validating += txtPhone_Validating;
             // 
             // txtNationalNo
             // 
@@ -363,7 +357,6 @@
             txtNationalNo.Size = new Size(170, 31);
             txtNationalNo.TabIndex = 5;
             txtNationalNo.KeyPress += txtNationalNo_KeyPress;
-            txtNationalNo.Validating += txtNationalNo_Validating;
             // 
             // txtFirstName
             // 
@@ -372,7 +365,6 @@
             txtFirstName.Size = new Size(170, 31);
             txtFirstName.TabIndex = 1;
             txtFirstName.KeyPress += txtFirstName_KeyPress;
-            txtFirstName.Validating += txtFirstName_Validating;
             // 
             // linkRemoveImage
             // 
@@ -431,7 +423,7 @@
         private TextBox txtNationalNo;
         private TextBox txtPhone;
         private TextBox txtEmail;
-        private TextBox txtAdress;
+        private TextBox txtAddress;
         private Button btnClose;
         private Button btnSave;
         private Label label10;

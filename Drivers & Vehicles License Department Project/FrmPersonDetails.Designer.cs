@@ -32,7 +32,7 @@
             // 
             lblPeopleManagement.Font = new Font("Simple Bold Jut Out", 25F, FontStyle.Bold);
             lblPeopleManagement.ForeColor = Color.Red;
-            lblPeopleManagement.Location = new Point(250, 9);
+            lblPeopleManagement.Location = new Point(318, 9);
             lblPeopleManagement.Name = "lblPeopleManagement";
             lblPeopleManagement.Size = new Size(278, 57);
             lblPeopleManagement.TabIndex = 2;
@@ -41,7 +41,7 @@
             // btnClose
             // 
             btnClose.Font = new Font("Segoe UI", 15F);
-            btnClose.Location = new Point(666, 401);
+            btnClose.Location = new Point(835, 401);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(90, 37);
             btnClose.TabIndex = 5;
@@ -53,14 +53,14 @@
             // 
             ctrlCurrentPersonCard.Location = new Point(12, 55);
             ctrlCurrentPersonCard.Name = "ctrlCurrentPersonCard";
-            ctrlCurrentPersonCard.Size = new Size(749, 337);
+            ctrlCurrentPersonCard.Size = new Size(918, 337);
             ctrlCurrentPersonCard.TabIndex = 6;
             // 
             // FrmPersonDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(768, 450);
+            ClientSize = new Size(937, 450);
             Controls.Add(ctrlCurrentPersonCard);
             Controls.Add(btnClose);
             Controls.Add(lblPeopleManagement);

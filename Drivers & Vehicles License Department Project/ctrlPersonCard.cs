@@ -1,6 +1,5 @@
 ﻿using Drivers_And_Vehicles_License_Department_Project.Properties;
 using DVLD_Business_Layer;
-using System.Reflection;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class ctrlPersonCard : UserControl {
@@ -22,7 +21,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblGender.Text = CurrentPerson.Gender.ToString();
             lblNationalNo.Text = CurrentPerson.NationalNo;
             lblEmail.Text = CurrentPerson.Email;
-            lblAdress.Text = CurrentPerson.Address;
+            lblAddress.Text = CurrentPerson.Address;
             lblBirthdate.Text = CurrentPerson.Birthdate.ToShortDateString();
             lblPhone.Text = CurrentPerson.Phone;
             lblCountry.Text = CurrentPerson.NationalityCountryName;
@@ -39,11 +38,12 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void lilblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             PresentationSettings.aup = new FrmAddUpdatePerson(enMode.Update, CurrentPerson);
+            PresentationSettings.aup.DataBack += Aup_DataBack;
             PresentationSettings.aup.ShowDialog();
+        }
 
-            if (PresentationSettings.aup.IsDisposed) {
-                //FindForm?.Close();
-            }
+        private void Aup_DataBack(object sender, People person) {
+            SetPersonData(person);
         }
     }
 }

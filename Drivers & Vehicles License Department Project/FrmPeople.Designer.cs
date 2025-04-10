@@ -43,6 +43,7 @@
             toolStripSeparator2 = new ToolStripSeparator();
             sendEmailToolStripMenuItem = new ToolStripMenuItem();
             phoneCallToolStripMenuItem = new ToolStripMenuItem();
+            comSearchGender = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataPeopleView).BeginInit();
             cmsPeople.SuspendLayout();
             SuspendLayout();
@@ -209,12 +210,25 @@
             phoneCallToolStripMenuItem.Text = "Phone Call";
             phoneCallToolStripMenuItem.Click += phoneCallToolStripMenuItem_Click;
             // 
+            // comSearchGender
+            // 
+            comSearchGender.DropDownStyle = ComboBoxStyle.DropDownList;
+            comSearchGender.Font = new Font("Segoe UI", 13F);
+            comSearchGender.FormattingEnabled = true;
+            comSearchGender.Items.AddRange(new object[] { "Male", "Female" });
+            comSearchGender.Location = new Point(326, 154);
+            comSearchGender.Name = "comSearchGender";
+            comSearchGender.Size = new Size(180, 31);
+            comSearchGender.TabIndex = 9;
+            comSearchGender.SelectedIndexChanged += comSearchGender_SelectedIndexChanged;
+            // 
             // FrmPeople
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1484, 761);
+            Controls.Add(comSearchGender);
             Controls.Add(dataPeopleView);
             Controls.Add(txtSearch);
             Controls.Add(lblRecords);
@@ -255,5 +269,6 @@
         private ToolStripMenuItem phoneCallToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
+        private ComboBox comSearchGender;
     }
 }

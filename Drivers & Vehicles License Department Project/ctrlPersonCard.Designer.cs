@@ -30,7 +30,7 @@
             lblCountry = new Label();
             lblPhone = new Label();
             lblBirthdate = new Label();
-            lblAdress = new Label();
+            lblAddress = new Label();
             lblEmail = new Label();
             lblGender = new Label();
             lblNationalNo = new Label();
@@ -55,7 +55,7 @@
             groPersonInfo.Controls.Add(lblCountry);
             groPersonInfo.Controls.Add(lblPhone);
             groPersonInfo.Controls.Add(lblBirthdate);
-            groPersonInfo.Controls.Add(lblAdress);
+            groPersonInfo.Controls.Add(lblAddress);
             groPersonInfo.Controls.Add(lblEmail);
             groPersonInfo.Controls.Add(lblGender);
             groPersonInfo.Controls.Add(lblNationalNo);
@@ -72,7 +72,7 @@
             groPersonInfo.Font = new Font("Segoe UI", 13F);
             groPersonInfo.Location = new Point(3, 3);
             groPersonInfo.Name = "groPersonInfo";
-            groPersonInfo.Size = new Size(742, 330);
+            groPersonInfo.Size = new Size(908, 330);
             groPersonInfo.TabIndex = 2;
             groPersonInfo.TabStop = false;
             groPersonInfo.Text = "Person Information";
@@ -81,7 +81,7 @@
             // 
             picboxPersonalPhoto.BorderStyle = BorderStyle.FixedSingle;
             picboxPersonalPhoto.Image = (Image)resources.GetObject("picboxPersonalPhoto.Image");
-            picboxPersonalPhoto.Location = new Point(534, 68);
+            picboxPersonalPhoto.Location = new Point(704, 68);
             picboxPersonalPhoto.Name = "picboxPersonalPhoto";
             picboxPersonalPhoto.Size = new Size(189, 246);
             picboxPersonalPhoto.SizeMode = PictureBoxSizeMode.Zoom;
@@ -92,11 +92,11 @@
             // 
             lblName.AutoSize = true;
             lblName.Cursor = Cursors.SizeNESW;
-            lblName.Font = new Font("Simplified Arabic", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblName.Font = new Font("Simplified Arabic", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblName.ForeColor = Color.Red;
             lblName.Location = new Point(19, 52);
             lblName.Name = "lblName";
-            lblName.Size = new Size(140, 45);
+            lblName.Size = new Size(176, 56);
             lblName.TabIndex = 24;
             lblName.Text = "????????";
             // 
@@ -105,7 +105,7 @@
             lblCountry.AutoSize = true;
             lblCountry.Cursor = Cursors.SizeNESW;
             lblCountry.Font = new Font("Simplified Arabic", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCountry.Location = new Point(404, 206);
+            lblCountry.Location = new Point(482, 206);
             lblCountry.Name = "lblCountry";
             lblCountry.Size = new Size(86, 31);
             lblCountry.TabIndex = 23;
@@ -127,22 +127,22 @@
             lblBirthdate.AutoSize = true;
             lblBirthdate.Cursor = Cursors.SizeNESW;
             lblBirthdate.Font = new Font("Simplified Arabic", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBirthdate.Location = new Point(404, 172);
+            lblBirthdate.Location = new Point(482, 172);
             lblBirthdate.Name = "lblBirthdate";
             lblBirthdate.Size = new Size(86, 31);
             lblBirthdate.TabIndex = 21;
             lblBirthdate.Text = "????????";
             // 
-            // lblAdress
+            // lblAddress
             // 
-            lblAdress.AutoSize = true;
-            lblAdress.Cursor = Cursors.SizeNESW;
-            lblAdress.Font = new Font("Simplified Arabic", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAdress.Location = new Point(142, 274);
-            lblAdress.Name = "lblAdress";
-            lblAdress.Size = new Size(86, 31);
-            lblAdress.TabIndex = 20;
-            lblAdress.Text = "????????";
+            lblAddress.AutoSize = true;
+            lblAddress.Cursor = Cursors.SizeNESW;
+            lblAddress.Font = new Font("Simplified Arabic", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddress.Location = new Point(142, 274);
+            lblAddress.Name = "lblAddress";
+            lblAddress.Size = new Size(86, 31);
+            lblAddress.TabIndex = 20;
+            lblAddress.Text = "????????";
             // 
             // lblEmail
             // 
@@ -171,7 +171,7 @@
             lblNationalNo.AutoSize = true;
             lblNationalNo.Cursor = Cursors.SizeNESW;
             lblNationalNo.Font = new Font("Simplified Arabic", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNationalNo.Location = new Point(404, 135);
+            lblNationalNo.Location = new Point(482, 135);
             lblNationalNo.Name = "lblNationalNo";
             lblNationalNo.Size = new Size(86, 31);
             lblNationalNo.TabIndex = 17;
@@ -191,7 +191,7 @@
             // lilblEditPersonInfo
             // 
             lilblEditPersonInfo.AutoSize = true;
-            lilblEditPersonInfo.Location = new Point(563, 26);
+            lilblEditPersonInfo.Location = new Point(733, 26);
             lilblEditPersonInfo.Name = "lilblEditPersonInfo";
             lilblEditPersonInfo.Size = new Size(137, 25);
             lilblEditPersonInfo.TabIndex = 15;
@@ -226,7 +226,7 @@
             label7.AutoSize = true;
             label7.Cursor = Cursors.SizeNESW;
             label7.Font = new Font("Simplified Arabic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(252, 203);
+            label7.Location = new Point(330, 203);
             label7.Name = "label7";
             label7.Size = new Size(132, 34);
             label7.TabIndex = 11;
@@ -248,7 +248,7 @@
             label5.AutoSize = true;
             label5.Cursor = Cursors.SizeNESW;
             label5.Font = new Font("Simplified Arabic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(252, 169);
+            label5.Location = new Point(330, 169);
             label5.Name = "label5";
             label5.Size = new Size(137, 34);
             label5.TabIndex = 9;
@@ -270,7 +270,7 @@
             label3.AutoSize = true;
             label3.Cursor = Cursors.SizeNESW;
             label3.Font = new Font("Simplified Arabic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(252, 132);
+            label3.Location = new Point(330, 132);
             label3.Name = "label3";
             label3.Size = new Size(134, 34);
             label3.TabIndex = 7;
@@ -293,7 +293,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(groPersonInfo);
             Name = "ctrlPersonCard";
-            Size = new Size(750, 337);
+            Size = new Size(914, 337);
             groPersonInfo.ResumeLayout(false);
             groPersonInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picboxPersonalPhoto).EndInit();
@@ -315,7 +315,7 @@
         private Label lblNationalNo;
         private Label lblGender;
         private Label lblEmail;
-        private Label lblAdress;
+        private Label lblAddress;
         private Label lblBirthdate;
         private Label lblPhone;
         private Label lblCountry;

@@ -129,7 +129,7 @@ namespace DVLD_Data_Access_Layer {
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@PersonID",PersonID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
@@ -167,19 +167,20 @@ namespace DVLD_Data_Access_Layer {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"SELECT 
-                            PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, 
-                            DateOfBirth, 
-                            CASE 
-                                WHEN Gendor = 0 THEN 'Male' 
-                                WHEN Gendor = 1 THEN 'Female' 
-                                ELSE 'Unknown' 
-                            END AS Gender, 
-                            Address, Phone, Email, 
-                            Countries.CountryName AS NationalityCountryName, 
-                            ImagePath,NationalityCountryID
-                            FROM People  
-                            LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID";
+            string query = @"SELECT
+    PersonID AS 'Person ID', NationalNo as 'National No.', FirstName AS 'First Name', SecondName AS 'Second Name', ThirdName AS 'Third Name', LastName AS 'Last Name',
+    DateOfBirth AS 'Birthdate',
+    CASE 
+    WHEN Gendor = 0 THEN 'Male' 
+    WHEN Gendor = 1 THEN 'Female' 
+    ELSE 'Unknown' 
+END AS 'Gender',
+    Address, Phone, Email,
+    Countries.CountryName AS 'Nationality',
+    ImagePath, NationalityCountryID
+FROM People
+    LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID
+";
 
             SqlCommand command = new SqlCommand(query, connection);
 

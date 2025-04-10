@@ -41,7 +41,7 @@ namespace DVLD_Business_Layer {
         }
 
         public People(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
-            DateTime Birthdate, byte Gender, string Address, string Phone, string Email,
+            DateTime Birthdate, int Gender, string Address, string Phone, string Email,
             int NationalityCountryID ,string NationalityCountryName, string ImagePath) {
             this.PersonID = PersonID;
             this.NationalNo = NationalNo;
@@ -76,7 +76,7 @@ namespace DVLD_Business_Layer {
                 Email = "";
                 NationalityCountryID = -1;
                 ImagePath = "";
-                Mode = enMode.AddNew;
+                Mode = enMode.Update;
                 return;
             }
 
