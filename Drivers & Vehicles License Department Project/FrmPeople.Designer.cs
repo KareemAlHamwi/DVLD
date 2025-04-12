@@ -44,6 +44,7 @@
             sendEmailToolStripMenuItem = new ToolStripMenuItem();
             phoneCallToolStripMenuItem = new ToolStripMenuItem();
             comSearchGender = new ComboBox();
+            btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dataPeopleView).BeginInit();
             cmsPeople.SuspendLayout();
             SuspendLayout();
@@ -64,7 +65,7 @@
             btnAdd.Location = new Point(1402, 115);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(70, 70);
-            btnAdd.TabIndex = 2;
+            btnAdd.TabIndex = 4;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
@@ -75,7 +76,7 @@
             btnClose.Location = new Point(1352, 699);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(120, 50);
-            btnClose.TabIndex = 3;
+            btnClose.TabIndex = 6;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
@@ -99,7 +100,7 @@
             comPeopleColumns.Location = new Point(131, 154);
             comPeopleColumns.Name = "comPeopleColumns";
             comPeopleColumns.Size = new Size(180, 31);
-            comPeopleColumns.TabIndex = 5;
+            comPeopleColumns.TabIndex = 1;
             comPeopleColumns.SelectedIndexChanged += comPeopleColumns_SelectedIndexChanged;
             // 
             // lblRecords
@@ -118,8 +119,9 @@
             txtSearch.Location = new Point(326, 154);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(240, 31);
-            txtSearch.TabIndex = 7;
+            txtSearch.TabIndex = 2;
             txtSearch.TextChanged += txtSearch_TextChanged;
+            txtSearch.KeyPress += txtSearch_KeyPress;
             // 
             // dataPeopleView
             // 
@@ -146,7 +148,7 @@
             dataPeopleView.ReadOnly = true;
             dataPeopleView.ScrollBars = ScrollBars.Vertical;
             dataPeopleView.Size = new Size(1460, 500);
-            dataPeopleView.TabIndex = 8;
+            dataPeopleView.TabIndex = 0;
             dataPeopleView.CellClick += dataPersonsView_CellClick;
             dataPeopleView.CellMouseDown += dataPersonsView_CellMouseDown;
             // 
@@ -219,8 +221,19 @@
             comSearchGender.Location = new Point(326, 154);
             comSearchGender.Name = "comSearchGender";
             comSearchGender.Size = new Size(180, 31);
-            comSearchGender.TabIndex = 9;
+            comSearchGender.TabIndex = 3;
             comSearchGender.SelectedIndexChanged += comSearchGender_SelectedIndexChanged;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Font = new Font("Segoe UI", 15F);
+            btnRefresh.Location = new Point(1226, 699);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(120, 50);
+            btnRefresh.TabIndex = 5;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // FrmPeople
             // 
@@ -228,6 +241,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1484, 761);
+            Controls.Add(btnRefresh);
             Controls.Add(comSearchGender);
             Controls.Add(dataPeopleView);
             Controls.Add(txtSearch);
@@ -270,5 +284,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private ComboBox comSearchGender;
+        private Button btnRefresh;
     }
 }

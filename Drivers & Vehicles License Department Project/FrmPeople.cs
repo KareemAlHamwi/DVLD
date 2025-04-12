@@ -21,10 +21,9 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             comSearchGender.Visible = false;
         }
 
-
         private void _SetColumnsView() {
             dataPeopleView.Columns[0].HeaderText = "Person ID";
-            dataPeopleView.Columns[0].Width = 110;
+            dataPeopleView.Columns[0].Width = 120;
             dataPeopleView.Columns[1].HeaderText = "National No.";
             dataPeopleView.Columns[1].Width = 130;
             dataPeopleView.Columns[2].HeaderText = "First Name";
@@ -60,85 +59,40 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         private void comPeopleColumns_SelectedIndexChanged(object sender, EventArgs e) {
             string Selected = comPeopleColumns.SelectedItem as string ?? "";
 
-            //TODO: dataPersonView and txtSearch here
             switch (Selected) {
                 case "Person ID":
-                    txtSearch.Visible = true;
-                    comSearchGender.Visible = false;
-                    System.Console.WriteLine("Person ID");
-                    txtSearch.Text = "";
-                    break;
-
                 case "National No.":
-                    txtSearch.Visible = true;
-                    comSearchGender.Visible = false;
-                    System.Console.WriteLine("National No.");
-                    txtSearch.Text = "";
-                    break;
-
                 case "First Name":
-                    txtSearch.Visible = true;
-                    comSearchGender.Visible = false;
-                    System.Console.WriteLine("First Name");
-                    txtSearch.Text = "";
-                    break;
-
                 case "Second Name":
-                    txtSearch.Visible = true;
-                    comSearchGender.Visible = false;
-                    System.Console.WriteLine("Second Name");
-                    txtSearch.Text = "";
-                    break;
-
                 case "Third Name":
-                    txtSearch.Visible = true;
-                    comSearchGender.Visible = false;
-                    System.Console.WriteLine("Third Name");
-                    txtSearch.Text = "";
-                    break;
-
                 case "Last Name":
-                    txtSearch.Visible = true;
+                case "Nationality":
+                case "Phone":
+                txtSearch.Visible = true;
                     comSearchGender.Visible = false;
-                    System.Console.WriteLine("Last Name");
                     txtSearch.Text = "";
                     break;
 
                 case "Gender":
                     txtSearch.Visible = false;
                     comSearchGender.Visible = true;
-                    System.Console.WriteLine("Gender");
                     txtSearch.Text = "";
                     break;
 
                 case "Birthdate":
                     txtSearch.Visible = true;
                     comSearchGender.Visible = false;
-                    System.Console.WriteLine("Birthdate");
                     txtSearch.Text = "12/31/1990";
-                    break;
-
-                case "Nationality":
-                    txtSearch.Visible = true;
-                    comSearchGender.Visible = false;
-                    System.Console.WriteLine("Nationality");
-                    txtSearch.Text = "";
-                    break;
-
-                case "Phone":
-                    txtSearch.Visible = true;
-                    comSearchGender.Visible = false;
-                    System.Console.WriteLine("Phone");
-                    txtSearch.Text = "";
                     break;
 
                 case "Email":
                     txtSearch.Visible = true;
                     comSearchGender.Visible = false;
-                    System.Console.WriteLine("Email");
                     txtSearch.Text = "@";
                     break;
             }
+
+            _RefreshDataGrid();
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
@@ -215,8 +169,11 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
             if (MessageBox.Show($"Are you sure want to delete Person with PersonID ({SelectedPerson.PersonID})?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes) {
-                People.DeletePerson(SelectedPerson.PersonID);
-                FrmPopup.ShowPopup("Deleted Successfully!");
+                if (People.DeletePerson(SelectedPerson.PersonID))
+                    FrmPopup.ShowPopup("Deleted Successfully!");
+                else
+                    FrmPopup.ShowPopup("Couldn't Delete, Something Went Wrong ..");
+
                 _RefreshDataGrid();
             }
         }
@@ -243,19 +200,22 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
                 switch (selectedColumn) {
                     case "Person ID":
-                        filterExpression = $"CONVERT([Person ID], 'System.String') LIKE '%{searchText}%'";
-                        break;
-
                     case "Birthdate":
-                        filterExpression = $"CONVERT([Birthdate], 'System.String') LIKE '%{searchText}%'";
+                        filterExpression = $"CONVERT([{selectedColumn}], 'System.String') LIKE '%{searchText}%'";
                         break;
 
                     default:
-                        filterExpression = $"[{selectedColumn}] LIKE '%{comSearchGender.SelectedItem?.ToString()}%'";
+                        filterExpression = $"[{selectedColumn}] LIKE '%{searchText}%'";
                         break;
                 }
 
-                DvPeople.RowFilter = filterExpression;
+                try {
+                    DvPeople.RowFilter = filterExpression;
+                }
+                catch (EvaluateException ex) {
+                    Console.WriteLine("Filter error: " + ex.Message);
+                    DvPeople.RowFilter = string.Empty;
+                }
             }
             else {
                 DvPeople.RowFilter = string.Empty;
@@ -266,8 +226,44 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void comSearchGender_SelectedIndexChanged(object sender, EventArgs e) {
             string selectedColumn = comPeopleColumns.SelectedItem?.ToString();
+            string selectedGender = comSearchGender.SelectedItem?.ToString() ?? "";
 
-            DvPeople.RowFilter = $"[{selectedColumn}] LIKE '%{comSearchGender.SelectedItem?.ToString()}%'";
+            if (!string.IsNullOrWhiteSpace(selectedColumn) && !string.IsNullOrWhiteSpace(selectedGender)) {
+                DvPeople.RowFilter = $"[{selectedColumn}] = '{selectedGender}'";
+            }
+            else {
+                DvPeople.RowFilter = string.Empty;
+            }
+
+            lblRecords.Text = "# Records : " + DvPeople.Count;
+        }
+
+
+        private void btnRefresh_Click(object sender, EventArgs e) {
+            _RefreshDataGrid();
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
+            string selectedColumn = comPeopleColumns.SelectedItem as string ?? "";
+
+            switch (selectedColumn) {
+                case "Person ID":
+                case "Phone":
+                case "National No.":
+                    PresentationSettings.AllowOnlyDigits(e);
+                    break;
+
+                case "First Name":
+                case "Second Name":
+                case "Third Name":
+                case "Last Name":
+                case "Nationality":
+                    PresentationSettings.AllowOnlyLetters(e);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

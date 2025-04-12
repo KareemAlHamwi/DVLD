@@ -26,14 +26,22 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblPhone.Text = CurrentPerson.Phone;
             lblCountry.Text = CurrentPerson.NationalityCountryName;
 
-            if (!string.IsNullOrEmpty(CurrentPerson.ImagePath) && File.Exists(CurrentPerson.ImagePath)) {
-                using (var tempImage = Image.FromFile(CurrentPerson.ImagePath)) {
-                    picboxPersonalPhoto.Image = new Bitmap(tempImage);
+            if (!string.IsNullOrEmpty(CurrentPerson.ImagePath)) {
+                string imageFullPath = Path.Combine(Application.StartupPath, "Photos", CurrentPerson.ImagePath);
+
+                if (File.Exists(imageFullPath)) {
+                    using (var tempImage = Image.FromFile(imageFullPath)) {
+                        picboxPersonalPhoto.Image = new Bitmap(tempImage);
+                    }
+                }
+                else {
+                    picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
                 }
             }
             else {
-                picboxPersonalPhoto.Image = Resources.default_avatar;
+                picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
             }
+
         }
 
         private void lilblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {

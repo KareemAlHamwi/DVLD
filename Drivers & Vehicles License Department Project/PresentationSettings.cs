@@ -14,5 +14,17 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         public static void NotImplementedMessage() {
             FrmPopup.ShowPopup("Feature is not implemented yet!");
         }
+
+        public static void AllowOnlyLetters(KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ') {
+                e.Handled = true;
+            }
+        }
+
+        public static void AllowOnlyDigits(KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
     }
 }

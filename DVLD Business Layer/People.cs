@@ -18,7 +18,7 @@ namespace DVLD_Business_Layer {
         public string Phone { get; set; }
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
-        public string NationalityCountryName {get; set;}
+        public string NationalityCountryName { get; set; }
         public string ImagePath { get; set; }
 
         public People() {
@@ -42,7 +42,7 @@ namespace DVLD_Business_Layer {
 
         public People(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
             DateTime Birthdate, int Gender, string Address, string Phone, string Email,
-            int NationalityCountryID ,string NationalityCountryName, string ImagePath) {
+            int NationalityCountryID, string NationalityCountryName, string ImagePath) {
             this.PersonID = PersonID;
             this.NationalNo = NationalNo;
             this.FirstName = FirstName;
@@ -100,8 +100,8 @@ namespace DVLD_Business_Layer {
         private bool _AddNewPerson() {
             //call DataAccess Layer 
 
-            PersonID = DVLD_Data_Access_Layer.PeopleData.AddNewPerson(NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
-            Address,Phone,Email,NationalityCountryID,ImagePath);
+            PersonID = DVLD_Data_Access_Layer.PeopleData.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, (byte)Gender,
+            Address, Phone, Email, NationalityCountryID, ImagePath);
 
             return PersonID != -1;
         }
@@ -109,24 +109,24 @@ namespace DVLD_Business_Layer {
         private bool _UpdateContact() {
             //call DataAccess Layer 
 
-            return DVLD_Data_Access_Layer.PeopleData.UpdatePerson(PersonID,NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
-            Address,Phone,Email,NationalityCountryID,ImagePath);
+            return DVLD_Data_Access_Layer.PeopleData.UpdatePerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, (byte)Gender,
+            Address, Phone, Email, NationalityCountryID, ImagePath);
         }
 
         // public static People Find(int PersonID) {
-
-        //     string NationalNo = "", FirstName = "",SecondName = "",ThirdName = "", LastName = "", Address = "", Phone = "" ,Email = "", ImagePath = "" , NationalityCountryName = "";
+        //     string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "", NationalityCountryName = "";
         //     enGender Gender = enGender.Male;
         //     DateTime Birthdate = DateTime.Now;
         //     int NationalityCountryID = -1;
 
-        //     if (DVLD_Data_Access_Layer.PeopleData.GetPersonByID(PersonID,NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
-        //     Address,Phone,Email,NationalityCountryID,ImagePath))
-
-        //         return new People(PersonID,NationalNo,FirstName,SecondName,ThirdName, LastName,Birthdate,(byte)Gender,
-        //     Address,Phone,Email,NationalityCountryID,NationalityCountryName,ImagePath);
-        //     else
+        //     // Pass parameters by reference using the 'ref' keyword
+        //     if (DVLD_Data_Access_Layer.PeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Birthdate, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref NationalityCountryName, ref ImagePath)) {
+        //         return new People(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, (byte)Gender,
+        //             Address, Phone, Email, NationalityCountryID, NationalityCountryName, ImagePath);
+        //     }
+        //     else {
         //         return null;
+        //     }
         // }
 
         public bool Save() {

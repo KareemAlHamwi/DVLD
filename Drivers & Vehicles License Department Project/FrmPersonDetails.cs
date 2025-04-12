@@ -5,7 +5,6 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         public FrmPersonDetails(People Person) {
             InitializeComponent();
             ctrlCurrentPersonCard.SetPersonData(Person);
-
         }
 
         private void btnClose_Click(object sender, EventArgs e) {

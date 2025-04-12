@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Drivers_And_Vehicles_License_Department_Project.Properties;
 using DVLD_Business_Layer;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
@@ -46,9 +47,16 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             comCountries.SelectedIndex = AddedOrEditedPerson.NationalityCountryID;
             txtAddress.Text = AddedOrEditedPerson.Address;
 
-            if (!string.IsNullOrEmpty(AddedOrEditedPerson.ImagePath) && File.Exists(AddedOrEditedPerson.ImagePath)) {
-                using (var tempImage = Image.FromFile(AddedOrEditedPerson.ImagePath)) {
-                    picboxPersonalPhoto.Image = new Bitmap(tempImage);
+            if (!string.IsNullOrEmpty(AddedOrEditedPerson.ImagePath)) {
+                string imageFullPath = Path.Combine(Application.StartupPath, "Photos", AddedOrEditedPerson.ImagePath);
+
+                if (File.Exists(imageFullPath)) {
+                    using (var tempImage = Image.FromFile(imageFullPath)) {
+                        picboxPersonalPhoto.Image = new Bitmap(tempImage);
+                    }
+                }
+                else {
+                    picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
                 }
             }
             else {
@@ -161,41 +169,29 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             FindForm()?.Close();
         }
 
-        private void _AllowOnlyLetters(KeyPressEventArgs e) {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ') {
-                e.Handled = true;
-            }
-        }
-
-        private void _AllowOnlyDigits(KeyPressEventArgs e) {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
-                e.Handled = true;
-            }
-        }
-
         //* KeyPress Methods
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e) {
-            _AllowOnlyLetters(e);
+            PresentationSettings.AllowOnlyLetters(e);
         }
 
         private void txtSecondName_KeyPress(object sender, KeyPressEventArgs e) {
-            _AllowOnlyLetters(e);
+            PresentationSettings.AllowOnlyLetters(e);
         }
 
         private void txtThirdName_KeyPress(object sender, KeyPressEventArgs e) {
-            _AllowOnlyLetters(e);
+            PresentationSettings.AllowOnlyLetters(e);
         }
 
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e) {
-            _AllowOnlyLetters(e);
+            PresentationSettings.AllowOnlyLetters(e);
         }
 
         private void txtNationalNo_KeyPress(object sender, KeyPressEventArgs e) {
-            _AllowOnlyDigits(e);
+            PresentationSettings.AllowOnlyDigits(e);
         }
 
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e) {
-            _AllowOnlyDigits(e);
+            PresentationSettings.AllowOnlyDigits(e);
         }
 
         private void linkSetImageInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
@@ -204,8 +200,21 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
                 if (ofd.ShowDialog() == DialogResult.OK) {
-                    _SelectedImagePath = ofd.FileName;
-                    picboxPersonalPhoto.Image = Image.FromFile(ofd.FileName);
+                    string fileExtension = Path.GetExtension(ofd.FileName);
+                    string uniqueFileName = Guid.NewGuid().ToString() + fileExtension;
+
+                    string photosFolder = Path.Combine(Application.StartupPath, "Photos");
+
+                    if (!Directory.Exists(photosFolder))
+                        Directory.CreateDirectory(photosFolder);
+
+                    string newFilePath = Path.Combine(photosFolder, uniqueFileName);
+
+                    File.Copy(ofd.FileName, newFilePath);
+
+                    _SelectedImagePath = uniqueFileName;
+
+                    picboxPersonalPhoto.Image = Image.FromFile(newFilePath);
                 }
             }
         }

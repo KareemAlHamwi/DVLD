@@ -13,7 +13,5 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         public FrmUsers() {
             InitializeComponent();
         }
-
-
     }
 }
