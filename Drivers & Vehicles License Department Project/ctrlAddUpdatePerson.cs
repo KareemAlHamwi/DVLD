@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drivers_And_Vehicles_License_Department_Project.Properties;
@@ -14,12 +15,17 @@ namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class ctrlAddUpdatePerson : UserControl {
         public People AddedOrEditedPerson = new People();
         private string _SelectedImagePath = "";
+        private string _OldImagePath = "";
+        private bool _ImageChanged = false;
+        private bool _RemoveImage = false;
+
+        OpenFileDialog ofd;
+        string newFilePath;
 
         public ctrlAddUpdatePerson() {
             InitializeComponent();
             radMale.Checked = true;
             AddedOrEditedPerson.Gender = enGender.Male;
-            //* Syria = 169 .. Noice
             comCountries.SelectedIndex = 169;
             dateBirthdate.MaxDate = PresentationSettings.MaxDate;
             AutoValidate = AutoValidate.Disable;
@@ -49,6 +55,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
             if (!string.IsNullOrEmpty(AddedOrEditedPerson.ImagePath)) {
                 string imageFullPath = Path.Combine(Application.StartupPath, "Photos", AddedOrEditedPerson.ImagePath);
+                _OldImagePath = imageFullPath;
 
                 if (File.Exists(imageFullPath)) {
                     using (var tempImage = Image.FromFile(imageFullPath)) {
@@ -72,8 +79,40 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             AddedOrEditedPerson.NationalityCountryID = comCountries.SelectedIndex;
             AddedOrEditedPerson.NationalityCountryName = comCountries.SelectedItem.ToString();
 
-            if (_SelectedImagePath != "")
-                AddedOrEditedPerson.ImagePath = _SelectedImagePath;
+            if (_RemoveImage && !string.IsNullOrEmpty(_OldImagePath) && File.Exists(_OldImagePath)) {
+                try {
+                    File.Delete(_OldImagePath);
+                }
+                catch (Exception ex) {
+                    MessageBox.Show("Error deleting image: " + ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                AddedOrEditedPerson.ImagePath = "";
+                _OldImagePath = "";
+                _RemoveImage = false;
+            }
+
+            if (_ImageChanged && !string.IsNullOrEmpty(_SelectedImagePath)) {
+                if (!string.IsNullOrEmpty(_OldImagePath) && File.Exists(_OldImagePath)) {
+                    try {
+                        File.Delete(_OldImagePath);
+                    }
+                    catch (Exception ex) {
+                        MessageBox.Show("Error deleting old image: " + ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                try {
+                    File.Copy(ofd.FileName, newFilePath, overwrite: true);
+                    AddedOrEditedPerson.ImagePath = _SelectedImagePath;
+                }
+                catch (Exception ex) {
+                    MessageBox.Show("Error copying image: " + ex.Message, "Copy Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                _ImageChanged = false;
+                _OldImagePath = "";
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
@@ -82,7 +121,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private bool _ValidateAllInputs() {
             bool isValid = true;
-            errorProvider.Clear(); // clear old errors first
+            errorProvider.Clear();
 
             if (string.IsNullOrWhiteSpace(txtFirstName.Text)) {
                 errorProvider.SetError(txtFirstName, "First Name can't be empty!");
@@ -136,7 +175,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 errorProvider.SetError(txtEmail, "Email can't be empty!");
                 isValid = false;
             }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(txtEmail.Text, PresentationSettings.EmailPattern)) {
+            else if (!Regex.IsMatch(txtEmail.Text, PresentationSettings.EmailPattern)) {
                 errorProvider.SetError(txtEmail, "Please enter a valid email address.");
                 isValid = false;
             }
@@ -169,7 +208,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             FindForm()?.Close();
         }
 
-        //* KeyPress Methods
+        //* KeyPress Events
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e) {
             PresentationSettings.AllowOnlyLetters(e);
         }
@@ -195,7 +234,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void linkSetImageInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            using (OpenFileDialog ofd = new OpenFileDialog()) {
+            using (ofd = new OpenFileDialog()) {
                 ofd.Title = "Select Face ID Picture";
                 ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
@@ -203,25 +242,22 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                     string fileExtension = Path.GetExtension(ofd.FileName);
                     string uniqueFileName = Guid.NewGuid().ToString() + fileExtension;
 
-                    string photosFolder = Path.Combine(Application.StartupPath, "Photos");
-
-                    if (!Directory.Exists(photosFolder))
-                        Directory.CreateDirectory(photosFolder);
-
-                    string newFilePath = Path.Combine(photosFolder, uniqueFileName);
-
-                    File.Copy(ofd.FileName, newFilePath);
-
                     _SelectedImagePath = uniqueFileName;
+                    newFilePath = Path.Combine(Application.StartupPath, "Photos", uniqueFileName);
+                    _ImageChanged = true;
 
-                    picboxPersonalPhoto.Image = Image.FromFile(newFilePath);
+                    picboxPersonalPhoto.Image = Image.FromFile(ofd.FileName);
                 }
             }
         }
 
         private void linkRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            if (!string.IsNullOrWhiteSpace(AddedOrEditedPerson.ImagePath)) {
+                _OldImagePath = Path.Combine(Application.StartupPath, "Photos", AddedOrEditedPerson.ImagePath);
+                _RemoveImage = true;
+            }
+
             picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
-            AddedOrEditedPerson.ImagePath = "";
             _SelectedImagePath = "";
         }
     }
