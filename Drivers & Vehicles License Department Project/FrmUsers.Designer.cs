@@ -23,22 +23,253 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            btnRefresh = new Button();
+            phoneCallToolStripMenuItem = new ToolStripMenuItem();
+            sendEmailToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            addNewToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            comSearchGender = new ComboBox();
+            showDetailsToolStripMenuItem = new ToolStripMenuItem();
+            dataPeopleView = new DataGridView();
+            txtSearch = new TextBox();
+            lblRecords = new Label();
+            comUsersColumns = new ComboBox();
+            lblFilterBy = new Label();
+            btnClose = new Button();
+            btnAdd = new Button();
+            cmsPeople = new ContextMenuStrip(components);
+            lblUsersManagement = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataPeopleView).BeginInit();
+            cmsPeople.SuspendLayout();
             SuspendLayout();
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Font = new Font("Segoe UI", 15F);
+            btnRefresh.Location = new Point(926, 699);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(120, 50);
+            btnRefresh.TabIndex = 14;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // phoneCallToolStripMenuItem
+            // 
+            phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
+            phoneCallToolStripMenuItem.Size = new Size(216, 30);
+            phoneCallToolStripMenuItem.Text = "Phone Call";
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            sendEmailToolStripMenuItem.Size = new Size(216, 30);
+            sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.ForeColor = SystemColors.ControlText;
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(213, 6);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(216, 30);
+            deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(216, 30);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // addNewToolStripMenuItem
+            // 
+            addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
+            addNewToolStripMenuItem.Size = new Size(216, 30);
+            addNewToolStripMenuItem.Text = "Add New Person";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(213, 6);
+            // 
+            // comSearchGender
+            // 
+            comSearchGender.DropDownStyle = ComboBoxStyle.DropDownList;
+            comSearchGender.Font = new Font("Segoe UI", 13F);
+            comSearchGender.FormattingEnabled = true;
+            comSearchGender.Items.AddRange(new object[] { "Male", "Female" });
+            comSearchGender.Location = new Point(326, 155);
+            comSearchGender.Name = "comSearchGender";
+            comSearchGender.Size = new Size(180, 31);
+            comSearchGender.TabIndex = 11;
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            showDetailsToolStripMenuItem.Size = new Size(216, 30);
+            showDetailsToolStripMenuItem.Text = "Show Details";
+            // 
+            // dataPeopleView
+            // 
+            dataPeopleView.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataPeopleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataPeopleView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 13F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataPeopleView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataPeopleView.Location = new Point(12, 192);
+            dataPeopleView.Name = "dataPeopleView";
+            dataPeopleView.ReadOnly = true;
+            dataPeopleView.ScrollBars = ScrollBars.Vertical;
+            dataPeopleView.Size = new Size(1160, 500);
+            dataPeopleView.TabIndex = 7;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 13F);
+            txtSearch.Location = new Point(326, 155);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(240, 31);
+            txtSearch.TabIndex = 10;
+            // 
+            // lblRecords
+            // 
+            lblRecords.AutoSize = true;
+            lblRecords.Font = new Font("Segoe UI", 20F);
+            lblRecords.Location = new Point(12, 708);
+            lblRecords.Name = "lblRecords";
+            lblRecords.Size = new Size(168, 37);
+            lblRecords.TabIndex = 15;
+            lblRecords.Text = "# Records : 0";
+            // 
+            // comUsersColumns
+            // 
+            comUsersColumns.DropDownStyle = ComboBoxStyle.DropDownList;
+            comUsersColumns.Font = new Font("Segoe UI", 13F);
+            comUsersColumns.FormattingEnabled = true;
+            comUsersColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Birthdate", "Gender", "Phone", "Email", "Nationality" });
+            comUsersColumns.Location = new Point(140, 155);
+            comUsersColumns.Name = "comUsersColumns";
+            comUsersColumns.Size = new Size(180, 31);
+            comUsersColumns.TabIndex = 9;
+            // 
+            // lblFilterBy
+            // 
+            lblFilterBy.AutoSize = true;
+            lblFilterBy.Font = new Font("Segoe UI", 20F);
+            lblFilterBy.Location = new Point(12, 149);
+            lblFilterBy.Name = "lblFilterBy";
+            lblFilterBy.Size = new Size(124, 37);
+            lblFilterBy.TabIndex = 12;
+            lblFilterBy.Text = "Filter By :";
+            // 
+            // btnClose
+            // 
+            btnClose.Font = new Font("Segoe UI", 15F);
+            btnClose.Location = new Point(1052, 699);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(120, 50);
+            btnClose.TabIndex = 16;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Font = new Font("Segoe UI", 15F);
+            btnAdd.Location = new Point(1102, 116);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(70, 70);
+            btnAdd.TabIndex = 13;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // cmsPeople
+            // 
+            cmsPeople.Font = new Font("Segoe UI", 13F);
+            cmsPeople.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, toolStripSeparator1, addNewToolStripMenuItem, editToolStripMenuItem, deleteToolStripMenuItem, toolStripSeparator2, sendEmailToolStripMenuItem, phoneCallToolStripMenuItem });
+            cmsPeople.Name = "cmsPeople";
+            cmsPeople.Size = new Size(217, 196);
+            // 
+            // lblUsersManagement
+            // 
+            lblUsersManagement.Font = new Font("Simple Bold Jut Out", 50F, FontStyle.Bold);
+            lblUsersManagement.ForeColor = Color.Red;
+            lblUsersManagement.Location = new Point(251, 9);
+            lblUsersManagement.Name = "lblUsersManagement";
+            lblUsersManagement.Size = new Size(696, 98);
+            lblUsersManagement.TabIndex = 8;
+            lblUsersManagement.Text = "Users Management";
             // 
             // FrmUsers
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.White;
+            ClientSize = new Size(1184, 761);
+            Controls.Add(btnRefresh);
+            Controls.Add(comSearchGender);
+            Controls.Add(dataPeopleView);
+            Controls.Add(txtSearch);
+            Controls.Add(lblRecords);
+            Controls.Add(comUsersColumns);
+            Controls.Add(lblFilterBy);
+            Controls.Add(btnClose);
+            Controls.Add(btnAdd);
+            Controls.Add(lblUsersManagement);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmUsers";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Users Management";
+            ((System.ComponentModel.ISupportInitialize)dataPeopleView).EndInit();
+            cmsPeople.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button btnRefresh;
+        private ToolStripMenuItem phoneCallToolStripMenuItem;
+        private ToolStripMenuItem sendEmailToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem addNewToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ComboBox comSearchGender;
+        private ToolStripMenuItem showDetailsToolStripMenuItem;
+        private DataGridView dataPeopleView;
+        private TextBox txtSearch;
+        private Label lblRecords;
+        private ComboBox comUsersColumns;
+        private Label lblFilterBy;
+        private Button btnClose;
+        private Button btnAdd;
+        private ContextMenuStrip cmsPeople;
+        private Label lblUsersManagement;
     }
 }

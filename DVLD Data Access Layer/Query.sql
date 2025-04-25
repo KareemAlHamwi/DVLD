@@ -30,3 +30,7 @@ END AS 'Gender',
     ImagePath, NationalityCountryID
 FROM People
     LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID
+
+
+SELECT * FROM Users
+

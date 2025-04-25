@@ -107,7 +107,7 @@
             // 
             lblRecords.AutoSize = true;
             lblRecords.Font = new Font("Segoe UI", 20F);
-            lblRecords.Location = new Point(12, 710);
+            lblRecords.Location = new Point(12, 712);
             lblRecords.Name = "lblRecords";
             lblRecords.Size = new Size(168, 37);
             lblRecords.TabIndex = 6;
