@@ -106,7 +106,7 @@ namespace DVLD_Business_Layer {
             return PersonID != -1;
         }
 
-        private bool _UpdateContact() {
+        private bool _UpdatePerson() {
             //call DataAccess Layer 
 
             return DVLD_Data_Access_Layer.PeopleData.UpdatePerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, (byte)Gender,
@@ -140,7 +140,7 @@ namespace DVLD_Business_Layer {
                         return false;
                     }
                 case enMode.Update:
-                    return _UpdateContact();
+                    return _UpdatePerson();
             }
 
             return false;

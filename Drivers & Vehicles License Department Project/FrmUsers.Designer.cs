@@ -36,7 +36,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             comSearchGender = new ComboBox();
             showDetailsToolStripMenuItem = new ToolStripMenuItem();
-            dataPeopleView = new DataGridView();
+            dataUsersView = new DataGridView();
             txtSearch = new TextBox();
             lblRecords = new Label();
             comUsersColumns = new ComboBox();
@@ -45,7 +45,7 @@
             btnAdd = new Button();
             cmsPeople = new ContextMenuStrip(components);
             lblUsersManagement = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataPeopleView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataUsersView).BeginInit();
             cmsPeople.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             btnRefresh.TabIndex = 14;
             btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // phoneCallToolStripMenuItem
             // 
@@ -110,6 +111,7 @@
             comSearchGender.Name = "comSearchGender";
             comSearchGender.Size = new Size(180, 31);
             comSearchGender.TabIndex = 11;
+            comSearchGender.SelectedIndexChanged += comSearchGender_SelectedIndexChanged;
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -119,7 +121,7 @@
             // 
             // dataPeopleView
             // 
-            dataPeopleView.BackgroundColor = Color.White;
+            dataUsersView.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
@@ -127,8 +129,8 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataPeopleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataPeopleView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataUsersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataUsersView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 13F);
@@ -136,13 +138,13 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataPeopleView.DefaultCellStyle = dataGridViewCellStyle2;
-            dataPeopleView.Location = new Point(12, 192);
-            dataPeopleView.Name = "dataPeopleView";
-            dataPeopleView.ReadOnly = true;
-            dataPeopleView.ScrollBars = ScrollBars.Vertical;
-            dataPeopleView.Size = new Size(1160, 500);
-            dataPeopleView.TabIndex = 7;
+            dataUsersView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataUsersView.Location = new Point(12, 192);
+            dataUsersView.Name = "dataPeopleView";
+            dataUsersView.ReadOnly = true;
+            dataUsersView.ScrollBars = ScrollBars.Vertical;
+            dataUsersView.Size = new Size(1160, 500);
+            dataUsersView.TabIndex = 7;
             // 
             // txtSearch
             // 
@@ -151,6 +153,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(240, 31);
             txtSearch.TabIndex = 10;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // lblRecords
             // 
@@ -172,6 +175,7 @@
             comUsersColumns.Name = "comUsersColumns";
             comUsersColumns.Size = new Size(180, 31);
             comUsersColumns.TabIndex = 9;
+            comUsersColumns.SelectedIndexChanged += comUsersColumns_SelectedIndexChanged;
             // 
             // lblFilterBy
             // 
@@ -230,7 +234,7 @@
             ClientSize = new Size(1184, 761);
             Controls.Add(btnRefresh);
             Controls.Add(comSearchGender);
-            Controls.Add(dataPeopleView);
+            Controls.Add(dataUsersView);
             Controls.Add(txtSearch);
             Controls.Add(lblRecords);
             Controls.Add(comUsersColumns);
@@ -244,7 +248,8 @@
             Name = "FrmUsers";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Users Management";
-            ((System.ComponentModel.ISupportInitialize)dataPeopleView).EndInit();
+            Load += FrmUsers_Load;
+            ((System.ComponentModel.ISupportInitialize)dataUsersView).EndInit();
             cmsPeople.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -262,7 +267,7 @@
         private ToolStripSeparator toolStripSeparator1;
         private ComboBox comSearchGender;
         private ToolStripMenuItem showDetailsToolStripMenuItem;
-        private DataGridView dataPeopleView;
+        private DataGridView dataUsersView;
         private TextBox txtSearch;
         private Label lblRecords;
         private ComboBox comUsersColumns;

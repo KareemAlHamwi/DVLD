@@ -32,5 +32,24 @@ FROM People
     LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID
 
 
-SELECT * FROM Users
+SELECT *
+FROM Users
 
+DELETE From Users WHERE UserID = 18
+
+SELECT *
+FROM Users
+WHERE PersonID = 1
+
+SELECT *
+FROM Users
+WHERE UserID = 20
+
+SELECT
+    u.UserID AS 'User ID',
+    u.PersonID AS 'Person ID',
+    CONCAT_WS(' ', p.FirstName, p.SecondName, p.ThirdName, p.LastName) AS 'Full Name',
+    u.UserName,
+    u.IsActive AS 'Is Active'
+FROM Users u
+    LEFT JOIN People p ON p.PersonID = u.PersonID
