@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             btnRefresh = new Button();
             phoneCallToolStripMenuItem = new ToolStripMenuItem();
             sendEmailToolStripMenuItem = new ToolStripMenuItem();
@@ -43,10 +43,11 @@
             lblFilterBy = new Label();
             btnClose = new Button();
             btnAdd = new Button();
-            cmsPeople = new ContextMenuStrip(components);
+            cmsUsers = new ContextMenuStrip(components);
+            changePasswordToolStripMenuItem = new ToolStripMenuItem();
             lblUsersManagement = new Label();
             ((System.ComponentModel.ISupportInitialize)dataUsersView).BeginInit();
-            cmsPeople.SuspendLayout();
+            cmsUsers.SuspendLayout();
             SuspendLayout();
             // 
             // btnRefresh
@@ -63,43 +64,48 @@
             // phoneCallToolStripMenuItem
             // 
             phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            phoneCallToolStripMenuItem.Size = new Size(216, 30);
+            phoneCallToolStripMenuItem.Size = new Size(224, 30);
             phoneCallToolStripMenuItem.Text = "Phone Call";
+            phoneCallToolStripMenuItem.Click += phoneCallToolStripMenuItem_Click;
             // 
             // sendEmailToolStripMenuItem
             // 
             sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            sendEmailToolStripMenuItem.Size = new Size(216, 30);
+            sendEmailToolStripMenuItem.Size = new Size(224, 30);
             sendEmailToolStripMenuItem.Text = "Send Email";
+            sendEmailToolStripMenuItem.Click += sendEmailToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.ForeColor = SystemColors.ControlText;
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(213, 6);
+            toolStripSeparator2.Size = new Size(221, 6);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(216, 30);
+            deleteToolStripMenuItem.Size = new Size(224, 30);
             deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(216, 30);
+            editToolStripMenuItem.Size = new Size(224, 30);
             editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // addNewToolStripMenuItem
             // 
             addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
-            addNewToolStripMenuItem.Size = new Size(216, 30);
-            addNewToolStripMenuItem.Text = "Add New Person";
+            addNewToolStripMenuItem.Size = new Size(224, 30);
+            addNewToolStripMenuItem.Text = "Add New User";
+            addNewToolStripMenuItem.Click += addNewToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(213, 6);
+            toolStripSeparator1.Size = new Size(221, 6);
             // 
             // comSearchGender
             // 
@@ -116,35 +122,38 @@
             // showDetailsToolStripMenuItem
             // 
             showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            showDetailsToolStripMenuItem.Size = new Size(216, 30);
+            showDetailsToolStripMenuItem.Size = new Size(224, 30);
             showDetailsToolStripMenuItem.Text = "Show Details";
+            showDetailsToolStripMenuItem.Click += showDetailsToolStripMenuItem_Click;
             // 
-            // dataPeopleView
+            // dataUsersView
             // 
             dataUsersView.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataUsersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.Control;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dataUsersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dataUsersView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 13F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataUsersView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Window;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 13F);
+            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dataUsersView.DefaultCellStyle = dataGridViewCellStyle12;
             dataUsersView.Location = new Point(12, 192);
-            dataUsersView.Name = "dataPeopleView";
+            dataUsersView.Name = "dataUsersView";
             dataUsersView.ReadOnly = true;
             dataUsersView.ScrollBars = ScrollBars.Vertical;
             dataUsersView.Size = new Size(1160, 500);
             dataUsersView.TabIndex = 7;
+            dataUsersView.CellClick += dataUsersView_CellClick;
+            dataUsersView.CellMouseDown += dataUsersView_CellMouseDown;
             // 
             // txtSearch
             // 
@@ -170,7 +179,7 @@
             comUsersColumns.DropDownStyle = ComboBoxStyle.DropDownList;
             comUsersColumns.Font = new Font("Segoe UI", 13F);
             comUsersColumns.FormattingEnabled = true;
-            comUsersColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Birthdate", "Gender", "Phone", "Email", "Nationality" });
+            comUsersColumns.Items.AddRange(new object[] { "User ID", "Person ID", "UserName", "Full Name", "IsActive" });
             comUsersColumns.Location = new Point(140, 155);
             comUsersColumns.Name = "comUsersColumns";
             comUsersColumns.Size = new Size(180, 31);
@@ -209,12 +218,19 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
-            // cmsPeople
+            // cmsUsers
             // 
-            cmsPeople.Font = new Font("Segoe UI", 13F);
-            cmsPeople.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, toolStripSeparator1, addNewToolStripMenuItem, editToolStripMenuItem, deleteToolStripMenuItem, toolStripSeparator2, sendEmailToolStripMenuItem, phoneCallToolStripMenuItem });
-            cmsPeople.Name = "cmsPeople";
-            cmsPeople.Size = new Size(217, 196);
+            cmsUsers.Font = new Font("Segoe UI", 13F);
+            cmsUsers.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, toolStripSeparator1, addNewToolStripMenuItem, editToolStripMenuItem, deleteToolStripMenuItem, changePasswordToolStripMenuItem, toolStripSeparator2, sendEmailToolStripMenuItem, phoneCallToolStripMenuItem });
+            cmsUsers.Name = "cmsPeople";
+            cmsUsers.Size = new Size(225, 248);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            changePasswordToolStripMenuItem.Size = new Size(224, 30);
+            changePasswordToolStripMenuItem.Text = "Change Password";
+            changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
             // 
             // lblUsersManagement
             // 
@@ -250,7 +266,7 @@
             Text = "Users Management";
             Load += FrmUsers_Load;
             ((System.ComponentModel.ISupportInitialize)dataUsersView).EndInit();
-            cmsPeople.ResumeLayout(false);
+            cmsUsers.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -274,7 +290,8 @@
         private Label lblFilterBy;
         private Button btnClose;
         private Button btnAdd;
-        private ContextMenuStrip cmsPeople;
+        private ContextMenuStrip cmsUsers;
         private Label lblUsersManagement;
+        private ToolStripMenuItem changePasswordToolStripMenuItem;
     }
 }

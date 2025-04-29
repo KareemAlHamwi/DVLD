@@ -7,7 +7,13 @@
     <Compile Update="ctrlPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="ctrlPersonCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="FrmAddUpdatePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAddUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmPeople.cs">

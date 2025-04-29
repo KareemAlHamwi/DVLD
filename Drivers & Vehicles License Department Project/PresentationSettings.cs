@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Drivers___Vehicles_License_Department_Project;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         public static DateTime MaxDate = DateTime.Now.AddYears(-18);
         public static FrmPersonDetails pd;
         public static FrmAddUpdatePerson aup;
+        public static FrmAddUpdateUser auu;
 
         public static void NotImplementedMessage() {
             FrmPopup.ShowPopup("Feature is not implemented yet!");

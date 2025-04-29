@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Drivers___Vehicles_License_Department_Project;
 using DVLD_Business_Layer;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
@@ -40,13 +41,9 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
-            // Users user = new Users();
-
-            // user.PersonID = 2045;
-            // user.UserName = "Kareem";
-            // user.Password = "1344";
-            // user.IsActive = true;
-            // user.AddNewUser();
+            PresentationSettings.auu = new FrmAddUpdateUser();
+            PresentationSettings.auu.ShowDialog();
+            _RefreshDataGrid();
         }
 
         private void comUsersColumns_SelectedIndexChanged(object sender, EventArgs e) {
@@ -62,12 +59,61 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void btnRefresh_Click(object sender, EventArgs e) {
-
+            _RefreshDataGrid();
         }
 
         private void FrmUsers_Load(object sender, EventArgs e) {
             _RefreshDataGrid();
             _SetColumnsView();
+        }
+
+        private void _SelectWholeRow(int RowIndex) {
+            dataUsersView.ClearSelection();
+            dataUsersView.Rows[RowIndex].Selected = true;
+        }
+
+        private void dataUsersView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0) {
+                _SelectWholeRow(e.RowIndex);
+                // _FillSelectedPerson(e.RowIndex);
+                cmsUsers.Show(dataUsersView, dataUsersView.PointToClient(Cursor.Position));
+            }
+        }
+
+        private void dataUsersView_CellClick(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex >= 0) {
+                _SelectWholeRow(e.RowIndex);
+            }
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void addNewToolStripMenuItem_Click(object sender, EventArgs e) {
+            PresentationSettings.auu = new FrmAddUpdateUser();
+            PresentationSettings.auu.ShowDialog();
+            _RefreshDataGrid();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e) {
+            PresentationSettings.NotImplementedMessage();
+        }
+
+        private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e) {
+            PresentationSettings.NotImplementedMessage();
         }
     }
 }
