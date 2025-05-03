@@ -31,6 +31,7 @@
             // 
             // ctrlAddUpdatePerson1
             // 
+            ctrlAddUpdatePerson1.AutoValidate = AutoValidate.Disable;
             ctrlAddUpdatePerson1.Location = new Point(12, 81);
             ctrlAddUpdatePerson1.Name = "ctrlAddUpdatePerson1";
             ctrlAddUpdatePerson1.Size = new Size(899, 428);
@@ -77,6 +78,9 @@
             Controls.Add(lblPersonID);
             Controls.Add(label1);
             Controls.Add(ctrlAddUpdatePerson1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmAddUpdatePerson";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add / Edit Person Info.";

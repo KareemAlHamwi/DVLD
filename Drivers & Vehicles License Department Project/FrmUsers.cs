@@ -16,7 +16,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             dataUsersView.DataSource = DvUsers;
 
             lblRecords.Text = "# Records : " + UsersTable.Rows.Count;
-            comUsersColumns.Text = "UserID";
+            comUsersColumns.Text = "User ID";
             dataUsersView.AllowUserToAddRows = false;
             comSearchGender.Visible = false;
         }
@@ -41,7 +41,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
-            PresentationSettings.auu = new FrmAddUpdateUser();
+            PresentationSettings.auu = new FrmAddUpdateUser(enMode.AddNew);
             PresentationSettings.auu.ShowDialog();
             _RefreshDataGrid();
         }
@@ -91,13 +91,15 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e) {
-            PresentationSettings.auu = new FrmAddUpdateUser();
+            PresentationSettings.auu = new FrmAddUpdateUser(enMode.AddNew);
             PresentationSettings.auu.ShowDialog();
             _RefreshDataGrid();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            PresentationSettings.auu = new FrmAddUpdateUser(enMode.Update);
+            PresentationSettings.auu.ShowDialog();
+            _RefreshDataGrid();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {

@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             tabControl = new TabControl();
             tabPage1 = new TabPage();
-            ctrlPersonCardWithFilter1 = new ctrlPersonCardWithFilter();
+            ctrlPersonInfoWithFilter = new ctrlPersonCardWithFilter();
             btnNext = new Button();
             tabPage2 = new TabPage();
             textBox3 = new TextBox();
@@ -58,7 +58,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(ctrlPersonCardWithFilter1);
+            tabPage1.Controls.Add(ctrlPersonInfoWithFilter);
             tabPage1.Controls.Add(btnNext);
             tabPage1.Location = new Point(4, 32);
             tabPage1.Name = "tabPage1";
@@ -68,12 +68,12 @@
             tabPage1.Text = "Personal Info";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ctrlPersonCardWithFilter1
+            // ctrlPersonInfoWithFilter
             // 
-            ctrlPersonCardWithFilter1.Location = new Point(6, 6);
-            ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            ctrlPersonCardWithFilter1.Size = new Size(921, 460);
-            ctrlPersonCardWithFilter1.TabIndex = 24;
+            ctrlPersonInfoWithFilter.Location = new Point(6, 6);
+            ctrlPersonInfoWithFilter.Name = "ctrlPersonInfoWithFilter";
+            ctrlPersonInfoWithFilter.Size = new Size(921, 460);
+            ctrlPersonInfoWithFilter.TabIndex = 24;
             // 
             // btnNext
             // 
@@ -195,9 +195,9 @@
             // 
             lblAddUpdatePerson.Font = new Font("Simple Bold Jut Out", 25F, FontStyle.Bold);
             lblAddUpdatePerson.ForeColor = Color.Red;
-            lblAddUpdatePerson.Location = new Point(412, 9);
+            lblAddUpdatePerson.Location = new Point(378, 9);
             lblAddUpdatePerson.Name = "lblAddUpdatePerson";
-            lblAddUpdatePerson.Size = new Size(231, 57);
+            lblAddUpdatePerson.Size = new Size(255, 57);
             lblAddUpdatePerson.TabIndex = 20;
             lblAddUpdatePerson.Text = "Add User";
             lblAddUpdatePerson.Click += lblAddUpdatePerson_Click;
@@ -233,6 +233,9 @@
             Controls.Add(btnClose);
             Controls.Add(lblAddUpdatePerson);
             Controls.Add(tabControl);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmAddUpdateUser";
             Text = "Add User";
             Load += FrmAddUpdateUser_Load;
@@ -252,7 +255,7 @@
         private Button btnSave;
         private Button btnClose;
         private Button btnNext;
-        private ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
+        private ctrlPersonCardWithFilter ctrlPersonInfoWithFilter;
         private Label label2;
         private Label label1;
         private Label label4;

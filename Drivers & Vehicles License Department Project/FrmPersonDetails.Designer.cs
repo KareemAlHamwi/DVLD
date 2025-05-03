@@ -64,6 +64,9 @@
             Controls.Add(ctrlCurrentPersonCard);
             Controls.Add(btnClose);
             Controls.Add(lblPeopleManagement);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmPersonDetails";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Person Details";

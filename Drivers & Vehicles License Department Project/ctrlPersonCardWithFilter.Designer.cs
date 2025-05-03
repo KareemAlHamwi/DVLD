@@ -114,9 +114,9 @@
             lblFilterBy.Font = new Font("Segoe UI", 20F);
             lblFilterBy.Location = new Point(18, 37);
             lblFilterBy.Name = "lblFilterBy";
-            lblFilterBy.Size = new Size(124, 37);
+            lblFilterBy.Size = new Size(116, 37);
             lblFilterBy.TabIndex = 13;
-            lblFilterBy.Text = "Filter By :";
+            lblFilterBy.Text = "Find By :";
             // 
             // ctrlPersonCardWithFilter
             // 
@@ -126,6 +126,7 @@
             Controls.Add(ctrlPersonCard);
             Name = "ctrlPersonCardWithFilter";
             Size = new Size(921, 466);
+            Load += ctrlPersonCardWithFilter_Load;
             groFilter.ResumeLayout(false);
             groFilter.PerformLayout();
             ResumeLayout(false);
