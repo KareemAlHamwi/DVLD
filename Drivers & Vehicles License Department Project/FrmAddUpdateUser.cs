@@ -12,7 +12,7 @@ namespace Drivers___Vehicles_License_Department_Project {
             this.Mode = Mode;
 
             if (Mode == enMode.Update) {
-                lblAddUpdatePerson.Text = "Update User";
+                lblAddUpdatePerson.Text = "Edit User";
             }
 
             ctrlPersonInfoWithFilter.SetMode(this.Mode);

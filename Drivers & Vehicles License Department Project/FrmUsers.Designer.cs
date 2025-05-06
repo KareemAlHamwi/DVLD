@@ -34,7 +34,7 @@
             editToolStripMenuItem = new ToolStripMenuItem();
             addNewToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
-            comSearchGender = new ComboBox();
+            comSearchIsActive = new ComboBox();
             showDetailsToolStripMenuItem = new ToolStripMenuItem();
             dataUsersView = new DataGridView();
             txtSearch = new TextBox();
@@ -107,17 +107,17 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(221, 6);
             // 
-            // comSearchGender
+            // comSearchIsActive
             // 
-            comSearchGender.DropDownStyle = ComboBoxStyle.DropDownList;
-            comSearchGender.Font = new Font("Segoe UI", 13F);
-            comSearchGender.FormattingEnabled = true;
-            comSearchGender.Items.AddRange(new object[] { "Male", "Female" });
-            comSearchGender.Location = new Point(326, 155);
-            comSearchGender.Name = "comSearchGender";
-            comSearchGender.Size = new Size(180, 31);
-            comSearchGender.TabIndex = 11;
-            comSearchGender.SelectedIndexChanged += comSearchGender_SelectedIndexChanged;
+            comSearchIsActive.DropDownStyle = ComboBoxStyle.DropDownList;
+            comSearchIsActive.Font = new Font("Segoe UI", 13F);
+            comSearchIsActive.FormattingEnabled = true;
+            comSearchIsActive.Items.AddRange(new object[] { "Active", "Not Active" });
+            comSearchIsActive.Location = new Point(326, 155);
+            comSearchIsActive.Name = "comSearchIsActive";
+            comSearchIsActive.Size = new Size(180, 31);
+            comSearchIsActive.TabIndex = 11;
+            comSearchIsActive.SelectedIndexChanged += comSearchIsActive_SelectedIndexChanged;
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -163,6 +163,7 @@
             txtSearch.Size = new Size(240, 31);
             txtSearch.TabIndex = 10;
             txtSearch.TextChanged += txtSearch_TextChanged;
+            txtSearch.KeyPress += txtSearch_KeyPress;
             // 
             // lblRecords
             // 
@@ -249,7 +250,7 @@
             BackColor = Color.White;
             ClientSize = new Size(1184, 761);
             Controls.Add(btnRefresh);
-            Controls.Add(comSearchGender);
+            Controls.Add(comSearchIsActive);
             Controls.Add(dataUsersView);
             Controls.Add(txtSearch);
             Controls.Add(lblRecords);
@@ -281,7 +282,7 @@
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem addNewToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
-        private ComboBox comSearchGender;
+        private ComboBox comSearchIsActive;
         private ToolStripMenuItem showDetailsToolStripMenuItem;
         private DataGridView dataUsersView;
         private TextBox txtSearch;

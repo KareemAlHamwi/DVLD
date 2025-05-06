@@ -310,16 +310,16 @@
         private Label label5;
         private Label label9;
         private Label label8;
-        private LinkLabel lilblEditPersonInfo;
-        private Label lblPersonID;
-        private Label lblNationalNo;
-        private Label lblGender;
-        private Label lblEmail;
-        private Label lblAddress;
-        private Label lblBirthdate;
-        private Label lblPhone;
-        private Label lblCountry;
-        private Label lblName;
-        private PictureBox picboxPersonalPhoto;
+        public LinkLabel lilblEditPersonInfo;
+        public Label lblPersonID;
+        public Label lblNationalNo;
+        public Label lblGender;
+        public Label lblEmail;
+        public Label lblAddress;
+        public Label lblBirthdate;
+        public Label lblPhone;
+        public Label lblCountry;
+        public Label lblName;
+        public PictureBox picboxPersonalPhoto;
     }
 }

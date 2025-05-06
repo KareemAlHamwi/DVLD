@@ -238,8 +238,15 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblRecords.Text = "# Records : " + DvPeople.Count;
         }
 
+        private void _ResetFilterUI() {
+            comPeopleColumns.Text = "Person ID";
+            comSearchGender.Visible = false;
+            txtSearch.Visible = true;
+            txtSearch.Text = "";
+        }
 
         private void btnRefresh_Click(object sender, EventArgs e) {
+            _ResetFilterUI();
             _RefreshDataGrid();
         }
 

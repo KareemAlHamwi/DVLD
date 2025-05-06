@@ -11,10 +11,10 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         public void SetPersonData(People Person) {
             CurrentPerson = new People(Person);
-            UpdateUI();
+            _UpdateUI();
         }
 
-        private void UpdateUI() {
+        private void _UpdateUI() {
             lblNationalNo.Text = CurrentPerson.NationalNo;
             lblPersonID.Text = CurrentPerson.PersonID.ToString();
             lblName.Text = CurrentPerson.FirstName + " " + CurrentPerson.SecondName + " " + CurrentPerson.ThirdName + " " + CurrentPerson.LastName;
@@ -35,13 +35,12 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                     }
                 }
                 else {
-                    picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
+                    picboxPersonalPhoto.Image = Resources.default_avatar;
                 }
             }
             else {
-                picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
+                picboxPersonalPhoto.Image = Resources.default_avatar;
             }
-
         }
 
         private void lilblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {

@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace DVLD_Data_Access_Layer {
     public class UsersData {
-        public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref string IsActive) {
+        public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref bool IsActive) {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
@@ -24,7 +24,7 @@ namespace DVLD_Data_Access_Layer {
                     PersonID = (int)reader["PersonID"];
                     UserName = (string)reader["UserName"];
                     Password = (string)reader["Password"];
-                    IsActive = (string)reader["IsActive"];
+                    IsActive = (bool)reader["IsActive"];
                 }
 
                 reader.Close();
@@ -142,7 +142,8 @@ namespace DVLD_Data_Access_Layer {
                             u.PersonID AS 'Person ID',
                             CONCAT_WS(' ', p.FirstName, p.SecondName, p.ThirdName, p.LastName) AS 'Full Name',
                             u.UserName,
-                            u.IsActive AS 'Is Active'
+                            u.IsActive AS 'Is Active',
+							u.UserName
                             FROM Users u
                             LEFT JOIN People p ON p.PersonID = u.PersonID";
 

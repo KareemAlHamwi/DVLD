@@ -67,5 +67,19 @@ namespace DVLD_Business_Layer {
         public static bool IsUserExist(int UserID) {
             return DVLD_Data_Access_Layer.UsersData.IsUserExist(UserID);
         }
+
+        public static Users Find(int UserID) {
+            int PersonID = -1;
+            string UserName = "", Password = "";
+            bool IsActive = false;
+
+            // Pass parameters by reference using the 'ref' keyword
+            if (DVLD_Data_Access_Layer.UsersData.GetUserByID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive)) {
+                return new Users(UserID, PersonID, UserName, Password, IsActive.ToString());
+            }
+            else {
+                return null;
+            }
+        }
     }
 }

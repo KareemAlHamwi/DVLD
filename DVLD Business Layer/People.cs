@@ -113,21 +113,21 @@ namespace DVLD_Business_Layer {
             Address, Phone, Email, NationalityCountryID, ImagePath);
         }
 
-        // public static People Find(int PersonID) {
-        //     string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "", NationalityCountryName = "";
-        //     enGender Gender = enGender.Male;
-        //     DateTime Birthdate = DateTime.Now;
-        //     int NationalityCountryID = -1;
+        public static People Find(int PersonID) {
+            string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "", NationalityCountryName = "";
+            byte Gender = (byte)enGender.Male;
+            DateTime Birthdate = DateTime.Now;
+            int NationalityCountryID = -1;
 
-        //     // Pass parameters by reference using the 'ref' keyword
-        //     if (DVLD_Data_Access_Layer.PeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Birthdate, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref NationalityCountryName, ref ImagePath)) {
-        //         return new People(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, (byte)Gender,
-        //             Address, Phone, Email, NationalityCountryID, NationalityCountryName, ImagePath);
-        //     }
-        //     else {
-        //         return null;
-        //     }
-        // }
+            // Pass parameters by reference using the 'ref' keyword
+            if (DVLD_Data_Access_Layer.PeopleData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Birthdate, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref NationalityCountryName, ref ImagePath)) {
+                return new People(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, Gender,
+                    Address, Phone, Email, NationalityCountryID, NationalityCountryName, ImagePath);
+            }
+            else {
+                return null;
+            }
+        }
 
         public bool Save() {
             switch (Mode) {

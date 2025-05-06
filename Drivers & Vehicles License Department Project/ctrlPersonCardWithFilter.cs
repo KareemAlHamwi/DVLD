@@ -34,6 +34,9 @@ namespace Drivers___Vehicles_License_Department_Project {
                 txtSearch.Enabled = false;
                 btnFind.Enabled = false;
                 btnAdd.Enabled = false;
+                ctrlPersonCard.lilblEditPersonInfo.Enabled = true;
+            } else { 
+                ctrlPersonCard.lilblEditPersonInfo.Enabled = false;
             }
         }
     }

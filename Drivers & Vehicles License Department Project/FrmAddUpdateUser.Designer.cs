@@ -195,9 +195,9 @@
             // 
             lblAddUpdatePerson.Font = new Font("Simple Bold Jut Out", 25F, FontStyle.Bold);
             lblAddUpdatePerson.ForeColor = Color.Red;
-            lblAddUpdatePerson.Location = new Point(378, 9);
+            lblAddUpdatePerson.Location = new Point(387, 9);
             lblAddUpdatePerson.Name = "lblAddUpdatePerson";
-            lblAddUpdatePerson.Size = new Size(255, 57);
+            lblAddUpdatePerson.Size = new Size(194, 57);
             lblAddUpdatePerson.TabIndex = 20;
             lblAddUpdatePerson.Text = "Add User";
             lblAddUpdatePerson.Click += lblAddUpdatePerson_Click;
@@ -237,7 +237,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmAddUpdateUser";
-            Text = "Add User";
+            Text = "Add / Edit User Info.";
             Load += FrmAddUpdateUser_Load;
             tabControl.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

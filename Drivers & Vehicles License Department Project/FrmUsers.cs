@@ -18,7 +18,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblRecords.Text = "# Records : " + UsersTable.Rows.Count;
             comUsersColumns.Text = "User ID";
             dataUsersView.AllowUserToAddRows = false;
-            comSearchGender.Visible = false;
+            comSearchIsActive.Visible = false;
         }
 
         private void _SetColumnsView() {
@@ -27,6 +27,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             dataUsersView.Columns[2].Width = 500;
             dataUsersView.Columns[3].Width = 120;
             dataUsersView.Columns[4].Width = 120;
+            dataUsersView.Columns[5].Visible = false;
         }
 
         private void _RefreshDataGrid() {
@@ -47,18 +48,81 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void comUsersColumns_SelectedIndexChanged(object sender, EventArgs e) {
+            string Selected = comUsersColumns.SelectedItem as string ?? "";
 
+            switch (Selected) {
+                case "User ID":
+                case "Person ID":
+                case "UserName":
+                case "Full Name":
+                    txtSearch.Visible = true;
+                    comSearchIsActive.Visible = false;
+                    txtSearch.Text = "";
+                    break;
+
+                case "IsActive":
+                    txtSearch.Visible = false;
+                    comSearchIsActive.Visible = true;
+                    txtSearch.Text = "";
+                    break;
+            }
+
+            _RefreshDataGrid();
         }
 
-        private void comSearchGender_SelectedIndexChanged(object sender, EventArgs e) {
+        private void comSearchIsActive_SelectedIndexChanged(object sender, EventArgs e) {
+            bool selectedState = false;
 
+            if (comSearchIsActive.SelectedItem.ToString() == "Active")
+                selectedState = true;
+
+            DvUsers.RowFilter = $"[{"Is Active"}] = '{selectedState}'";
+
+            lblRecords.Text = "# Records : " + DvUsers.Count;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
+            string selectedColumn = comUsersColumns.SelectedItem?.ToString();
+            string searchText = txtSearch.Text.Trim().Replace("'", "''");
 
+            if (!string.IsNullOrWhiteSpace(selectedColumn)) {
+                string filterExpression = string.Empty;
+
+                switch (selectedColumn) {
+                    case "User ID":
+                    case "Person ID":
+                        filterExpression = $"CONVERT([{selectedColumn}], 'System.String') LIKE '%{searchText}%'";
+                        break;
+
+                    default:
+                        filterExpression = $"[{selectedColumn}] LIKE '%{searchText}%'";
+                        break;
+                }
+
+                try {
+                    DvUsers.RowFilter = filterExpression;
+                }
+                catch (EvaluateException ex) {
+                    Console.WriteLine("Filter error: " + ex.Message);
+                    DvUsers.RowFilter = string.Empty;
+                }
+            }
+            else {
+                DvUsers.RowFilter = string.Empty;
+            }
+
+            lblRecords.Text = "# Records : " + DvUsers.Count;
+        }
+
+        private void _ResetFilterUI() {
+            comUsersColumns.Text = "User ID";
+            comSearchIsActive.Visible = false;
+            txtSearch.Visible = true;
+            txtSearch.Text = "";
         }
 
         private void btnRefresh_Click(object sender, EventArgs e) {
+            _ResetFilterUI();
             _RefreshDataGrid();
         }
 
@@ -72,10 +136,21 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             dataUsersView.Rows[RowIndex].Selected = true;
         }
 
+        private void _FillSelectedPerson(int RowIndex) {
+            if (RowIndex < 0 || RowIndex >= dataUsersView.Rows.Count)
+                return;
+
+            SelectedUser = new Users(Convert.ToInt32(dataUsersView.Rows[RowIndex].Cells[0].Value ?? 0)
+            ,Convert.ToInt32(dataUsersView.Rows[RowIndex].Cells[1].Value ?? 0)
+            ,dataUsersView.Rows[RowIndex].Cells[5].Value?.ToString() ?? ""
+            ,dataUsersView.Rows[RowIndex].Cells[3].Value?.ToString() ?? ""
+            ,dataUsersView.Rows[RowIndex].Cells[4].Value?.ToString() ?? "");
+        }
+
         private void dataUsersView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0) {
                 _SelectWholeRow(e.RowIndex);
-                // _FillSelectedPerson(e.RowIndex);
+                _FillSelectedPerson(e.RowIndex);
                 cmsUsers.Show(dataUsersView, dataUsersView.PointToClient(Cursor.Position));
             }
         }
@@ -87,7 +162,9 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            PresentationSettings.ud = new FrmUserDetails(SelectedUser);
+            PresentationSettings.ud.ShowDialog();
+            _RefreshDataGrid();
         }
 
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -116,6 +193,20 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e) {
             PresentationSettings.NotImplementedMessage();
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
+            string selectedColumn = comUsersColumns.SelectedItem as string ?? "";
+
+            switch (selectedColumn) {
+                case "User ID":
+                case "Person ID":
+                    PresentationSettings.AllowOnlyDigits(e);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

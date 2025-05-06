@@ -53,3 +53,15 @@ SELECT
     u.IsActive AS 'Is Active'
 FROM Users u
     LEFT JOIN People p ON p.PersonID = u.PersonID
+
+
+SELECT * From People WHERE PersonID = 1
+
+SELECT
+                            u.UserID AS 'User ID',
+                            u.PersonID AS 'Person ID',
+                            CONCAT_WS(' ', p.FirstName, p.SecondName, p.ThirdName, p.LastName) AS 'Full Name',
+                            u.UserName,
+                            u.IsActive AS 'Is Active'
+                            FROM Users u
+                            LEFT JOIN People p ON p.PersonID = u.PersonID?
