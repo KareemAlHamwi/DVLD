@@ -31,7 +31,19 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private void btnNext_Click(object sender, EventArgs e) {
-            tabControl.SelectedIndex = (tabControl.SelectedIndex + 1) % tabControl.TabCount;
+            if (People.IsPersonLinkedToUser(ctrlPersonInfoWithFilter.FoundPerson.PersonID)) {
+                tabControl.SelectedIndex = 0;
+                FrmPopup.ShowPopup("Person is linked to a User before!");
+            } else {
+                tabControl.SelectedIndex = 1;
+            }
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tabControl.SelectedTab == tabPage2 && People.IsPersonLinkedToUser(ctrlPersonInfoWithFilter.FoundPerson.PersonID)) {
+                tabControl.SelectedIndex = 0;
+                FrmPopup.ShowPopup("Person is linked to a User before!");
+            }
         }
     }
 }

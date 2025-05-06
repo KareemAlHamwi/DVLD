@@ -4,6 +4,7 @@ using DVLD_Business_Layer;
 namespace Drivers___Vehicles_License_Department_Project {
     public partial class ctrlPersonCardWithFilter : UserControl {
         private enMode Mode;
+        public People FoundPerson;
 
         public ctrlPersonCardWithFilter() {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private void _ApplyModeSettings() {
-            comPeopleColumns.Text = "Person ID";
+            comPeopleColumns.Text = "National No.";
             comSearchGender.Visible = false;
 
             if (Mode == enMode.Update) {
@@ -35,8 +36,44 @@ namespace Drivers___Vehicles_License_Department_Project {
                 btnFind.Enabled = false;
                 btnAdd.Enabled = false;
                 ctrlPersonCard.lilblEditPersonInfo.Enabled = true;
-            } else { 
+            }
+            else {
                 ctrlPersonCard.lilblEditPersonInfo.Enabled = false;
+            }
+        }
+
+        private void btnFind_Click(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtSearch.Text))
+                return;
+
+            switch (comPeopleColumns.Text) {
+                case "National No.":
+                    string nationalNo = txtSearch.Text;
+                    FoundPerson = People.Find(nationalNo);
+                    if (FoundPerson != null) {
+                        ctrlPersonCard.SetPersonData(FoundPerson);
+                    } else {
+                        FrmPopup.ShowPopup("Person was not found!");
+                        ctrlPersonCard.UnsetPersonData();
+                    }
+                    break;
+
+                case "Person ID":
+                    int personId = Convert.ToInt32(txtSearch.Text);
+                    FoundPerson = People.Find(personId);
+
+                    if (FoundPerson != null) {
+                        ctrlPersonCard.SetPersonData(FoundPerson);
+                    }
+                    else {
+                        FrmPopup.ShowPopup("Person was not found!");
+                        ctrlPersonCard.UnsetPersonData();
+                    }
+
+                    break;
+
+                default:
+                    break;
             }
         }
     }

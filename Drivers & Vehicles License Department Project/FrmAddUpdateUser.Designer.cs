@@ -55,6 +55,7 @@
             tabControl.SelectedIndex = 0;
             tabControl.Size = new Size(942, 557);
             tabControl.TabIndex = 0;
+            tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -100,7 +101,7 @@
             tabPage2.Location = new Point(4, 32);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(192, 64);
+            tabPage2.Size = new Size(934, 521);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Login Info";
             tabPage2.UseVisualStyleBackColor = true;

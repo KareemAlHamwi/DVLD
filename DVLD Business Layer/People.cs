@@ -129,6 +129,23 @@ namespace DVLD_Business_Layer {
             }
         }
 
+        public static People Find(string NationalNo) {
+            int PersonID = -1;
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "", NationalityCountryName = "";
+            byte Gender = (byte)enGender.Male;
+            DateTime Birthdate = DateTime.Now;
+            int NationalityCountryID = -1;
+
+            // Pass parameters by reference using the 'ref' keyword
+            if (DVLD_Data_Access_Layer.PeopleData.GetPersonByNationalNo(ref PersonID,NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Birthdate, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref NationalityCountryName, ref ImagePath)) {
+                return new People(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, Gender,
+                    Address, Phone, Email, NationalityCountryID, NationalityCountryName, ImagePath);
+            }
+            else {
+                return null;
+            }
+        }
+
         public bool Save() {
             switch (Mode) {
                 case enMode.AddNew:
@@ -156,6 +173,10 @@ namespace DVLD_Business_Layer {
 
         public static bool IsPersonExist(int PersonID) {
             return DVLD_Data_Access_Layer.PeopleData.IsPersonExist(PersonID);
+        }
+
+        public static bool IsPersonLinkedToUser(int PersonID) {
+            return DVLD_Data_Access_Layer.PeopleData.IsPersonLinkedToUser(PersonID);
         }
     }
 }

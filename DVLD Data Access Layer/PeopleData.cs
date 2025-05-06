@@ -59,6 +59,61 @@ namespace DVLD_Data_Access_Layer {
             return isFound;
         }
 
+        public static bool GetPersonByNationalNo(ref int PersonID, string NationalNo, ref string FirstName,
+                    ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime Birthdate,
+                    ref byte Gender, ref string Address, ref string Phone, ref string Email,
+                    ref int NationalityCountryID, ref string NationalityCountryName, ref string ImagePath) {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"SELECT People.*, Countries.CountryName 
+                            FROM People 
+                            LEFT JOIN Countries ON People.NationalityCountryID = Countries.CountryID
+                            WHERE NationalNo = @NationalNo";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read()) {
+                    isFound = true;
+
+                    PersonID = (int)reader["PersonID"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = (string)reader["ThirdName"];
+                    LastName = (string)reader["LastName"];
+                    Birthdate = (DateTime)reader["DateOfBirth"];
+                    Gender = (byte)reader["Gendor"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+                    Email = (string)reader["Email"];
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+                    NationalityCountryName = (string)reader["CountryName"];
+
+                    if (reader["ImagePath"] != DBNull.Value)
+                        ImagePath = (string)reader["ImagePath"];
+                    else
+                        ImagePath = "";
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
         public static int AddNewPerson(string NationalNo, string FirstName, string SecondName,
             string ThirdName, string LastName, DateTime Birthdate, byte Gender, string Address,
             string Phone, string Email, int NationalityCountryID, string ImagePath) {
@@ -246,6 +301,31 @@ namespace DVLD_Data_Access_Layer {
             }
 
             return isFound;
+        }
+
+        public static bool IsPersonLinkedToUser(int PersonID) {
+            bool IsLinked = false;
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = "SELECT 1 FROM Users WHERE PersonID = @PersonID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                IsLinked = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                IsLinked = false;
+            }
+            finally {
+                connection.Close();
+            }
+
+            return IsLinked;
         }
     }
 }

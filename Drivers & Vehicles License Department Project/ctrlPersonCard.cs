@@ -14,6 +14,11 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             _UpdateUI();
         }
 
+        public void UnsetPersonData() {
+            CurrentPerson = new People();
+            _UpdateUI();
+        }
+
         private void _UpdateUI() {
             lblNationalNo.Text = CurrentPerson.NationalNo;
             lblPersonID.Text = CurrentPerson.PersonID.ToString();

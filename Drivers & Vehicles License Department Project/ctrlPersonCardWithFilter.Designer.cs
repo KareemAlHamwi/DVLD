@@ -77,6 +77,7 @@
             btnFind.TabIndex = 18;
             btnFind.Text = "Find";
             btnFind.UseVisualStyleBackColor = true;
+            btnFind.Click += btnFind_Click;
             // 
             // comSearchGender
             // 
@@ -102,7 +103,7 @@
             comPeopleColumns.DropDownStyle = ComboBoxStyle.DropDownList;
             comPeopleColumns.Font = new Font("Segoe UI", 13F);
             comPeopleColumns.FormattingEnabled = true;
-            comPeopleColumns.Items.AddRange(new object[] { "Person ID", "National No.", "First Name", "Second Name", "Third Name", "Last Name", "Birthdate", "Gender", "Phone", "Email", "Nationality" });
+            comPeopleColumns.Items.AddRange(new object[] { "Person ID", "National No." });
             comPeopleColumns.Location = new Point(148, 43);
             comPeopleColumns.Name = "comPeopleColumns";
             comPeopleColumns.Size = new Size(180, 31);
