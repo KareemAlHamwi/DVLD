@@ -257,7 +257,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 _RemoveImage = true;
             }
 
-            picboxPersonalPhoto.Image = Properties.Resources.default_avatar;
+            picboxPersonalPhoto.Image = Resources.default_avatar;
             _SelectedImagePath = "";
         }
     }

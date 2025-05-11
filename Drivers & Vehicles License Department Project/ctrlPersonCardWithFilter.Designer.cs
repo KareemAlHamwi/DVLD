@@ -27,7 +27,6 @@
             groFilter = new GroupBox();
             btnAdd = new Button();
             btnFind = new Button();
-            comSearchGender = new ComboBox();
             txtSearch = new TextBox();
             comPeopleColumns = new ComboBox();
             lblFilterBy = new Label();
@@ -45,7 +44,6 @@
             // 
             groFilter.Controls.Add(btnAdd);
             groFilter.Controls.Add(btnFind);
-            groFilter.Controls.Add(comSearchGender);
             groFilter.Controls.Add(txtSearch);
             groFilter.Controls.Add(comPeopleColumns);
             groFilter.Controls.Add(lblFilterBy);
@@ -78,17 +76,6 @@
             btnFind.Text = "Find";
             btnFind.UseVisualStyleBackColor = true;
             btnFind.Click += btnFind_Click;
-            // 
-            // comSearchGender
-            // 
-            comSearchGender.DropDownStyle = ComboBoxStyle.DropDownList;
-            comSearchGender.Font = new Font("Segoe UI", 13F);
-            comSearchGender.FormattingEnabled = true;
-            comSearchGender.Items.AddRange(new object[] { "Male", "Female" });
-            comSearchGender.Location = new Point(343, 43);
-            comSearchGender.Name = "comSearchGender";
-            comSearchGender.Size = new Size(180, 31);
-            comSearchGender.TabIndex = 16;
             // 
             // txtSearch
             // 
@@ -138,7 +125,6 @@
         private Drivers_And_Vehicles_License_Department_Project.ctrlPersonCard ctrlPersonCard;
         private GroupBox groFilter;
         private Label lblFilterBy;
-        private ComboBox comSearchGender;
         private TextBox txtSearch;
         private ComboBox comPeopleColumns;
         private Button btnFind;

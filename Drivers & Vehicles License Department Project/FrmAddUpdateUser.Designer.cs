@@ -23,14 +23,15 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             tabControl = new TabControl();
             tabPage1 = new TabPage();
             ctrlPersonInfoWithFilter = new ctrlPersonCardWithFilter();
             btnNext = new Button();
             tabPage2 = new TabPage();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtConfirmPassword = new TextBox();
+            txtPassword = new TextBox();
+            txtUserName = new TextBox();
             chBoxIsActive = new CheckBox();
             lblUserID = new Label();
             label4 = new Label();
@@ -40,9 +41,11 @@
             lblAddUpdatePerson = new Label();
             btnSave = new Button();
             btnClose = new Button();
+            errorProvider = new ErrorProvider(components);
             tabControl.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // tabControl
@@ -89,9 +92,9 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(textBox3);
-            tabPage2.Controls.Add(textBox2);
-            tabPage2.Controls.Add(textBox1);
+            tabPage2.Controls.Add(txtConfirmPassword);
+            tabPage2.Controls.Add(txtPassword);
+            tabPage2.Controls.Add(txtUserName);
             tabPage2.Controls.Add(chBoxIsActive);
             tabPage2.Controls.Add(lblUserID);
             tabPage2.Controls.Add(label4);
@@ -106,30 +109,35 @@
             tabPage2.Text = "Login Info";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtConfirmPassword
             // 
-            textBox3.Location = new Point(225, 192);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(174, 31);
-            textBox3.TabIndex = 26;
+            txtConfirmPassword.Location = new Point(225, 192);
+            txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.PasswordChar = '*';
+            txtConfirmPassword.Size = new Size(174, 31);
+            txtConfirmPassword.TabIndex = 26;
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(225, 147);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(174, 31);
-            textBox2.TabIndex = 25;
+            txtPassword.Location = new Point(225, 147);
+            txtPassword.MaxLength = 20;
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(174, 31);
+            txtPassword.TabIndex = 25;
             // 
-            // textBox1
+            // txtUserName
             // 
-            textBox1.Location = new Point(225, 97);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(174, 31);
-            textBox1.TabIndex = 24;
+            txtUserName.Location = new Point(225, 97);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(174, 31);
+            txtUserName.TabIndex = 24;
             // 
             // chBoxIsActive
             // 
             chBoxIsActive.AutoSize = true;
+            chBoxIsActive.Checked = true;
+            chBoxIsActive.CheckState = CheckState.Checked;
             chBoxIsActive.Location = new Point(225, 246);
             chBoxIsActive.Name = "chBoxIsActive";
             chBoxIsActive.Size = new Size(97, 29);
@@ -212,6 +220,7 @@
             btnSave.TabIndex = 22;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnClose
             // 
@@ -223,6 +232,10 @@
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // FrmAddUpdateUser
             // 
@@ -244,6 +257,7 @@
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
         }
 
@@ -263,8 +277,9 @@
         private Label label3;
         private Label lblUserID;
         private CheckBox chBoxIsActive;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtConfirmPassword;
+        private TextBox txtPassword;
+        private TextBox txtUserName;
+        private ErrorProvider errorProvider;
     }
 }

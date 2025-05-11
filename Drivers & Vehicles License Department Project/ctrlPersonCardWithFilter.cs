@@ -12,7 +12,25 @@ namespace Drivers___Vehicles_License_Department_Project {
 
         private void btnAdd_Click(object sender, EventArgs e) {
             PresentationSettings.aup = new FrmAddUpdatePerson(enMode.AddNew);
+            PresentationSettings.aup.DataBack += Aup_DataBack;
             PresentationSettings.aup.ShowDialog();
+            btnFind.PerformClick();
+
+            if (PresentationSettings.aup.SelectedPerson != null) {
+                _FillFilterWithAddedPerson(PresentationSettings.aup.SelectedPerson);
+            }
+        }
+
+        private void Aup_DataBack(object sender, People person) {
+            ctrlPersonCard.SetPersonData(person);
+            _FillFilterWithAddedPerson(person);
+        }
+
+        private void _FillFilterWithAddedPerson(People Person) {
+            if (Person != null) {
+                comPeopleColumns.Text = "Person ID";
+                txtSearch.Text = Person.PersonID.ToString();
+            }
         }
 
         private void ctrlPersonCardWithFilter_Load(object sender, EventArgs e) {
@@ -26,12 +44,10 @@ namespace Drivers___Vehicles_License_Department_Project {
 
         private void _ApplyModeSettings() {
             comPeopleColumns.Text = "National No.";
-            comSearchGender.Visible = false;
 
             if (Mode == enMode.Update) {
                 groFilter.Enabled = false;
                 comPeopleColumns.Enabled = false;
-                comSearchGender.Enabled = false;
                 txtSearch.Enabled = false;
                 btnFind.Enabled = false;
                 btnAdd.Enabled = false;
@@ -52,7 +68,8 @@ namespace Drivers___Vehicles_License_Department_Project {
                     FoundPerson = People.Find(nationalNo);
                     if (FoundPerson != null) {
                         ctrlPersonCard.SetPersonData(FoundPerson);
-                    } else {
+                    }
+                    else {
                         FrmPopup.ShowPopup("Person was not found!");
                         ctrlPersonCard.UnsetPersonData();
                     }

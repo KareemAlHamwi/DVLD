@@ -5,8 +5,11 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         public delegate void DataBackEventHandler(object sender, People person);
         public event DataBackEventHandler DataBack;
 
+        public People SelectedPerson;
+
         public FrmAddUpdatePerson(enMode mode, People? SelectedPerson = null) {
             InitializeComponent();
+            this.SelectedPerson = SelectedPerson;
             if (mode == enMode.AddNew)
                 _UpdateUIAdd();
             else
