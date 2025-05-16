@@ -112,7 +112,7 @@
             comSearchIsActive.DropDownStyle = ComboBoxStyle.DropDownList;
             comSearchIsActive.Font = new Font("Segoe UI", 13F);
             comSearchIsActive.FormattingEnabled = true;
-            comSearchIsActive.Items.AddRange(new object[] { "Active", "Not Active" });
+            comSearchIsActive.Items.AddRange(new object[] { "All", "Yes", "No" });
             comSearchIsActive.Location = new Point(326, 155);
             comSearchIsActive.Name = "comSearchIsActive";
             comSearchIsActive.Size = new Size(180, 31);
@@ -180,7 +180,7 @@
             comUsersColumns.DropDownStyle = ComboBoxStyle.DropDownList;
             comUsersColumns.Font = new Font("Segoe UI", 13F);
             comUsersColumns.FormattingEnabled = true;
-            comUsersColumns.Items.AddRange(new object[] { "User ID", "Person ID", "UserName", "Full Name", "IsActive" });
+            comUsersColumns.Items.AddRange(new object[] { "User ID", "Person ID", "UserName", "Full Name", "Is Active" });
             comUsersColumns.Location = new Point(140, 155);
             comUsersColumns.Name = "comUsersColumns";
             comUsersColumns.Size = new Size(180, 31);

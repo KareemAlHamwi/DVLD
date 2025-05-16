@@ -17,6 +17,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
             lblRecords.Text = "# Records : " + UsersTable.Rows.Count;
             comUsersColumns.Text = "User ID";
+            comSearchIsActive.Text = "All";
             dataUsersView.AllowUserToAddRows = false;
             comSearchIsActive.Visible = false;
         }
@@ -60,7 +61,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                     txtSearch.Text = "";
                     break;
 
-                case "IsActive":
+                case "Is Active":
                     txtSearch.Visible = false;
                     comSearchIsActive.Visible = true;
                     txtSearch.Text = "";
@@ -73,8 +74,14 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         private void comSearchIsActive_SelectedIndexChanged(object sender, EventArgs e) {
             bool selectedState = false;
 
-            if (comSearchIsActive.SelectedItem.ToString() == "Active")
+            if (comSearchIsActive.SelectedItem.ToString() == "Yes")
                 selectedState = true;
+            else if (comSearchIsActive.SelectedItem.ToString() == "No")
+                selectedState = false;
+            else {
+                _RefreshDataGrid();
+                return;
+            }
 
             DvUsers.RowFilter = $"[{"Is Active"}] = '{selectedState}'";
 

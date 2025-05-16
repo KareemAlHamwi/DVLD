@@ -29,6 +29,9 @@
             driversToolStripMenuItem = new ToolStripMenuItem();
             usersToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem = new ToolStripMenuItem();
+            currentUserInfoToolStripMenuItem = new ToolStripMenuItem();
+            changePasswordToolStripMenuItem = new ToolStripMenuItem();
+            signOutToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,9 +73,31 @@
             // 
             // accountToolStripMenuItem
             // 
+            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { currentUserInfoToolStripMenuItem, changePasswordToolStripMenuItem, signOutToolStripMenuItem });
             accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             accountToolStripMenuItem.Size = new Size(172, 32);
             accountToolStripMenuItem.Text = "Account Settings";
+            // 
+            // currentUserInfoToolStripMenuItem
+            // 
+            currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
+            currentUserInfoToolStripMenuItem.Size = new Size(236, 32);
+            currentUserInfoToolStripMenuItem.Text = "Current User Info";
+            currentUserInfoToolStripMenuItem.Click += currentUserInfoToolStripMenuItem_Click;
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            changePasswordToolStripMenuItem.Size = new Size(236, 32);
+            changePasswordToolStripMenuItem.Text = "Change Password";
+            changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
+            // 
+            // signOutToolStripMenuItem
+            // 
+            signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            signOutToolStripMenuItem.Size = new Size(236, 32);
+            signOutToolStripMenuItem.Text = "Sign Out";
+            signOutToolStripMenuItem.Click += signOutToolStripMenuItem_Click;
             // 
             // FrmMain
             // 
@@ -81,10 +106,12 @@
             BackColor = Color.Black;
             ClientSize = new Size(1904, 1041);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "FrmMain";
             Text = "DVLD";
+            WindowState = FormWindowState.Maximized;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -99,5 +126,8 @@
         private ToolStripMenuItem driversToolStripMenuItem;
         private ToolStripMenuItem usersToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem;
+        private ToolStripMenuItem currentUserInfoToolStripMenuItem;
+        private ToolStripMenuItem changePasswordToolStripMenuItem;
+        private ToolStripMenuItem signOutToolStripMenuItem;
     }
 }

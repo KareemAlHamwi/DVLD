@@ -1,3 +1,5 @@
+using Drivers___Vehicles_License_Department_Project;
+
 namespace Drivers_And_Vehicles_License_Department_Project {
     internal static class Program {
         /// <summary>
@@ -8,7 +10,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmMain());
+            Application.Run(new FrmLogin());
         }
     }
 }

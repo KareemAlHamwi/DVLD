@@ -1,5 +1,4 @@
 ﻿using DVLD_Business_Layer;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Drivers___Vehicles_License_Department_Project {
     public partial class FrmAddUpdateUser : Form {
@@ -71,12 +70,12 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private bool _ValidateAllInputs() {
-            bool isValid = true;
+            bool IsValid = true;
             errorProvider.Clear();
 
             if (string.IsNullOrWhiteSpace(txtUserName.Text)) {
                 errorProvider.SetError(txtUserName, "Username can't be empty!");
-                isValid = false;
+                IsValid = false;
             }
             else {
                 AddedOrEditedUser.UserName = txtUserName.Text;
@@ -84,7 +83,7 @@ namespace Drivers___Vehicles_License_Department_Project {
 
             if (string.IsNullOrWhiteSpace(txtPassword.Text)) {
                 errorProvider.SetError(txtPassword, "Password can't be empty!");
-                isValid = false;
+                IsValid = false;
             }
             else {
                 AddedOrEditedUser.Password = txtPassword.Text;
@@ -92,17 +91,17 @@ namespace Drivers___Vehicles_License_Department_Project {
 
             if (string.IsNullOrWhiteSpace(txtConfirmPassword.Text)) {
                 errorProvider.SetError(txtConfirmPassword, "Confirm Password can't be empty!");
-                isValid = false;
+                IsValid = false;
             }
 
             if (txtPassword.Text != txtConfirmPassword.Text) {
                 errorProvider.SetError(txtConfirmPassword, "Password confirmation does not match!");
-                isValid = false;
+                IsValid = false;
             }
 
             AddedOrEditedUser.IsActive = chBoxIsActive.Checked;
 
-            return isValid;
+            return IsValid;
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
