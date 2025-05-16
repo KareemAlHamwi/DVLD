@@ -14,11 +14,10 @@ namespace Drivers___Vehicles_License_Department_Project {
             PresentationSettings.aup = new FrmAddUpdatePerson(enMode.AddNew);
             PresentationSettings.aup.DataBack += Aup_DataBack;
             PresentationSettings.aup.ShowDialog();
-            btnFind.PerformClick();
 
-            if (PresentationSettings.aup.SelectedPerson != null) {
-                _FillFilterWithAddedPerson(PresentationSettings.aup.SelectedPerson);
-            }
+            //if (PresentationSettings.aup.SelectedPerson != null) {
+            //    _FillFilterWithAddedPerson(PresentationSettings.aup.SelectedPerson);
+            //}
         }
 
         private void Aup_DataBack(object sender, People person) {
@@ -30,6 +29,7 @@ namespace Drivers___Vehicles_License_Department_Project {
             if (Person != null) {
                 comPeopleColumns.Text = "Person ID";
                 txtSearch.Text = Person.PersonID.ToString();
+                btnFind.PerformClick();
             }
         }
 
@@ -42,6 +42,10 @@ namespace Drivers___Vehicles_License_Department_Project {
             _ApplyModeSettings();
         }
 
+        public void SetPerson(Users AddedOrEditedUser) {
+            FoundPerson = People.Find(AddedOrEditedUser.PersonID);
+        }
+
         private void _ApplyModeSettings() {
             comPeopleColumns.Text = "National No.";
 
@@ -52,6 +56,7 @@ namespace Drivers___Vehicles_License_Department_Project {
                 btnFind.Enabled = false;
                 btnAdd.Enabled = false;
                 ctrlPersonCard.lilblEditPersonInfo.Enabled = true;
+                ctrlPersonCard.SetPersonData(FoundPerson);
             }
             else {
                 ctrlPersonCard.lilblEditPersonInfo.Enabled = false;

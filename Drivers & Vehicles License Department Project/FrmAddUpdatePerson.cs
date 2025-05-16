@@ -9,7 +9,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         public FrmAddUpdatePerson(enMode mode, People? SelectedPerson = null) {
             InitializeComponent();
-            this.SelectedPerson = SelectedPerson;
+            this.SelectedPerson = new People(SelectedPerson);
             if (mode == enMode.AddNew)
                 _UpdateUIAdd();
             else

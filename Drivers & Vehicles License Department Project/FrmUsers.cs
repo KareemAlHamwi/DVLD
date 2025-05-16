@@ -141,10 +141,10 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 return;
 
             SelectedUser = new Users(Convert.ToInt32(dataUsersView.Rows[RowIndex].Cells[0].Value ?? 0)
-            ,Convert.ToInt32(dataUsersView.Rows[RowIndex].Cells[1].Value ?? 0)
-            ,dataUsersView.Rows[RowIndex].Cells[5].Value?.ToString() ?? ""
-            ,dataUsersView.Rows[RowIndex].Cells[3].Value?.ToString() ?? ""
-            ,dataUsersView.Rows[RowIndex].Cells[4].Value?.ToString() ?? "");
+            , Convert.ToInt32(dataUsersView.Rows[RowIndex].Cells[1].Value ?? 0)
+            , dataUsersView.Rows[RowIndex].Cells[5].Value?.ToString() ?? ""
+            , dataUsersView.Rows[RowIndex].Cells[3].Value?.ToString() ?? ""
+            , dataUsersView.Rows[RowIndex].Cells[4].Value?.ToString() ?? "");
         }
 
         private void dataUsersView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
@@ -174,13 +174,20 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
-            PresentationSettings.auu = new FrmAddUpdateUser(enMode.Update);
+            PresentationSettings.auu = new FrmAddUpdateUser(enMode.Update, SelectedUser);
             PresentationSettings.auu.ShowDialog();
             _RefreshDataGrid();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (MessageBox.Show($"Are you sure want to delete Person with PersonID ({SelectedUser.UserID})?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                if (Users.DeleteUser(SelectedUser.UserID))
+                    FrmPopup.ShowPopup("Deleted Successfully!");
+                else
+                    FrmPopup.ShowPopup("Couldn't Delete, Something Went Wrong ..");
 
+                _RefreshDataGrid();
+            }
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e) {

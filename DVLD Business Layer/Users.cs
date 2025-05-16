@@ -29,6 +29,25 @@ namespace DVLD_Business_Layer {
             Mode = enMode.Update;
         }
 
+        public Users(Users sourceUser) {
+            if (sourceUser == null) {
+                UserID = -1;
+                PersonID = -1;
+                UserName = "";
+                Password = "";
+                IsActive = false;
+                Mode = enMode.Update;
+                return;
+            }
+
+            UserID = sourceUser.UserID;
+            PersonID = sourceUser.PersonID;
+            UserName = sourceUser.UserName;
+            Password = sourceUser.Password;
+            IsActive = sourceUser.IsActive;
+            Mode = sourceUser.Mode;
+        }
+
         private bool _AddNewUser() {
             UserID = DVLD_Data_Access_Layer.UsersData.AddNewUser(PersonID, UserName, Password, IsActive.ToString());
 

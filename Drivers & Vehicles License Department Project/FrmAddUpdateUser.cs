@@ -1,4 +1,5 @@
 ﻿using DVLD_Business_Layer;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Drivers___Vehicles_License_Department_Project {
     public partial class FrmAddUpdateUser : Form {
@@ -10,12 +11,18 @@ namespace Drivers___Vehicles_License_Department_Project {
             InitializeComponent();
         }
 
-        public FrmAddUpdateUser(enMode Mode) {
+        public FrmAddUpdateUser(enMode Mode, Users? SelectedUser = null) {
             InitializeComponent();
             this.Mode = Mode;
 
             if (Mode == enMode.Update) {
                 lblAddUpdatePerson.Text = "Edit User";
+                AddedOrEditedUser = new Users(SelectedUser);
+                txtUserName.Text = AddedOrEditedUser.UserName;
+                txtPassword.Text = AddedOrEditedUser.Password;
+                txtConfirmPassword.Text = AddedOrEditedUser.Password;
+                chBoxIsActive.Checked = AddedOrEditedUser.IsActive;
+                ctrlPersonInfoWithFilter.SetPerson(AddedOrEditedUser);
             }
 
             ctrlPersonInfoWithFilter.SetMode(this.Mode);
@@ -34,13 +41,13 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private void btnNext_Click(object sender, EventArgs e) {
-            if (ctrlPersonInfoWithFilter.FoundPerson == null) {
+            if (ctrlPersonInfoWithFilter.FoundPerson == null && Mode == enMode.AddNew) {
                 FrmPopup.ShowPopup("Please select a person first!");
                 tabControl.SelectedIndex = 0;
                 return;
             }
 
-            if (People.IsPersonLinkedToUser(ctrlPersonInfoWithFilter.FoundPerson.PersonID)) {
+            if (People.IsPersonLinkedToUser(ctrlPersonInfoWithFilter.FoundPerson.PersonID) && Mode == enMode.AddNew) {
                 tabControl.SelectedIndex = 0;
                 FrmPopup.ShowPopup("Person is linked to a User before!");
                 return;
@@ -51,13 +58,13 @@ namespace Drivers___Vehicles_License_Department_Project {
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e) {
-            if (ctrlPersonInfoWithFilter.FoundPerson == null) {
+            if (ctrlPersonInfoWithFilter.FoundPerson == null && Mode == enMode.AddNew) {
                 FrmPopup.ShowPopup("Please select a person first!");
                 tabControl.SelectedIndex = 0;
                 return;
             }
 
-            if (tabControl.SelectedTab == tabPage2 && People.IsPersonLinkedToUser(ctrlPersonInfoWithFilter.FoundPerson.PersonID)) {
+            if (tabControl.SelectedTab == tabPage2 && People.IsPersonLinkedToUser(ctrlPersonInfoWithFilter.FoundPerson.PersonID) && Mode == enMode.AddNew) {
                 tabControl.SelectedIndex = 0;
                 FrmPopup.ShowPopup("Person is linked to a User before!");
             }
@@ -83,13 +90,6 @@ namespace Drivers___Vehicles_License_Department_Project {
                 AddedOrEditedUser.Password = txtPassword.Text;
             }
 
-            if (chBoxIsActive.Checked) {
-                AddedOrEditedUser.IsActive = true;
-            }
-            else {
-                AddedOrEditedUser.IsActive = false;
-            }
-
             if (string.IsNullOrWhiteSpace(txtConfirmPassword.Text)) {
                 errorProvider.SetError(txtConfirmPassword, "Confirm Password can't be empty!");
                 isValid = false;
@@ -99,6 +99,8 @@ namespace Drivers___Vehicles_License_Department_Project {
                 errorProvider.SetError(txtConfirmPassword, "Password confirmation does not match!");
                 isValid = false;
             }
+
+            AddedOrEditedUser.IsActive = chBoxIsActive.Checked;
 
             return isValid;
         }

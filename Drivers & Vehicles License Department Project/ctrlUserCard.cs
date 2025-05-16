@@ -21,6 +21,7 @@ namespace Drivers___Vehicles_License_Department_Project {
         public void SetUserData(Users User) {
             CurrentPerson = People.Find(User.PersonID);
             CurrentUser = User;
+            ctrlPersonCard1.CurrentPerson = new People(CurrentPerson);
             _UpdateUI();
         }
 

@@ -3,7 +3,7 @@ using DVLD_Business_Layer;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class ctrlPersonCard : UserControl {
-        private People CurrentPerson = new People();
+        public People CurrentPerson = new People();
 
         public ctrlPersonCard() {
             InitializeComponent();
