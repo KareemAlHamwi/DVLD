@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|c:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|c:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|c:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmuserdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|c:\\educational \u0026 miscellaneous\\programming\\.programming advices\\19.full real project\\dvld project\\drivers \u0026 vehicles license department project\\frmaddupdateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B65313E-522F-43BD-9103-08A353EB41BE}|DVLD Presentation Layer.csproj|solutionrelative:frmaddupdateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +35,55 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmChangePassword.cs",
+              "DocumentMoniker": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmChangePassword.cs",
+              "RelativeDocumentMoniker": "FrmChangePassword.cs",
+              "ToolTip": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmChangePassword.cs",
+              "RelativeToolTip": "FrmChangePassword.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAApwEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T07:38:57.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmUserDetails.cs [Design]",
+              "DocumentMoniker": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUserDetails.cs",
+              "RelativeDocumentMoniker": "FrmUserDetails.cs",
+              "ToolTip": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmUserDetails.cs [Design]",
+              "RelativeToolTip": "FrmUserDetails.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T07:29:00.994Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmAddUpdateUser.cs [Design]",
+              "DocumentMoniker": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmAddUpdateUser.cs",
+              "RelativeDocumentMoniker": "FrmAddUpdateUser.cs",
+              "ToolTip": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmAddUpdateUser.cs [Design]",
+              "RelativeToolTip": "FrmAddUpdateUser.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T05:11:21.288Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmChangePassword.cs [Design]",
+              "DocumentMoniker": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmChangePassword.cs",
+              "RelativeDocumentMoniker": "FrmChangePassword.cs",
+              "ToolTip": "C:\\Educational \u0026 Miscellaneous\\Programming\\.Programming Advices\\19.Full Real Project\\DVLD Project\\Drivers \u0026 Vehicles License Department Project\\FrmChangePassword.cs [Design]",
+              "RelativeToolTip": "FrmChangePassword.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T05:07:08.622Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

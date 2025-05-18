@@ -77,7 +77,7 @@
             ctrlPersonInfoWithFilter.Location = new Point(6, 6);
             ctrlPersonInfoWithFilter.Name = "ctrlPersonInfoWithFilter";
             ctrlPersonInfoWithFilter.Size = new Size(921, 460);
-            ctrlPersonInfoWithFilter.TabIndex = 24;
+            ctrlPersonInfoWithFilter.TabIndex = 1;
             // 
             // btnNext
             // 
@@ -85,7 +85,7 @@
             btnNext.Location = new Point(857, 472);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(70, 39);
-            btnNext.TabIndex = 23;
+            btnNext.TabIndex = 2;
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = true;
             btnNext.Click += btnNext_Click;
@@ -113,23 +113,25 @@
             // 
             txtConfirmPassword.Location = new Point(225, 192);
             txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.PasswordChar = '*';
             txtConfirmPassword.Size = new Size(174, 31);
-            txtConfirmPassword.TabIndex = 26;
+            txtConfirmPassword.TabIndex = 3;
             // 
             // txtPassword
             // 
             txtPassword.Location = new Point(225, 147);
             txtPassword.MaxLength = 20;
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(174, 31);
-            txtPassword.TabIndex = 25;
+            txtPassword.TabIndex = 2;
             // 
             // txtUserName
             // 
             txtUserName.Location = new Point(225, 97);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(174, 31);
-            txtUserName.TabIndex = 24;
+            txtUserName.TabIndex = 1;
             // 
             // chBoxIsActive
             // 
@@ -139,7 +141,7 @@
             chBoxIsActive.Location = new Point(225, 246);
             chBoxIsActive.Name = "chBoxIsActive";
             chBoxIsActive.Size = new Size(97, 29);
-            chBoxIsActive.TabIndex = 23;
+            chBoxIsActive.TabIndex = 4;
             chBoxIsActive.Text = "Is Active";
             chBoxIsActive.UseVisualStyleBackColor = true;
             // 
@@ -215,7 +217,7 @@
             btnSave.Location = new Point(881, 650);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(70, 39);
-            btnSave.TabIndex = 22;
+            btnSave.TabIndex = 6;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -226,7 +228,7 @@
             btnClose.Location = new Point(793, 650);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(70, 39);
-            btnClose.TabIndex = 21;
+            btnClose.TabIndex = 5;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;

@@ -5,8 +5,6 @@ using DVLD_Business_Layer;
 namespace Drivers___Vehicles_License_Department_Project {
     public partial class FrmLogin : Form {
         Users LoggedInUser = new Users();
-        string UserName = "", Password = "";
-
 
         public FrmLogin() {
             InitializeComponent();
@@ -20,16 +18,10 @@ namespace Drivers___Vehicles_License_Department_Project {
                 errorProvider.SetError(txtUserName, "Username can't be empty!");
                 IsValid = false;
             }
-            else {
-                UserName = txtUserName.Text;
-            }
 
             if (string.IsNullOrWhiteSpace(txtPassword.Text)) {
                 errorProvider.SetError(txtPassword, "Password can't be empty!");
                 IsValid = false;
-            }
-            else {
-                Password = txtPassword.Text;
             }
 
             return IsValid;

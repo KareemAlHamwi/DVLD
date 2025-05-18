@@ -33,7 +33,7 @@
             ctrlCurrentUserCard.Location = new Point(6, 50);
             ctrlCurrentUserCard.Name = "ctrlCurrentUserCard";
             ctrlCurrentUserCard.Size = new Size(921, 498);
-            ctrlCurrentUserCard.TabIndex = 0;
+            ctrlCurrentUserCard.TabIndex = 1;
             // 
             // lblUsersManagement
             // 
@@ -51,7 +51,7 @@
             btnClose.Location = new Point(835, 556);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(90, 37);
-            btnClose.TabIndex = 6;
+            btnClose.TabIndex = 2;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;

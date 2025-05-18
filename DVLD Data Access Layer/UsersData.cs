@@ -250,7 +250,7 @@ namespace DVLD_Data_Access_Layer {
         }
 
         public static bool Login(ref int UserID, ref int PersonID, string UserName, string Password, ref bool IsActive) {
-            bool isFound = false;
+            bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
@@ -265,13 +265,39 @@ namespace DVLD_Data_Access_Layer {
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read()) {
-                    isFound = true;
+                    IsFound = true;
 
                     UserID = (int)reader["UserID"];
                     PersonID = (int)reader["PersonID"];
                     IsActive = (bool)reader["IsActive"];
                 }
 
+                reader.Close();
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                IsFound = false;
+            }
+            finally {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool ConfirmPassword(string UserName, string Password) {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = "SELECT Found=1 From Users WHERE UserName = @UserName AND Password = @Password";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
+
+            try {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isFound = reader.HasRows;
                 reader.Close();
             }
             catch (Exception ex) {

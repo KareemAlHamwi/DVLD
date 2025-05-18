@@ -38,7 +38,8 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            PresentationSettings.cp = new FrmChangePassword(LoggedInUser);
+            PresentationSettings.cp.ShowDialog();
         }
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e) {

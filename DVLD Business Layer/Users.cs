@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using DVLD_Data_Access_Layer;
 
 namespace DVLD_Business_Layer {
     public class Users {
@@ -126,6 +127,10 @@ namespace DVLD_Business_Layer {
             else {
                 return null;
             }
+        }
+
+        public bool ConfirmPassword(string Password) {
+            return UsersData.ConfirmPassword(UserName,Password);
         }
     }
 }

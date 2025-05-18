@@ -200,7 +200,9 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            PresentationSettings.cp = new FrmChangePassword(SelectedUser);
+            PresentationSettings.cp.ShowDialog();
+            _RefreshDataGrid();
         }
 
         private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e) {
