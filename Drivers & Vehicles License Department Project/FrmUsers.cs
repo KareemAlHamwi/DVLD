@@ -181,6 +181,8 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
+            string username = SelectedUser.UserName;
+            SelectedUser = Users.Find(username);
             PresentationSettings.auu = new FrmAddUpdateUser(enMode.Update, SelectedUser);
             PresentationSettings.auu.ShowDialog();
             _RefreshDataGrid();

@@ -1,16 +1,23 @@
 using Drivers___Vehicles_License_Department_Project;
+using Drivers_And_Vehicles_License_Department_Project;
+using DVLD_Business_Layer;
 
-namespace Drivers_And_Vehicles_License_Department_Project {
-    internal static class Program {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FrmLogin());
-        }
+static class Program {
+    private static ApplicationContext _mainContext;
+
+    [STAThread]
+    static void Main() {
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+
+        // Initialize with login form
+        _mainContext = new ApplicationContext(new FrmLogin());
+        Application.Run(_mainContext);
+    }
+
+    public static void SwitchToMainForm(Users loggedInUser) {
+        var mainForm = new FrmMain(loggedInUser);
+        _mainContext.MainForm = mainForm;
+        mainForm.Show();
     }
 }

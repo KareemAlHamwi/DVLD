@@ -39,13 +39,23 @@ namespace Drivers___Vehicles_License_Department_Project {
             if (!_ValidateAllInputs())
                 return;
 
-            // if (!Users.Login())
+            try {
+                Users user = Users.Login(txtUserName.Text, txtPassword.Text);
 
-            Hide();
-
-            new FrmMain(LoggedInUser).ShowDialog();
-
-            Close();
+                if (user != null && user.IsActive) {
+                    LoggedInUser = user;
+                    Program.SwitchToMainForm(LoggedInUser);
+                    Close();
+                }
+                else {
+                    FrmPopup.ShowPopup(user == null ? "Invalid credentials" : "Account is inactive");
+                    txtPassword.Clear();
+                    txtPassword.Focus();
+                }
+            }
+            catch (Exception ex) {
+                FrmPopup.ShowPopup($"Login failed: {ex.Message}");
+            }
         }
     }
 }

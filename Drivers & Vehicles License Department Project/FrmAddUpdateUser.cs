@@ -67,6 +67,8 @@ namespace Drivers___Vehicles_License_Department_Project {
                 tabControl.SelectedIndex = 0;
                 FrmPopup.ShowPopup("Person is linked to a User before!");
             }
+
+            AddedOrEditedUser.PersonID = ctrlPersonInfoWithFilter.FoundPerson.PersonID;
         }
 
         private bool _ValidateAllInputs() {

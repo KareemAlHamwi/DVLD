@@ -113,7 +113,6 @@
             // 
             txtConfirmPassword.Location = new Point(225, 192);
             txtConfirmPassword.Name = "txtConfirmPassword";
-            txtConfirmPassword.PasswordChar = '*';
             txtConfirmPassword.Size = new Size(174, 31);
             txtConfirmPassword.TabIndex = 26;
             // 
@@ -122,7 +121,6 @@
             txtPassword.Location = new Point(225, 147);
             txtPassword.MaxLength = 20;
             txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(174, 31);
             txtPassword.TabIndex = 25;
             // 

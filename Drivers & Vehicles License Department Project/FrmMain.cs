@@ -1,3 +1,4 @@
+using Drivers___Vehicles_License_Department_Project;
 using DVLD_Business_Layer;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
@@ -32,7 +33,8 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            PresentationSettings.ud = new FrmUserDetails(LoggedInUser);
+            PresentationSettings.ud.ShowDialog();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e) {

@@ -28,7 +28,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void FrmAddUpdatePerson_FormClosed(object sender, FormClosedEventArgs e) {
-            DataBack?.Invoke(this,ctrlAddUpdatePerson1.AddedOrEditedPerson);
+            DataBack?.Invoke(this, ctrlAddUpdatePerson1.AddedOrEditedPerson);
         }
     }
 }

@@ -327,11 +327,11 @@
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
-            // txtAdress
+            // txtAddress
             // 
             txtAddress.Location = new Point(134, 260);
             txtAddress.Multiline = true;
-            txtAddress.Name = "txtAdress";
+            txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(530, 99);
             txtAddress.TabIndex = 12;
             // 
@@ -364,6 +364,7 @@
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(170, 31);
             txtFirstName.TabIndex = 1;
+            txtFirstName.TextChanged += txtFirstName_TextChanged;
             txtFirstName.KeyPress += txtFirstName_KeyPress;
             // 
             // linkRemoveImage

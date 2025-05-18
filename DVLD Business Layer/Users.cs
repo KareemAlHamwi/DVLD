@@ -100,5 +100,32 @@ namespace DVLD_Business_Layer {
                 return null;
             }
         }
+
+        public static Users Find(string UserName) {
+            int UserID = -1, PersonID = -1;
+            string Password = "";
+            bool IsActive = false;
+
+            // Pass parameters by reference using the 'ref' keyword
+            if (DVLD_Data_Access_Layer.UsersData.GetUserByUserName(ref UserID, ref PersonID, UserName, ref Password, ref IsActive)) {
+                return new Users(UserID, PersonID, UserName, Password, IsActive.ToString());
+            }
+            else {
+                return null;
+            }
+        }
+
+        public static Users Login(string UserName, string Password) {
+            int UserID = -1, PersonID = -1;
+            bool IsActive = false;
+
+            // Pass parameters by reference using the 'ref' keyword
+            if (DVLD_Data_Access_Layer.UsersData.Login(ref UserID, ref PersonID, UserName, Password, ref IsActive)) {
+                return new Users(UserID, PersonID, UserName, Password, IsActive.ToString());
+            }
+            else {
+                return null;
+            }
+        }
     }
 }
