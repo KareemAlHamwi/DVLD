@@ -43,7 +43,11 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            if (MessageBox.Show("Are you sure want to sign out?", "Sign out", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                File.WriteAllText(PresentationSettings.RememberMeFile, "{\"Username\":\"\",\"Password\":\"\",\"RememberMe\":false}");
+                Program.SwitchToLoginForm();
+                Close();
+            }
         }
     }
 }

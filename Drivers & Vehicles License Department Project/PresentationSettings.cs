@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
     internal class PresentationSettings {
+        public const string RememberMeFile = "RememberMe.json";
         public static string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         public static DateTime MaxDate = DateTime.Now.AddYears(-18);
         public static FrmPersonDetails pd;

@@ -1,6 +1,7 @@
-﻿
-using Drivers_And_Vehicles_License_Department_Project;
+﻿using System.Text.Json;
+using System.Text;
 using DVLD_Business_Layer;
+using Drivers_And_Vehicles_License_Department_Project;
 
 namespace Drivers___Vehicles_License_Department_Project {
     public partial class FrmLogin : Form {
@@ -8,6 +9,7 @@ namespace Drivers___Vehicles_License_Department_Project {
 
         public FrmLogin() {
             InitializeComponent();
+            LoadRememberMeInfo();
         }
 
         private bool _ValidateAllInputs() {
@@ -48,6 +50,48 @@ namespace Drivers___Vehicles_License_Department_Project {
             catch (Exception ex) {
                 FrmPopup.ShowPopup($"Login failed: {ex.Message}");
             }
+
+            SaveRememberMeInfo(LoggedInUser.UserName, LoggedInUser.Password, chBoxRememberMe.Checked);
+        }
+
+
+        // Basic "encryption" (note: this is just for demo purposes)
+        private string Encrypt(string plainText) {
+            byte[] data = Encoding.UTF8.GetBytes(plainText);
+            return Convert.ToBase64String(data);
+        }
+
+        private string Decrypt(string encryptedText) {
+            byte[] data = Convert.FromBase64String(encryptedText);
+            return Encoding.UTF8.GetString(data);
+        }
+
+        private void SaveRememberMeInfo(string username, string password, bool rememberMe) {
+            var info = new ClsRememberME {
+                Username = rememberMe ? Encrypt(username) : "",
+                Password = rememberMe ? Encrypt(password) : "",
+                RememberMe = rememberMe
+            };
+
+            string json = JsonSerializer.Serialize(info);
+            File.WriteAllText(PresentationSettings.RememberMeFile, json);
+        }
+
+        private bool LoadRememberMeInfo() {
+            if (!File.Exists(PresentationSettings.RememberMeFile))
+                return false;
+
+            string json = File.ReadAllText(PresentationSettings.RememberMeFile);
+            var info = JsonSerializer.Deserialize<ClsRememberME>(json);
+
+            if (info != null && info.RememberMe) {
+                txtUserName.Text = Decrypt(info.Username);
+                txtPassword.Text = Decrypt(info.Password);
+                chBoxRememberMe.Checked = true;
+                return true;
+            }
+
+            return false;
         }
     }
 }
