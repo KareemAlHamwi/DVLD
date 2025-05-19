@@ -27,14 +27,6 @@ namespace Drivers___Vehicles_License_Department_Project {
             ctrlPersonInfoWithFilter.SetMode(this.Mode);
         }
 
-        private void FrmAddUpdateUser_Load(object sender, EventArgs e) {
-
-        }
-
-        private void lblAddUpdatePerson_Click(object sender, EventArgs e) {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e) {
             Close();
         }

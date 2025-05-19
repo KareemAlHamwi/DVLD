@@ -251,7 +251,7 @@
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
             Controls.Add(lblPeopleManagement);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmPeople";

@@ -259,7 +259,7 @@
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
             Controls.Add(lblUsersManagement);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmUsers";

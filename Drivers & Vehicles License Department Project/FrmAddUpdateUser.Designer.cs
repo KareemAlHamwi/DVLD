@@ -104,7 +104,7 @@
             tabPage2.Location = new Point(4, 32);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(934, 521);
+            tabPage2.Size = new Size(192, 64);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Login Info";
             tabPage2.UseVisualStyleBackColor = true;
@@ -209,7 +209,6 @@
             lblAddUpdatePerson.Size = new Size(194, 57);
             lblAddUpdatePerson.TabIndex = 20;
             lblAddUpdatePerson.Text = "Add User";
-            lblAddUpdatePerson.Click += lblAddUpdatePerson_Click;
             // 
             // btnSave
             // 
@@ -247,12 +246,11 @@
             Controls.Add(btnClose);
             Controls.Add(lblAddUpdatePerson);
             Controls.Add(tabControl);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmAddUpdateUser";
             Text = "Add / Edit User Info.";
-            Load += FrmAddUpdateUser_Load;
             tabControl.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);

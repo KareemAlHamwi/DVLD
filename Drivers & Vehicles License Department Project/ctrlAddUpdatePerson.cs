@@ -262,9 +262,5 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             picboxPersonalPhoto.Image = Resources.default_avatar;
             _SelectedImagePath = "";
         }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e) {
-
-        }
     }
 }

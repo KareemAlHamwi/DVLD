@@ -364,7 +364,6 @@
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(170, 31);
             txtFirstName.TabIndex = 1;
-            txtFirstName.TextChanged += txtFirstName_TextChanged;
             txtFirstName.KeyPress += txtFirstName_KeyPress;
             // 
             // linkRemoveImage

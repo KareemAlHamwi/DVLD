@@ -25,6 +25,14 @@
         private void InitializeComponent() {
             menuStrip1 = new MenuStrip();
             applicationsToolStripMenuItem = new ToolStripMenuItem();
+            drivingLicensesServicesToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            manageApplicationsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            detainToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            manageApplicationTypesToolStripMenuItem = new ToolStripMenuItem();
+            manageTestTypesToolStripMenuItem = new ToolStripMenuItem();
             peopleToolStripMenuItem = new ToolStripMenuItem();
             driversToolStripMenuItem = new ToolStripMenuItem();
             usersToolStripMenuItem = new ToolStripMenuItem();
@@ -47,9 +55,57 @@
             // 
             // applicationsToolStripMenuItem
             // 
+            applicationsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { drivingLicensesServicesToolStripMenuItem, toolStripSeparator2, manageApplicationsToolStripMenuItem, toolStripSeparator3, detainToolStripMenuItem, toolStripSeparator1, manageApplicationTypesToolStripMenuItem, manageTestTypesToolStripMenuItem });
             applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
             applicationsToolStripMenuItem.Size = new Size(133, 32);
             applicationsToolStripMenuItem.Text = "Applications";
+            // 
+            // drivingLicensesServicesToolStripMenuItem
+            // 
+            drivingLicensesServicesToolStripMenuItem.Name = "drivingLicensesServicesToolStripMenuItem";
+            drivingLicensesServicesToolStripMenuItem.Size = new Size(315, 32);
+            drivingLicensesServicesToolStripMenuItem.Text = "Driving Licenses Services";
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(312, 6);
+            // 
+            // manageApplicationsToolStripMenuItem
+            // 
+            manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
+            manageApplicationsToolStripMenuItem.Size = new Size(315, 32);
+            manageApplicationsToolStripMenuItem.Text = "Manage Applications";
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(312, 6);
+            // 
+            // detainToolStripMenuItem
+            // 
+            detainToolStripMenuItem.Name = "detainToolStripMenuItem";
+            detainToolStripMenuItem.Size = new Size(315, 32);
+            detainToolStripMenuItem.Text = "Detain Licenses";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(312, 6);
+            // 
+            // manageApplicationTypesToolStripMenuItem
+            // 
+            manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
+            manageApplicationTypesToolStripMenuItem.Size = new Size(315, 32);
+            manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
+            manageApplicationTypesToolStripMenuItem.Click += manageApplicationTypesToolStripMenuItem_Click;
+            // 
+            // manageTestTypesToolStripMenuItem
+            // 
+            manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
+            manageTestTypesToolStripMenuItem.Size = new Size(315, 32);
+            manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
+            manageTestTypesToolStripMenuItem.Click += manageTestTypesToolStripMenuItem_Click;
             // 
             // peopleToolStripMenuItem
             // 
@@ -106,7 +162,7 @@
             BackColor = Color.Black;
             ClientSize = new Size(1904, 1041);
             Controls.Add(menuStrip1);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "FrmMain";
@@ -129,5 +185,13 @@
         private ToolStripMenuItem currentUserInfoToolStripMenuItem;
         private ToolStripMenuItem changePasswordToolStripMenuItem;
         private ToolStripMenuItem signOutToolStripMenuItem;
+        private ToolStripMenuItem drivingLicensesServicesToolStripMenuItem;
+        private ToolStripMenuItem manageApplicationsToolStripMenuItem;
+        private ToolStripMenuItem detainToolStripMenuItem;
+        private ToolStripMenuItem manageApplicationTypesToolStripMenuItem;
+        private ToolStripMenuItem manageTestTypesToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }

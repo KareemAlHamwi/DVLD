@@ -13,7 +13,7 @@ Feel free to explore, provide feedback, and contribute!
 
 ✅ **Users Management , Login Screen , and Account Settings.**
 
-⬜ Manage Application Types.
+✅ **Manage Application Types.**
 
 ⬜ Manage Test Types.
 

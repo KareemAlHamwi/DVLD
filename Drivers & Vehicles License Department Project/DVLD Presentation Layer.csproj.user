@@ -19,6 +19,9 @@
     <Compile Update="FrmAddUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmApplicationTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -35,6 +38,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmUpdateApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmUserDetails.cs">

@@ -49,5 +49,13 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 Close();
             }
         }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenForm<FrmApplicationTypes>();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenForm<FrmTestTypes>();
+        }
     }
 }

@@ -144,7 +144,7 @@
             Controls.Add(txtCurrentPassword);
             Controls.Add(label3);
             Controls.Add(ctrlUserCard1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmChangePassword";

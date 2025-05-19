@@ -122,7 +122,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmLogin";

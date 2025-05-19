@@ -64,7 +64,7 @@
             Controls.Add(ctrlCurrentPersonCard);
             Controls.Add(btnClose);
             Controls.Add(lblPeopleManagement);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmPersonDetails";

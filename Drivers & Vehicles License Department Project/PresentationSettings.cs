@@ -15,6 +15,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         public static FrmAddUpdatePerson aup;
         public static FrmAddUpdateUser auu;
         public static FrmChangePassword cp;
+        public static FrmUpdateApplicationTypes uat;
 
         public static void NotImplementedMessage() {
             FrmPopup.ShowPopup("Feature is not implemented yet!");

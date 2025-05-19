@@ -78,7 +78,7 @@
             Controls.Add(lblPersonID);
             Controls.Add(label1);
             Controls.Add(ctrlAddUpdatePerson1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmAddUpdatePerson";
