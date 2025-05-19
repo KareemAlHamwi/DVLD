@@ -11,7 +11,7 @@ Feel free to explore, provide feedback, and contribute!
 
 ✅ **People Management.**
 
-⬜ Users Management , Login Screen , and Account Settings.
+✅ **Users Management , Login Screen , and Account Settings.**
 
 ⬜ Manage Application Types.
 
