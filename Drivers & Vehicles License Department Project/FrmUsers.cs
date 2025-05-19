@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using Drivers___Vehicles_License_Department_Project;
+using Drivers_And_Vehicles_License_Department_Project;
 using DVLD_Business_Layer;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
@@ -33,7 +33,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void _RefreshDataGrid() {
             UsersTable = Users.GetAllUsers();
-            UsersTable.TableName = "People";
+            UsersTable.TableName = "Users";
             DvUsers.Table = UsersTable;
             lblRecords.Text = "# Records : " + UsersTable.Rows.Count;
         }
@@ -143,7 +143,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             dataUsersView.Rows[RowIndex].Selected = true;
         }
 
-        private void _FillSelectedPerson(int RowIndex) {
+        private void _FillSelectedUser(int RowIndex) {
             if (RowIndex < 0 || RowIndex >= dataUsersView.Rows.Count)
                 return;
 
@@ -157,7 +157,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         private void dataUsersView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0) {
                 _SelectWholeRow(e.RowIndex);
-                _FillSelectedPerson(e.RowIndex);
+                _FillSelectedUser(e.RowIndex);
                 cmsUsers.Show(dataUsersView, dataUsersView.PointToClient(Cursor.Position));
             }
         }
@@ -189,7 +189,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (MessageBox.Show($"Are you sure want to delete Person with PersonID ({SelectedUser.UserID})?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+            if (MessageBox.Show($"Are you sure want to delete User with UserID ({SelectedUser.UserID})?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 if (Users.DeleteUser(SelectedUser.UserID))
                     FrmPopup.ShowPopup("Deleted Successfully!");
                 else

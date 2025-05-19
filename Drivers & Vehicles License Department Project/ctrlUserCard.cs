@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Drivers_And_Vehicles_License_Department_Project.Properties;
 using DVLD_Business_Layer;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class ctrlUserCard : UserControl {
         private People CurrentPerson = new People();
         private Users CurrentUser = new Users();

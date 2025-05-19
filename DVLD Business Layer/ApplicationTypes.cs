@@ -32,12 +32,12 @@ namespace DVLD_Business_Layer {
             Fees = sourceApplicationType.Fees;
         }
 
-        private bool _UpdateUser() {
+        private bool _UpdateApplicationType() {
             return ApplicationTypesData.UpdateApplicationType(ApplicationTypeID, Title, Fees);
         }
 
         public bool Save() {
-            return _UpdateUser();
+            return _UpdateApplicationType();
         }
         
         public static DataTable GetAllApplicationTypes() {

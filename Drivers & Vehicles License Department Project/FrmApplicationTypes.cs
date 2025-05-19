@@ -2,7 +2,7 @@
 using Drivers_And_Vehicles_License_Department_Project;
 using DVLD_Business_Layer;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmApplicationTypes : Form {
 
         ApplicationTypes SelectedApplicationType;
@@ -13,7 +13,7 @@ namespace Drivers___Vehicles_License_Department_Project {
             InitializeComponent();
 
             ApplicationTypesTable = ApplicationTypes.GetAllApplicationTypes();
-            ApplicationTypesTable.TableName = "Users";
+            ApplicationTypesTable.TableName = "ApplicationTypes";
             DvApplicationTypes = new DataView(ApplicationTypesTable);
             dataApplicationTypesView.DataSource = DvApplicationTypes;
 
@@ -29,7 +29,7 @@ namespace Drivers___Vehicles_License_Department_Project {
 
         private void _RefreshDataGrid() {
             ApplicationTypesTable = ApplicationTypes.GetAllApplicationTypes();
-            ApplicationTypesTable.TableName = "People";
+            ApplicationTypesTable.TableName = "ApplicationTypes";
             DvApplicationTypes.Table = ApplicationTypesTable;
             lblRecords.Text = "# Records : " + ApplicationTypesTable.Rows.Count;
         }
@@ -43,7 +43,7 @@ namespace Drivers___Vehicles_License_Department_Project {
             dataApplicationTypesView.Rows[RowIndex].Selected = true;
         }
 
-        private void _FillSelectedPerson(int RowIndex) {
+        private void _FillSelectedApplicationType(int RowIndex) {
             if (RowIndex < 0 || RowIndex >= dataApplicationTypesView.Rows.Count)
                 return;
 
@@ -55,7 +55,7 @@ namespace Drivers___Vehicles_License_Department_Project {
         private void dataApplicationTypesView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0) {
                 _SelectWholeRow(e.RowIndex);
-                _FillSelectedPerson(e.RowIndex);
+                _FillSelectedApplicationType(e.RowIndex);
                 cmsApplicationTypes.Show(dataApplicationTypesView, dataApplicationTypesView.PointToClient(Cursor.Position));
             }
         }

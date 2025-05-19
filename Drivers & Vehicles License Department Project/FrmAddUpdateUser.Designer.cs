@@ -1,4 +1,4 @@
-﻿namespace Drivers___Vehicles_License_Department_Project {
+﻿namespace Drivers_And_Vehicles_License_Department_Project {
     partial class FrmAddUpdateUser {
         /// <summary>
         /// Required designer variable.

@@ -1,18 +1,19 @@
 ﻿using Drivers_And_Vehicles_License_Department_Project;
 using DVLD_Business_Layer;
 namespace Drivers_And_Vehicles_License_Department_Project {
-    public partial class FrmUpdateApplicationTypes : Form {
-        public ApplicationTypes EditedApplicationType = new ApplicationTypes();
-        public FrmUpdateApplicationTypes(ApplicationTypes ApplicationType) {
+    public partial class FrmUpdateTestTypes : Form {
+        public TestTypes EditedTestType = new TestTypes();
+        public FrmUpdateTestTypes(TestTypes TestType) {
             InitializeComponent();
-            _SetApplicationTypeData(ApplicationType);
-            EditedApplicationType = new ApplicationTypes(ApplicationType);
+            _SetTestTypeData(TestType);
+            EditedTestType = new TestTypes(TestType);
         }
 
-        private void _SetApplicationTypeData(ApplicationTypes ApplicationType) {
-            lblApplicationTypeID.Text = ApplicationType.ApplicationTypeID.ToString();
-            txtTitle.Text = ApplicationType.Title;
-            txtFees.Text = ApplicationType.Fees.ToString("0.##");
+        private void _SetTestTypeData(TestTypes TestType) {
+            lblTestTypeID.Text = TestType.TestTypeID.ToString();
+            txtTitle.Text = TestType.Title;
+            txtDescription.Text = TestType.Description;
+            txtFees.Text = TestType.Fees.ToString("0.##");
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
@@ -28,7 +29,15 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 IsValid = false;
             }
             else {
-                EditedApplicationType.Title = txtTitle.Text;
+                EditedTestType.Title = txtTitle.Text;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDescription.Text)) {
+                errorProvider.SetError(txtDescription, "Description can't be empty!");
+                IsValid = false;
+            }
+            else {
+                EditedTestType.Description = txtDescription.Text;
             }
 
             if (string.IsNullOrWhiteSpace(txtFees.Text)) {
@@ -36,7 +45,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 IsValid = false;
             }
             else {
-                EditedApplicationType.Fees = Convert.ToDecimal(txtFees.Text);
+                EditedTestType.Fees = Convert.ToDecimal(txtFees.Text);
             }
 
             return IsValid;
@@ -46,7 +55,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             if (!_ValidateAllInputs())
                 return;
 
-            if (EditedApplicationType.Save())
+            if (EditedTestType.Save())
                 FrmPopup.ShowPopup("Saved!");
             else
                 FrmPopup.ShowPopup("Couldn't Save, Something Went Wrong ..");
@@ -55,6 +64,10 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void txtTitle_KeyPress(object sender, KeyPressEventArgs e) {
+            PresentationSettings.AllowOnlyLetters(e);
+        }
+
+        private void txtDescription_KeyPress(object sender, KeyPressEventArgs e) {
             PresentationSettings.AllowOnlyLetters(e);
         }
 

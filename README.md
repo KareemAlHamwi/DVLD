@@ -15,7 +15,7 @@ Feel free to explore, provide feedback, and contribute!
 
 ✅ **Manage Application Types.**
 
-⬜ Manage Test Types.
+✅ **Manage Test Types.**
 
 ⬜ Applications: Add New Local Driving Application Part 1.
 

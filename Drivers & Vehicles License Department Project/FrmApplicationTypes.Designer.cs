@@ -1,4 +1,4 @@
-﻿namespace Drivers___Vehicles_License_Department_Project {
+﻿namespace Drivers_And_Vehicles_License_Department_Project {
     partial class FrmApplicationTypes {
         /// <summary>
         /// Required designer variable.
@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblApplicationTypesManagement = new Label();
             cmsApplicationTypes = new ContextMenuStrip(components);
             editApplicationTypeToolStripMenuItem = new ToolStripMenuItem();
@@ -40,7 +40,7 @@
             // 
             lblApplicationTypesManagement.Font = new Font("Simple Bold Jut Out", 25F, FontStyle.Bold);
             lblApplicationTypesManagement.ForeColor = Color.Red;
-            lblApplicationTypesManagement.Location = new Point(78, 9);
+            lblApplicationTypesManagement.Location = new Point(77, 9);
             lblApplicationTypesManagement.Name = "lblApplicationTypesManagement";
             lblApplicationTypesManagement.Size = new Size(571, 52);
             lblApplicationTypesManagement.TabIndex = 18;
@@ -63,23 +63,23 @@
             // dataApplicationTypesView
             // 
             dataApplicationTypesView.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataApplicationTypesView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataApplicationTypesView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataApplicationTypesView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 13F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataApplicationTypesView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 13F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataApplicationTypesView.DefaultCellStyle = dataGridViewCellStyle4;
             dataApplicationTypesView.Location = new Point(12, 75);
             dataApplicationTypesView.Name = "dataApplicationTypesView";
             dataApplicationTypesView.ReadOnly = true;

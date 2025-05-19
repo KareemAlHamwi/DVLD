@@ -3,7 +3,7 @@ using System.Text;
 using DVLD_Business_Layer;
 using Drivers_And_Vehicles_License_Department_Project;
 
-namespace Drivers___Vehicles_License_Department_Project {
+namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmLogin : Form {
         Users LoggedInUser = new Users();
 
