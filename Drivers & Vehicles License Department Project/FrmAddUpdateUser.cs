@@ -3,7 +3,6 @@
 namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmAddUpdateUser : Form {
         private enMode Mode;
-
         public Users AddedOrEditedUser = new Users();
 
         public FrmAddUpdateUser() {

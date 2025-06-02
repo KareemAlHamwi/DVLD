@@ -26,8 +26,19 @@
             menuStrip1 = new MenuStrip();
             applicationsToolStripMenuItem = new ToolStripMenuItem();
             drivingLicensesServicesToolStripMenuItem = new ToolStripMenuItem();
+            newDrivingLicensesToolStripMenuItem = new ToolStripMenuItem();
+            localLicenseToolStripMenuItem = new ToolStripMenuItem();
+            internationalLicenseToolStripMenuItem = new ToolStripMenuItem();
+            renewToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            replacementForLostOrDamagedLicenseToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
+            reToolStripMenuItem = new ToolStripMenuItem();
+            retakeTestToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             manageApplicationsToolStripMenuItem = new ToolStripMenuItem();
+            localDrivingLicenseApplicationsToolStripMenuItem = new ToolStripMenuItem();
+            interToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             detainToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -62,9 +73,64 @@
             // 
             // drivingLicensesServicesToolStripMenuItem
             // 
+            drivingLicensesServicesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newDrivingLicensesToolStripMenuItem, renewToolStripMenuItem, toolStripSeparator4, replacementForLostOrDamagedLicenseToolStripMenuItem, toolStripSeparator5, reToolStripMenuItem, retakeTestToolStripMenuItem });
             drivingLicensesServicesToolStripMenuItem.Name = "drivingLicensesServicesToolStripMenuItem";
             drivingLicensesServicesToolStripMenuItem.Size = new Size(315, 32);
             drivingLicensesServicesToolStripMenuItem.Text = "Driving Licenses Services";
+            // 
+            // newDrivingLicensesToolStripMenuItem
+            // 
+            newDrivingLicensesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { localLicenseToolStripMenuItem, internationalLicenseToolStripMenuItem });
+            newDrivingLicensesToolStripMenuItem.Name = "newDrivingLicensesToolStripMenuItem";
+            newDrivingLicensesToolStripMenuItem.Size = new Size(448, 32);
+            newDrivingLicensesToolStripMenuItem.Text = "New Driving License";
+            // 
+            // localLicenseToolStripMenuItem
+            // 
+            localLicenseToolStripMenuItem.Name = "localLicenseToolStripMenuItem";
+            localLicenseToolStripMenuItem.Size = new Size(262, 32);
+            localLicenseToolStripMenuItem.Text = "Local License";
+            localLicenseToolStripMenuItem.Click += localLicenseToolStripMenuItem_Click;
+            // 
+            // internationalLicenseToolStripMenuItem
+            // 
+            internationalLicenseToolStripMenuItem.Name = "internationalLicenseToolStripMenuItem";
+            internationalLicenseToolStripMenuItem.Size = new Size(262, 32);
+            internationalLicenseToolStripMenuItem.Text = "International License";
+            // 
+            // renewToolStripMenuItem
+            // 
+            renewToolStripMenuItem.Name = "renewToolStripMenuItem";
+            renewToolStripMenuItem.Size = new Size(448, 32);
+            renewToolStripMenuItem.Text = "Renew Driving License";
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(445, 6);
+            // 
+            // replacementForLostOrDamagedLicenseToolStripMenuItem
+            // 
+            replacementForLostOrDamagedLicenseToolStripMenuItem.Name = "replacementForLostOrDamagedLicenseToolStripMenuItem";
+            replacementForLostOrDamagedLicenseToolStripMenuItem.Size = new Size(448, 32);
+            replacementForLostOrDamagedLicenseToolStripMenuItem.Text = "Replacement for Lost or Damaged License";
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(445, 6);
+            // 
+            // reToolStripMenuItem
+            // 
+            reToolStripMenuItem.Name = "reToolStripMenuItem";
+            reToolStripMenuItem.Size = new Size(448, 32);
+            reToolStripMenuItem.Text = "Release Detained Driving License";
+            // 
+            // retakeTestToolStripMenuItem
+            // 
+            retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
+            retakeTestToolStripMenuItem.Size = new Size(448, 32);
+            retakeTestToolStripMenuItem.Text = "Retake Test";
             // 
             // toolStripSeparator2
             // 
@@ -73,9 +139,23 @@
             // 
             // manageApplicationsToolStripMenuItem
             // 
+            manageApplicationsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { localDrivingLicenseApplicationsToolStripMenuItem, interToolStripMenuItem });
             manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
             manageApplicationsToolStripMenuItem.Size = new Size(315, 32);
             manageApplicationsToolStripMenuItem.Text = "Manage Applications";
+            // 
+            // localDrivingLicenseApplicationsToolStripMenuItem
+            // 
+            localDrivingLicenseApplicationsToolStripMenuItem.Name = "localDrivingLicenseApplicationsToolStripMenuItem";
+            localDrivingLicenseApplicationsToolStripMenuItem.Size = new Size(379, 32);
+            localDrivingLicenseApplicationsToolStripMenuItem.Text = "Local Driving License Applications";
+            localDrivingLicenseApplicationsToolStripMenuItem.Click += localDrivingLicenseApplicationsToolStripMenuItem_Click;
+            // 
+            // interToolStripMenuItem
+            // 
+            interToolStripMenuItem.Name = "interToolStripMenuItem";
+            interToolStripMenuItem.Size = new Size(379, 32);
+            interToolStripMenuItem.Text = "International License Applications";
             // 
             // toolStripSeparator3
             // 
@@ -193,5 +273,16 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem newDrivingLicensesToolStripMenuItem;
+        private ToolStripMenuItem renewToolStripMenuItem;
+        private ToolStripMenuItem replacementForLostOrDamagedLicenseToolStripMenuItem;
+        private ToolStripMenuItem reToolStripMenuItem;
+        private ToolStripMenuItem retakeTestToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripMenuItem localLicenseToolStripMenuItem;
+        private ToolStripMenuItem internationalLicenseToolStripMenuItem;
+        private ToolStripMenuItem localDrivingLicenseApplicationsToolStripMenuItem;
+        private ToolStripMenuItem interToolStripMenuItem;
     }
 }

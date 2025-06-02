@@ -12,6 +12,9 @@ namespace DVLD_Business_Layer {
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+        public string GetFullName() {
+            return $"{FirstName} {SecondName} {ThirdName} {LastName}".Trim();
+        }
         public DateTime Birthdate { get; set; }
         public enGender Gender { get; set; }
         public string Address { get; set; }
@@ -137,7 +140,7 @@ namespace DVLD_Business_Layer {
             int NationalityCountryID = -1;
 
             // Pass parameters by reference using the 'ref' keyword
-            if (DVLD_Data_Access_Layer.PeopleData.GetPersonByNationalNo(ref PersonID,NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Birthdate, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref NationalityCountryName, ref ImagePath)) {
+            if (DVLD_Data_Access_Layer.PeopleData.GetPersonByNationalNo(ref PersonID, NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Birthdate, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref NationalityCountryName, ref ImagePath)) {
                 return new People(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Birthdate, Gender,
                     Address, Phone, Email, NationalityCountryID, NationalityCountryName, ImagePath);
             }

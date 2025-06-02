@@ -50,13 +50,13 @@ namespace DVLD_Business_Layer {
         }
 
         private bool _AddNewUser() {
-            UserID = DVLD_Data_Access_Layer.UsersData.AddNewUser(PersonID, UserName, Password, IsActive.ToString());
+            UserID = UsersData.AddNewUser(PersonID, UserName, Password, IsActive.ToString());
 
             return UserID != -1;
         }
 
         private bool _UpdateUser() {
-            return DVLD_Data_Access_Layer.UsersData.UpdateUser(UserID, UserName, Password, IsActive.ToString());
+            return UsersData.UpdateUser(UserID, UserName, Password, IsActive.ToString());
         }
 
         public bool Save() {
@@ -77,15 +77,15 @@ namespace DVLD_Business_Layer {
         }
 
         public static DataTable GetAllUsers() {
-            return DVLD_Data_Access_Layer.UsersData.GetAllUsers();
+            return UsersData.GetAllUsers();
         }
 
         public static bool DeleteUser(int UserID) {
-            return DVLD_Data_Access_Layer.UsersData.DeleteUser(UserID);
+            return UsersData.DeleteUser(UserID);
         }
 
         public static bool IsUserExist(int UserID) {
-            return DVLD_Data_Access_Layer.UsersData.IsUserExist(UserID);
+            return UsersData.IsUserExist(UserID);
         }
 
         public static Users Find(int UserID) {
@@ -94,7 +94,7 @@ namespace DVLD_Business_Layer {
             bool IsActive = false;
 
             // Pass parameters by reference using the 'ref' keyword
-            if (DVLD_Data_Access_Layer.UsersData.GetUserByID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive)) {
+            if (UsersData.GetUserByID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive)) {
                 return new Users(UserID, PersonID, UserName, Password, IsActive.ToString());
             }
             else {
@@ -108,7 +108,7 @@ namespace DVLD_Business_Layer {
             bool IsActive = false;
 
             // Pass parameters by reference using the 'ref' keyword
-            if (DVLD_Data_Access_Layer.UsersData.GetUserByUserName(ref UserID, ref PersonID, UserName, ref Password, ref IsActive)) {
+            if (UsersData.GetUserByUserName(ref UserID, ref PersonID, UserName, ref Password, ref IsActive)) {
                 return new Users(UserID, PersonID, UserName, Password, IsActive.ToString());
             }
             else {
@@ -121,7 +121,7 @@ namespace DVLD_Business_Layer {
             bool IsActive = false;
 
             // Pass parameters by reference using the 'ref' keyword
-            if (DVLD_Data_Access_Layer.UsersData.Login(ref UserID, ref PersonID, UserName, Password, ref IsActive)) {
+            if (UsersData.Login(ref UserID, ref PersonID, UserName, Password, ref IsActive)) {
                 return new Users(UserID, PersonID, UserName, Password, IsActive.ToString());
             }
             else {

@@ -1,4 +1,5 @@
 using Drivers_And_Vehicles_License_Department_Project;
+using Drivers_And_Vehicles_License_Department_Project;
 using DVLD_Business_Layer;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
@@ -56,6 +57,15 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenForm<FrmTestTypes>();
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenForm<FrmLocalDrivingLicenseApplications>();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e) {
+            PresentationSettings.nldla = new FrmNewLocalDrivingLicenseApplication();
+            PresentationSettings.nldla.ShowDialog();
         }
     }
 }

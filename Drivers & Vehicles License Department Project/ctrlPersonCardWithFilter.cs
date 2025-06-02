@@ -98,5 +98,9 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                     break;
             }
         }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e) {
+            PresentationSettings.AllowOnlyDigits(e);
+        }
     }
 }

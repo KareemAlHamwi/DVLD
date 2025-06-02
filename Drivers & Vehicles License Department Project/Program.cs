@@ -1,7 +1,6 @@
 using System.Text.Json;
 using System.Text;
 using Drivers_And_Vehicles_License_Department_Project;
-using Drivers_And_Vehicles_License_Department_Project;
 using DVLD_Business_Layer;
 
 static class Program {
@@ -12,10 +11,8 @@ static class Program {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
 
-        Users loggedInUser;
-
-        if (TryAutoLogin(out loggedInUser)) {
-            _mainContext = new ApplicationContext(new FrmMain(loggedInUser));
+        if (TryAutoLogin(out PresentationSettings.LoggedInUser)) {
+            _mainContext = new ApplicationContext(new FrmMain(PresentationSettings.LoggedInUser));
         }
         else {
             _mainContext = new ApplicationContext(new FrmLogin());

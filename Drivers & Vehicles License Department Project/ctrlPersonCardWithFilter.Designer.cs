@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            ctrlPersonCard = new Drivers_And_Vehicles_License_Department_Project.ctrlPersonCard();
+            ctrlPersonCard = new ctrlPersonCard();
             groFilter = new GroupBox();
             btnAdd = new Button();
             btnFind = new Button();
@@ -84,6 +84,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(240, 31);
             txtSearch.TabIndex = 15;
+            txtSearch.KeyPress += txtSearch_KeyPress;
             // 
             // comPeopleColumns
             // 

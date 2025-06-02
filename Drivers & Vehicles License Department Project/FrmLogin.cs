@@ -1,7 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text;
 using DVLD_Business_Layer;
-using Drivers_And_Vehicles_License_Department_Project;
 
 namespace Drivers_And_Vehicles_License_Department_Project {
     public partial class FrmLogin : Form {
@@ -39,6 +38,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 if (user != null && user.IsActive) {
                     LoggedInUser = user;
                     Program.SwitchToMainForm(LoggedInUser);
+                    FrmPopup.ShowPopup($"{user.UserName} Login Successfully!");
                     Close();
                 }
                 else {

@@ -3,6 +3,37 @@ using System.Data.SqlClient;
 
 namespace DVLD_Data_Access_Layer {
     public class ApplicationTypesData {
+        public static decimal GetServiceFeesByID(int ApplicationTypeID) {
+            decimal ServiceFees = 0;
+
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"SELECT ApplicationFees FROM ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+
+            try {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read()) {
+                    ServiceFees = (decimal)reader["ApplicationFees"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                ServiceFees = -1;
+            }
+            finally {
+                connection.Close();
+            }
+
+            return ServiceFees;
+        }
+
         public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees) {
             int rowsAffected = 0;
 

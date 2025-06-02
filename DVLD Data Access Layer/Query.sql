@@ -64,4 +64,88 @@ SELECT
                             u.UserName,
                             u.IsActive AS 'Is Active'
                             FROM Users u
-                            LEFT JOIN People p ON p.PersonID = u.PersonID?
+                            LEFT JOIN People p ON p.PersonID = u.PersonID
+
+SELECT * from Applications
+
+select 
+
+ap.ApplicationID as 'L.D.L AppID',
+l.ClassName as 'Driving Class',
+p.NationalNo as 'National No.',
+p.FirstName  + ' ' + p.SecondName + ' ' + p.ThirdName + ' ' + p.LastName as 'Full Name',
+ap.ApplicationDate as 'Application Date',
+1 as 'Passed Tests',
+ap.ApplicationStatus as 'Status'
+
+from Applications ap
+JOIN People p ON p.PersonID = ap.ApplicantPersonID
+JOIN LicenseClasses l ON ap.ApplicationTypeID = l.LicenseClassID
+JOIN Users u ON ap.CreatedByUserID = u.UserID
+
+
+SELECT 
+    LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID AS [L.D.LAppID], 
+    LicenseClasses.ClassName AS [Driving Class], 
+    People.NationalNo,
+    (People.FirstName + ' ' +
+    People.SecondName + ' '+
+    People.ThirdName + ' '+ 
+    People.LastName) AS [FULL Name], 
+    Applications.ApplicationDate,
+    (SELECT COUNT(DISTINCT TestAppointments.TestAppointmentID)
+FROM TestAppointments 
+INNER JOIN Tests ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
+WHERE TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID  
+AND Tests.TestResult = 1) AS [Passed Tests], 
+  CASE WHEN Applications.ApplicationStatus = 1 THEN 'New'
+  WHEN Applications.ApplicationStatus = 2 THEN 'Canceled' 
+  WHEN Applications.ApplicationStatus = 3 THEN 'Completed' END AS Status
+FROM LocalDrivingLicenseApplications 
+LEFT JOIN Applications 
+    ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID 
+LEFT JOIN LicenseClasses 
+    ON LocalDrivingLicenseApplications.LicenseClassID = LicenseClasses.LicenseClassID 
+LEFT JOIN People 
+    ON Applications.ApplicantPersonID = People.PersonID 
+LEFT JOIN TestAppointments 
+    ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID 
+LEFT JOIN Tests 
+    ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
+GROUP BY 
+    LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID,
+    LicenseClasses.ClassName,
+    People.NationalNo,
+    (People.FirstName + ' ' +
+    People.SecondName + ' '+
+    People.ThirdName + ' '+ 
+    People.LastName),
+    Applications.ApplicationDate,
+    Applications.ApplicationStatus
+
+
+SELECT * from Applications
+
+SELECT * from LocalDrivingLicenseApplications
+
+SELECT * FROM LocalDrivingLicenseApplications_View
+
+SELECT * from InternationalLicenses
+
+-- UPDATE People
+-- SET ImagePath = NULL;
+
+SELECT * from People
+
+SELECT * from users
+
+SELECT * from LicenseClasses
+
+SELECT * from ApplicationTypes
+
+SELECT ApplicantPersonID FROM Applications
+
+DELETE from LocalDrivingLicenseApplications WHERE ApplicationID = 74
+DELETE from LocalDrivingLicenseApplications WHERE ApplicationID = 76
+
+delete from Applications WHERE ApplicantPersonID = 3070
