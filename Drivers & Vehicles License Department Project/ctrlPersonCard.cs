@@ -29,7 +29,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblAddress.Text = CurrentPerson.Address;
             lblBirthdate.Text = CurrentPerson.Birthdate.ToShortDateString();
             lblPhone.Text = CurrentPerson.Phone;
-            lblCountry.Text = CurrentPerson.NationalityCountryName;
+            lblCountry.Text = Countries.Find(CurrentPerson.NationalityCountryID).CountryName;
 
             if (!string.IsNullOrEmpty(CurrentPerson.ImagePath)) {
                 string imageFullPath = Path.Combine(Application.StartupPath, "Photos", CurrentPerson.ImagePath);

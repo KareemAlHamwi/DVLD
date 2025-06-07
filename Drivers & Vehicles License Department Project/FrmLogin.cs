@@ -38,7 +38,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
                 if (user != null && user.IsActive) {
                     LoggedInUser = user;
                     Program.SwitchToMainForm(LoggedInUser);
-                    FrmPopup.ShowPopup($"{user.UserName} Login Successfully!");
+                    FrmPopup.ShowPopup($"{user.UserName} Logged in Successfully!");
                     Close();
                 }
                 else {

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
 using Drivers_And_Vehicles_License_Department_Project.Properties;
 using DVLD_Business_Layer;
 
@@ -26,7 +17,10 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             InitializeComponent();
             radMale.Checked = true;
             AddedOrEditedPerson.Gender = enGender.Male;
-            comCountries.SelectedIndex = 169;
+            comCountries.DataSource = Countries.GetAllCountries();
+            comCountries.DisplayMember = "CountryName";
+            comCountries.ValueMember = "CountryID";
+            comCountries.SelectedIndex = 168;
             dateBirthdate.MaxDate = PresentationSettings.MaxDate;
             AutoValidate = AutoValidate.Disable;
         }
@@ -50,7 +44,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
             txtPhone.Text = AddedOrEditedPerson.Phone;
             txtEmail.Text = AddedOrEditedPerson.Email;
-            comCountries.SelectedIndex = AddedOrEditedPerson.NationalityCountryID;
+            comCountries.SelectedIndex = AddedOrEditedPerson.NationalityCountryID - 1;
             txtAddress.Text = AddedOrEditedPerson.Address;
 
             if (!string.IsNullOrEmpty(AddedOrEditedPerson.ImagePath)) {
@@ -78,7 +72,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             else
                 AddedOrEditedPerson.Gender = enGender.Male;
 
-                AddedOrEditedPerson.NationalityCountryID = comCountries.SelectedIndex;
+                AddedOrEditedPerson.NationalityCountryID = comCountries.SelectedIndex + 1;
             AddedOrEditedPerson.NationalityCountryName = comCountries.SelectedItem.ToString();
 
             if (_RemoveImage && !string.IsNullOrEmpty(_OldImagePath) && File.Exists(_OldImagePath)) {

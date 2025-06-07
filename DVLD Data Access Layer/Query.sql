@@ -1,3 +1,6 @@
+RESTORE DATABASE dbDVLD
+FROM DISK = 'C:\Educational & Miscellaneous\Programming\.Programming Advices\19.Full Real Project\DVLD.bak'
+
 SELECT
     People.PersonID, People.NationalNo, People.FirstName, People.SecondName,
     People.ThirdName, People.LastName, People.DateOfBirth, People.Gendor,
@@ -6,10 +9,6 @@ SELECT
     People.ImagePath
 FROM People
     INNER JOIN Countries ON People.NationalityCountryID = Countries.CountryID;
-
-INSERT into People
-VALUES
-    ('N5', 'Sofia', 'Jack', 'Thor', 'GlassHeart', 1745/12/23, 1, 'Dragon Valley', 09999, 'SofiaGlassHeart@Dragons.com', 92, 'C:\Educational & Miscellaneous\Pixel Art\Random Bullshit Go!!\warrior.png');
 
 SELECT *
 FROM People
@@ -149,3 +148,12 @@ DELETE from LocalDrivingLicenseApplications WHERE ApplicationID = 74
 DELETE from LocalDrivingLicenseApplications WHERE ApplicationID = 76
 
 delete from Applications WHERE ApplicantPersonID = 3070
+
+select * from Countries
+
+UPDATE Countries SET CountryName = 'Palestine'
+WHERE CountryID = 81
+
+SELECT * FROM People
+
+DROP DATABASE dbDVLD

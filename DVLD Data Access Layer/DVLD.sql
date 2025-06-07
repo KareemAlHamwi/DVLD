@@ -237,10 +237,6 @@ INSERT INTO Countries (CountryName) VALUES ('Kosovo');
 
 SELECT * from Countries
 
-INSERT INTO People
-(NationalNo,FirstName,SecondName,ThirdName,LastName,Birthdate,Gender,Address,Phone,Email,NationalityCountryID) VALUES
-('05050181863','Kareem','Mazhar','Hussein','Al-Hamwi',05/22/2004,0,'Rif Dimashq - Jdaydet Artuz','0982700331','kalhamwilol@gmail.com',169);
-
 SELECT FirstName,CountryName from People
 LEFT JOIN Countries on People.NationalityCountryID = Countries.CountryID
 
@@ -252,10 +248,6 @@ CREATE TABLE Users (
   IsActive BIT NOT NULL
   PRIMARY KEY (UserID)
 );
-
-INSERT INTO Users
-(PersonID,Username,[Password],IsActive) VALUES
-(1000,'Kareem','123',1)
 
 SELECT Username , FirstName + ' ' + SecondName + ' ' + LastName AS 'Full Name' FROM Users
 LEFT JOIN People ON Users.PersonID = People.PersonID
@@ -341,3 +333,7 @@ INSERT INTO LicenseClasses
 
 SELECT * FROM LicenseClasses
 
+INSERT INTO TestTypes (TestTypeTitle,TestTypeFees,TestTypeDescription) VALUES
+('',1,'')
+
+SELECT * FROM TestTypes

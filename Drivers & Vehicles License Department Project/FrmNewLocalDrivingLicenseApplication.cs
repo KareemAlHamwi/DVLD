@@ -22,7 +22,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void LoadApplicationsData() {
             NewDrivingLicenseApplication.ApplicationDate = DateTime.Now;
-            NewDrivingLicenseApplication.ApplicationTypeID = (int)enServicesTypes.NewInternationalLicense;
+            NewDrivingLicenseApplication.ApplicationTypeID = (int)enServicesTypes.NewLocalDrivingLicenseService;
             NewDrivingLicenseApplication.ApplicationStatus = Applications.enApplicationStatus.New;
             NewDrivingLicenseApplication.LastStatusDate = DateTime.Now;
             NewDrivingLicenseApplication.PaidFees = ApplicationTypes.GetServiceFeesByType(enServicesTypes.NewLocalDrivingLicenseService);
