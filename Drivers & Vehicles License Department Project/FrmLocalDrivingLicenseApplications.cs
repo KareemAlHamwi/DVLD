@@ -6,6 +6,14 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         LocalDrivingLicenseApplications SelectedLocalDrivingLicenseApplication = new LocalDrivingLicenseApplications();
         DataTable LocalDrivingLicenseApplicationsTable;
         DataView DvLocalDrivingLicenseApplications;
+
+        private Dictionary<string, string> _columnsMap = new Dictionary<string, string> {
+            { "L.D.L AppID", "LocalDrivingLicenseApplicationID" },
+            { "National No.", "NationalNo" },
+            { "Full Name", "FullName" },
+            { "Status", "Status" }
+        };
+
         public FrmLocalDrivingLicenseApplications() {
             InitializeComponent();
 
@@ -20,6 +28,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblRecords.Text = "# Records : " + LocalDrivingLicenseApplicationsTable.Rows.Count;
             comLDLApplicationsColumns.Text = "L.D.L AppID";
             dataLDLApplicationsView.AllowUserToAddRows = false;
+            comSearchStatus.Text = "All";
             comSearchStatus.Visible = false;
         }
 
@@ -123,30 +132,14 @@ namespace Drivers_And_Vehicles_License_Department_Project {
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
+            if (DvLocalDrivingLicenseApplications == null)
+                return;
+
             string selectedColumn = comLDLApplicationsColumns.SelectedItem?.ToString();
-            string searchText = txtSearch.Text.Trim().Replace("'", "''");
 
-            if (!string.IsNullOrWhiteSpace(selectedColumn)) {
-                string filterExpression = string.Empty;
-
-                switch (selectedColumn) {
-                    case "L.D.L AppID":
-                    case "National No.":
-                        filterExpression = $"CONVERT([{selectedColumn}], 'System.String') LIKE '%{searchText}%'";
-                        break;
-
-                    case "Full Name":
-                        filterExpression = $"[{selectedColumn}] LIKE '%{searchText}%'";
-                        break;
-                }
-
-                try {
-                    DvLocalDrivingLicenseApplications.RowFilter = filterExpression;
-                }
-                catch (EvaluateException ex) {
-                    Console.WriteLine("Filter error: " + ex.Message);
-                    DvLocalDrivingLicenseApplications.RowFilter = string.Empty;
-                }
+            if (!string.IsNullOrEmpty(selectedColumn) && _columnsMap.TryGetValue(selectedColumn, out string actualColumnName)) {
+                string searchText = txtSearch.Text.Trim().Replace("'", "''");
+                DvLocalDrivingLicenseApplications.RowFilter = $"CONVERT([{actualColumnName}], 'System.String') LIKE '%{searchText}%'";
             }
             else {
                 DvLocalDrivingLicenseApplications.RowFilter = string.Empty;
@@ -157,13 +150,15 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
         private void comSearchStatus_SelectedIndexChanged(object sender, EventArgs e) {
             string selectedColumn = comLDLApplicationsColumns.SelectedItem?.ToString();
-            string selectedGender = comSearchStatus.SelectedItem?.ToString() ?? "";
+            string selectedStatus = comSearchStatus.SelectedItem?.ToString() ?? "";
 
-            if (!string.IsNullOrWhiteSpace(selectedColumn) && !string.IsNullOrWhiteSpace(selectedGender)) {
-                DvLocalDrivingLicenseApplications.RowFilter = $"[{selectedColumn}] = '{selectedGender}'";
+            if (!string.IsNullOrWhiteSpace(selectedColumn) && !string.IsNullOrWhiteSpace(selectedStatus) && _columnsMap.TryGetValue(selectedColumn, out string actualColumnName) && selectedStatus != "All") {
+                DvLocalDrivingLicenseApplications.RowFilter = $"CONVERT([{actualColumnName}], 'System.String') LIKE '%{selectedStatus}%'";
             }
             else {
                 DvLocalDrivingLicenseApplications.RowFilter = string.Empty;
+                _RefreshDataGrid();
+                return;
             }
 
             lblRecords.Text = "# Records : " + DvLocalDrivingLicenseApplications.Count;

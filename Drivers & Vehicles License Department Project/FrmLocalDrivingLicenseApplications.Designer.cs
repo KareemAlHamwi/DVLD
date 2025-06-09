@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btnRefresh = new Button();
             phoneCallToolStripMenuItem = new ToolStripMenuItem();
             sendEmailToolStripMenuItem = new ToolStripMenuItem();
@@ -107,7 +107,7 @@
             comSearchStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             comSearchStatus.Font = new Font("Segoe UI", 13F);
             comSearchStatus.FormattingEnabled = true;
-            comSearchStatus.Items.AddRange(new object[] { "New", "Completed", "Cancelled" });
+            comSearchStatus.Items.AddRange(new object[] { "All", "New", "Completed", "Cancelled" });
             comSearchStatus.Location = new Point(323, 154);
             comSearchStatus.Name = "comSearchStatus";
             comSearchStatus.Size = new Size(180, 31);
@@ -123,23 +123,23 @@
             // dataLDLApplicationsView
             // 
             dataLDLApplicationsView.BackgroundColor = Color.White;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataLDLApplicationsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataLDLApplicationsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataLDLApplicationsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 13F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataLDLApplicationsView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 13F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataLDLApplicationsView.DefaultCellStyle = dataGridViewCellStyle2;
             dataLDLApplicationsView.Location = new Point(9, 191);
             dataLDLApplicationsView.Name = "dataLDLApplicationsView";
             dataLDLApplicationsView.ReadOnly = true;

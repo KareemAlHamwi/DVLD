@@ -18,6 +18,7 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             lblRecords.Text = "# Records : " + PeopleTable.Rows.Count;
             comPeopleColumns.Text = "Person ID";
             dataPeopleView.AllowUserToAddRows = false;
+            comSearchGender.Text = "All";
             comSearchGender.Visible = false;
         }
 
@@ -228,11 +229,13 @@ namespace Drivers_And_Vehicles_License_Department_Project {
             string selectedColumn = comPeopleColumns.SelectedItem?.ToString();
             string selectedGender = comSearchGender.SelectedItem?.ToString() ?? "";
 
-            if (!string.IsNullOrWhiteSpace(selectedColumn) && !string.IsNullOrWhiteSpace(selectedGender)) {
-                DvPeople.RowFilter = $"[{selectedColumn}] = '{selectedGender}'";
+            if (!string.IsNullOrWhiteSpace(selectedColumn) && !string.IsNullOrWhiteSpace(selectedGender) && selectedGender != "All") {
+                DvPeople.RowFilter = $"CONVERT([{selectedColumn}], 'System.String') LIKE '%{selectedGender}%'";
             }
             else {
                 DvPeople.RowFilter = string.Empty;
+                _RefreshDataGrid();
+                return;
             }
 
             lblRecords.Text = "# Records : " + DvPeople.Count;

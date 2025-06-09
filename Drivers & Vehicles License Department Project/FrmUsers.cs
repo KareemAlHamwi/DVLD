@@ -16,8 +16,8 @@ namespace Drivers_And_Vehicles_License_Department_Project {
 
             lblRecords.Text = "# Records : " + UsersTable.Rows.Count;
             comUsersColumns.Text = "User ID";
-            comSearchIsActive.Text = "All";
             dataUsersView.AllowUserToAddRows = false;
+            comSearchIsActive.Text = "All";
             comSearchIsActive.Visible = false;
         }
 

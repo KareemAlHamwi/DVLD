@@ -217,7 +217,7 @@
             comSearchGender.DropDownStyle = ComboBoxStyle.DropDownList;
             comSearchGender.Font = new Font("Segoe UI", 13F);
             comSearchGender.FormattingEnabled = true;
-            comSearchGender.Items.AddRange(new object[] { "Male", "Female" });
+            comSearchGender.Items.AddRange(new object[] { "All", "Male", "Female" });
             comSearchGender.Location = new Point(326, 154);
             comSearchGender.Name = "comSearchGender";
             comSearchGender.Size = new Size(180, 31);

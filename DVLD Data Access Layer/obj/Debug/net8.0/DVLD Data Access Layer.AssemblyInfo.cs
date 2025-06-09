@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DVLD Data Access Layer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+318e9f18d2bd922ed58f81ddea3239a32fc3f695")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b01be2af56982183f0fca475d95481e7a4f4c44")]
 [assembly: System.Reflection.AssemblyProductAttribute("DVLD Data Access Layer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DVLD Data Access Layer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
